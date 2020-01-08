@@ -1,0 +1,10 @@
+<h1>This is the PUBLIC Service Page</h1>
+
+
+<h2>Cities available</h2>
+
+<ul>
+  <%@market.towns.all.each do |town|%>
+  <li><%=link_to town.name, "/t/#{@market.slug}/#{town.slug}"%></li>
+  <%end%>
+</ul>

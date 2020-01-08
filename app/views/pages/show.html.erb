@@ -1,0 +1,11 @@
+
+<h1>THIS IS THE PUBLIC BULK SERVICE SHOW PAGE</h1>
+<h1><%="#{@town.name.capitalize} #{@town.state.upcase} #{@service.title}"%></h1>
+<%=sanitize(@service.content)%>
+
+<h2>Other Services in <%=@town.name%></h2>
+<ul>
+  <%@service.business_type.services.each do |service|%>
+    <li><%=link_to service.title, "/s/#{@town.market.slug}/#{service.slug}"%></li>
+  <%end%>
+</ul>

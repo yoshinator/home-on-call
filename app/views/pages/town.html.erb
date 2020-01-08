@@ -1,0 +1,11 @@
+<h1>This is the PUBLIC Town Page</h1>
+<h1><%=@town.name%></h1>
+
+
+<h2>Services available</h2>
+
+<ul>
+  <%Service.all.each do |service|%>
+  <li><%=link_to service.title, "/#{@town.slug}/#{service.slug}"%></li>
+  <%end%>
+</ul>
