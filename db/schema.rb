@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2020_01_08_005612) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "business_types", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -25,8 +28,8 @@ ActiveRecord::Schema.define(version: 2020_01_08_005612) do
     t.string "phone"
     t.string "company_name"
     t.boolean "active"
-    t.integer "market_id", null: false
-    t.integer "business_type_id", null: false
+    t.bigint "market_id", null: false
+    t.bigint "business_type_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["business_type_id"], name: "index_clients_on_business_type_id"
@@ -35,6 +38,7 @@ ActiveRecord::Schema.define(version: 2020_01_08_005612) do
 
   create_table "markets", force: :cascade do |t|
     t.string "name"
+    t.string "slug"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -42,8 +46,8 @@ ActiveRecord::Schema.define(version: 2020_01_08_005612) do
   create_table "services", force: :cascade do |t|
     t.string "title"
     t.text "content"
-    t.integer "business_type_id", null: false
     t.string "slug"
+    t.bigint "business_type_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["business_type_id"], name: "index_services_on_business_type_id"
@@ -54,7 +58,7 @@ ActiveRecord::Schema.define(version: 2020_01_08_005612) do
     t.string "county"
     t.string "state"
     t.string "slug"
-    t.integer "market_id", null: false
+    t.bigint "market_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["market_id"], name: "index_towns_on_market_id"
