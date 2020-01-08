@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fname: MyString
+  lname: MyString
+  email: MyString
+  phone: MyString
+  company_name: MyString
+  active: false
+  market: one
+  business_type: one
+
+two:
+  fname: MyString
+  lname: MyString
+  email: MyString
+  phone: MyString
+  company_name: MyString
+  active: false
+  market: two
+  business_type: two

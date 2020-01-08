@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @town.name %>
+</p>
+
+<p>
+  <strong>County:</strong>
+  <%= @town.county %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @town.state %>
+</p>
+
+<p>
+  <strong>Market:</strong>
+  <%= @town.market_id %>
+</p>
+
+<%= link_to 'Edit', edit_town_path(@town) %> |
+<%= link_to 'Back', towns_path %>
