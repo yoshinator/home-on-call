@@ -22,8 +22,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :BusinessType_id %>
-    <%= form.text_field :BusinessType_id %>
+    <%= form.label :business_type_id %>
+    <%= form.collection_select(:business_type_id, BusinessType.all, :id, :name, prompt: true) %>
   </div>
 
   <div class="field">

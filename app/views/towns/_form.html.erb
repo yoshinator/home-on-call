@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= form.label :market_id %>
-    <%= form.text_field :market_id %>
+    <%= form.collection_select(:market_id, Market.all, :id, :name, prompt: true) %>
   </div>
 
   <div class="actions">
