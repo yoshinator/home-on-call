@@ -36,4 +36,4 @@ BusinessType.create(name: "HVAC")
 BusinessType.create(name: "Painting")
 BusinessType.create(name: "Junk Removal")
 
-Client.create(f_name: "yoan", l_name: "ante", email: "yoanante@gmail.com", phone: "2016756069", company_name: "Ante Consulting", market_id: "1", business_type_id: "1", active: true)
+Client.create(fname: "yoan", lname: "ante", email: "yoanante@gmail.com", phone: "2016756069", company_name: "Ante Consulting", market_id: "1", business_type_id: "1", active: true)
