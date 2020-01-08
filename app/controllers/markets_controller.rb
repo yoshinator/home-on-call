@@ -48,7 +48,7 @@ class MarketsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_market
-      @market = Market.find(params[:id])
+      @market = Market.find_by!(slug: params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
