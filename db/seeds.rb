@@ -22,7 +22,9 @@ ESSEXCOUNTY = %w(Newark East\ Orange Belleville South\ Orange Fairfiel North\ Ca
 
 def seedMarket(towns, county, state, market)
   towns.each do |town|
-    Town.create(name: town, county: county, state: state, market_id: market.id)
+   t = Town.new(name: town, county: county, state: state)
+   t.market = market
+   t.save
   end
 end 
 

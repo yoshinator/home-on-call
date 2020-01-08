@@ -42,11 +42,11 @@ ActiveRecord::Schema.define(version: 2020_01_08_005612) do
   create_table "services", force: :cascade do |t|
     t.string "title"
     t.text "content"
-    t.integer "BusinessType_id", null: false
+    t.integer "business_type_id", null: false
     t.string "slug"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["BusinessType_id"], name: "index_services_on_BusinessType_id"
+    t.index ["business_type_id"], name: "index_services_on_business_type_id"
   end
 
   create_table "towns", force: :cascade do |t|
@@ -62,6 +62,6 @@ ActiveRecord::Schema.define(version: 2020_01_08_005612) do
 
   add_foreign_key "clients", "business_types"
   add_foreign_key "clients", "markets"
-  add_foreign_key "services", "BusinessTypes"
+  add_foreign_key "services", "business_types"
   add_foreign_key "towns", "markets"
 end
