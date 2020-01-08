@@ -6,6 +6,6 @@
 
 <ul>
   <%Service.all.each do |service|%>
-  <li><%=link_to service.title, "/#{@town.slug}/#{service.slug}"%></li>
+  <li><%=link_to service.title, bulk_service_path(service, @town) %></li>
   <%end%>
 </ul>
