@@ -15,6 +15,7 @@ class PagesController < ApplicationController
 
   def town 
     @town = Town.find_by!(slug: params[:town_id])
+    @services = Service.all
   end
-    
+
 end

@@ -1,3 +1,7 @@
+<%= content_for(:title, "#{@service.title} #{@town.name}, #{@town.state.upcase}") %>
+<%= content_for(:meta_description, "#{@service.title} in #{@town.name}, #{@town.state.upcase}") %>
+<%= content_for(:meta_keywords, "#{@service.title}, #{@town.name}, #{@town.state.upcase}") %>
+
 
 <h1>THIS IS THE PUBLIC BULK SERVICE SHOW PAGE</h1>
 <h1><%="#{@town.name.capitalize} #{@town.state.upcase} #{@service.title}"%></h1>
@@ -6,6 +10,6 @@
 <h2>Other Services in <%=@town.name%></h2>
 <ul>
   <%@service.business_type.services.each do |service|%>
-    <li><%=link_to service.title, "/s/#{@town.market.slug}/#{service.slug}"%></li>
+    <li><%=link_to service.title, public_service_path(@town.market, service)%></li>
   <%end%>
 </ul>

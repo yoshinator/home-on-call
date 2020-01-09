@@ -1,3 +1,7 @@
+<%= content_for(:title, "#{@market.name}, #{@town.name}, #{@town.county}") %>
+<%= content_for(:meta_description, "#{@town.name} in #{@market.name}") %>
+<%= content_for(:meta_keywords, "#{@town.name}, #{@market.name}") %>
+
 <h1>This is the PUBLIC Town Page</h1>
 <h1><%=@town.name%></h1>
 
@@ -5,7 +9,7 @@
 <h2>Services available</h2>
 
 <ul>
-  <%Service.all.each do |service|%>
+  <%@services.each do |service|%>
   <li><%=link_to service.title, bulk_service_path(service, @town) %></li>
   <%end%>
 </ul>
