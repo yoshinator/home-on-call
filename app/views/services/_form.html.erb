@@ -26,11 +26,6 @@
     <%= form.collection_select(:business_type_id, BusinessType.all, :id, :name, prompt: true) %>
   </div>
 
-  <div class="field">
-    <%= form.label :slug %>
-    <%= form.text_field :slug %>
-  </div>
-
   <div class="actions">
     <%= form.submit %>
   </div>
