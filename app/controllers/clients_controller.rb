@@ -1,5 +1,7 @@
 class ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update, :destroy]
+  before_action :require_signin
+  before_actin :require_client_access
 
   # GET /clients
   def index

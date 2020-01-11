@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :business_types
   resources :towns
   resources :markets
+  resource :session, only: [:new, :create, :destroy]
 
   get '/p/:service_id/:town_id', to: 'pages#show', as: "bulk_service"
   get '/t/:market_id/:town_id', to: 'pages#town', as: "public_town"

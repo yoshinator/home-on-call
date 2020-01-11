@@ -2,3 +2,16 @@
 <ul>
   <%=list_of_markets%>
 </ul>
+<%if current_user %>
+  <h1>Admin</h1>
+  Welcome back <%=current_user.fname.capitalize%> | 
+  <%=link_to "Sign out", session_path, method: "DELETE"%> | 
+  <%= link_to "Account Settings", edit_admin_path(current_user) %>
+<br>
+  <%=link_to "Services", services_path%>
+  <%=link_to "Markets", markets_path%>
+  <%=link_to "Towns", towns_path%>
+  <%=link_to "Clients", clients_path%>
+<%else%>
+  <%=link_to "Sign in", new_session_path%>
+<%end%>

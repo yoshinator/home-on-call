@@ -1,5 +1,7 @@
 class BusinessTypesController < ApplicationController
   before_action :set_business_type, only: [:show, :edit, :update, :destroy]
+  before_action :require_signin
+  before_action :require_edit_access
 
   # GET /business_types
   def index

@@ -1,5 +1,7 @@
 class AdminsController < ApplicationController
   before_action :set_admin, only: [:show, :edit, :update, :destroy]
+  before_action :require_signin
+  before_action :require_super, except: [:show]
 
   # GET /admins
   def index
@@ -42,6 +44,9 @@ class AdminsController < ApplicationController
   # DELETE /admins/1
   def destroy
     @admin.destroy
+    if @admin.id == session[:admin_id]
+      session[:admin_id] = nil
+    end
     redirect_to admins_url, notice: 'Admin was successfully destroyed.'
   end
 

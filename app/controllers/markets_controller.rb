@@ -1,5 +1,7 @@
 class MarketsController < ApplicationController
   before_action :set_market, only: [:show, :edit, :update, :destroy]
+  before_action :require_signin
+  before_action :require_edit_access
 
   # GET /markets
   def index
