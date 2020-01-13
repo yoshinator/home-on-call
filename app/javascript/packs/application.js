@@ -11,7 +11,11 @@ import 'bootstrap'
 import './src/application.scss'
 import './src/greyscale.scss'
 
+import { library, dom } from '@fortawesome/fontawesome-svg-core'
+import { fas, far, fab } from '@fortawesome/fontawesome-free'
 
+library.add(fas, far, fab)
+dom.watch()
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
