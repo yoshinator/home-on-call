@@ -1,5 +1,7 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
+  before_action :require_signin
+  before_action :require_edit_access
 
   # GET /services
   def index
