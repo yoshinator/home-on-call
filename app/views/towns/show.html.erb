@@ -1,24 +1,33 @@
-<p id="notice"><%= notice %></p>
+ <%= content_for :my_mast do %>
+  <div class="container d-flex h-100">
 
-<p>
-  <strong>Name:</strong>
-  <%= @town.name %>
-</p>
+    <div class="card mx-auto my-5 justify-content-center align-self-center" style="width: 28rem;">
+      <div class="card-body">
+        <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>County:</strong>
-  <%= @town.county %>
-</p>
+        <p>
+          <strong>Name:</strong>
+          <%= @town.name %>
+        </p>
 
-<p>
-  <strong>State:</strong>
-  <%= @town.state %>
-</p>
+        <p>
+          <strong>County:</strong>
+          <%= @town.county %>
+        </p>
 
-<p>
-  <strong>Market:</strong>
-  <%= @town.market_id %>
-</p>
+        <p>
+          <strong>State:</strong>
+          <%= @town.state %>
+        </p>
 
-<%= link_to 'Edit', edit_town_path(@town) %> |
-<%= link_to 'Back', towns_path %>
+        <p>
+          <strong>Market:</strong>
+          <%= @town.market_id %>
+        </p>
+
+        <%= link_to 'Edit', edit_town_path(@town) %> |
+        <%= link_to 'Back', towns_path %>
+      </div>
+    </div>
+  </div>
+<%end%>

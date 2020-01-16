@@ -1,9 +1,12 @@
+<%= content_for :my_mast do %>
+  
+<div class="container d-flex h-100">
 
-<div class="container ">
+  <div class="card mx-auto my-5 justify-content-center align-self-center" style="width: 28rem;">
 
-  <div class="card mx-auto my-2" style="width: 28rem;">
     <div class="card-body">
       <h5 class="card-title">Sign In</h5>
+
       <%= form_with(url: session_path, local: true) do |f| %>
         <div class="form-group">
           <%= f.label :email, for: "email" %>
@@ -15,7 +18,10 @@
         </div>
           <%= f.submit "Sign In", class: "btn btn-primary"%>
       <% end %>
+      
     </div>
 
   </div>
-  </div>
+
+</div>
+<%end%>

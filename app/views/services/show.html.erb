@@ -1,24 +1,25 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @service.title %>
-</p>
+        <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Content:</strong>
-  <%= sanitize(@service.content) %>
-</p>
+        <p>
+          <strong>Title:</strong>
+          <%= @service.title %>
+        </p>
 
-<p>
-  <strong>Businesstype:</strong>
-  <%= @service.business_type.name %>
-</p>
+        <p>
+          <strong>Content:</strong>
+          <%= sanitize(@service.content) %>
+        </p>
 
-<p>
-  <strong>Slug:</strong>
-  <%= @service.slug %>
-</p>
+        <p>
+          <strong>Businesstype:</strong>
+          <%= @service.business_type.name %>
+        </p>
 
-<%= link_to 'Edit', edit_service_path(@service) %> |
-<%= link_to 'Back', services_path %>
+        <p>
+          <strong>Slug:</strong>
+          <%= @service.slug %>
+        </p>
+
+        <%= link_to 'Edit', edit_service_path(@service), class: "btn btn-primary" %> 
+        <%= link_to 'Back', services_path, class: "btn btn-primary" %>

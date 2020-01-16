@@ -1,9 +1,17 @@
-<p id="notice"><%= notice %></p>
+<%= content_for :my_mast do %>
+  <div class="container d-flex h-100">
+    <div class="card mx-auto my-5 justify-content-center align-self-center" style="width: 28rem;">
+      <div class="card-body">
+        <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @business_type.name %>
-</p>
+        <p>
+          <strong>Name:</strong>
+          <%= @business_type.name %>
+        </p>
 
-<%= link_to 'Edit', edit_business_type_path(@business_type) %> |
-<%= link_to 'Back', business_types_path %>
+        <%= link_to 'Edit', edit_business_type_path(@business_type), class: "btn btn-primary"%> 
+        <%= link_to 'Back', business_types_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+<%end%>
