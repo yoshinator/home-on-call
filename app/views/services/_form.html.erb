@@ -11,22 +11,23 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="field form-group">
+    <%= form.text_field :title, autofocus: true, placeholder: "Title of service", class: "form-control" %>
   </div>
 
+
   <div class="field">
-    <%= form.label :content %>
     <%= form.text_area :content, id: "tiny" %>
   </div>
 
-  <div class="field">
-    <%= form.label :business_type_id %>
-    <%= form.collection_select(:business_type_id, BusinessType.all, :id, :name, prompt: true) %>
-  </div>
 
-  <div class="actions">
-    <%= form.submit %>
+    <div class="field form-group">
+      <%= form.label :business_type_id %>
+      <%= form.collection_select(:business_type_id, BusinessType.all, :id, :name, {prompt: true},  {class: "form-control"})%>
+    </div>
+
+    <div class="actions">
+      <%= form.submit class: "btn btn-primary mb-3" %>
+    </div>
   </div>
 <% end %>

@@ -1,33 +1,35 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
-<h1>Services</h1>
+  <h1>Services</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th>Businesstype</th>
-      <th>Slug</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @services.each do |service| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= service.title %></td>
-        <td><%= sanitize(service.content).truncate(27, separator: /\s/) %></td>
-        <td><%= service.business_type.name %></td>
-        <td><%= service.slug %></td>
-        <td><%= link_to 'Show', service %></td>
-        <td><%= link_to 'Edit', edit_service_path(service) %></td>
-        <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Businesstype</th>
+        <th>Slug</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @services.each do |service| %>
+        <tr>
+          <td><%= service.title %></td>
+          <td><%= service.content.truncate(27, separator: /\s/) %></td>
+          <td><%= service.business_type.name %></td>
+          <td><%= service.slug %></td>
+          <td><%= link_to 'Show', service, class: "btn btn-primary btn-sm"  %></td>
+          <td><%= link_to 'Edit', edit_service_path(service), class: "btn btn-primary btn-sm"  %></td>
+          <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary btn-sm"  %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Service', new_service_path %>
+  <br>
+
+  <%= link_to 'New Service', new_service_path, class: "btn btn-primary btn-sm mb-4" %>
+</div>

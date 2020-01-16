@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+ body{
+   background-color: #f8f7f1;
+   background-image: url("/assets/home-on-call-bg.webp");
+   background-size: cover;
+   background-repeat: no-repeat;
+ }

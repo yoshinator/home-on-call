@@ -153,6 +153,7 @@
   border: 0;
 }
 
+
 .btn-primary {
   background-color: #64a19d;
 }
@@ -176,6 +177,12 @@
 .btn-primary:active, .btn-danger:active  {
   background-color: #467370 !important;
 }
+
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}
+
 
 .about-section {
   padding-top: 10rem;
