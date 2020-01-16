@@ -1,6 +1,16 @@
-<h1>Editing Client</h1>
+<%= content_for :my_mast do %>
+  
+  <div class="container d-flex h-100">
+    <div class="card mx-auto my-5 justify-content-center align-self-center" style="width: 28rem;">
 
-<%= render 'form', client: @client %>
+      <div class="card-body">
+        <h5 class="card-title">Edit Client</h5>
+        <%= render 'form', client: @client %>
 
-<%= link_to 'Show', @client %> |
-<%= link_to 'Back', clients_path %>
+        <%= link_to 'Show', @client %> |
+        <%= link_to 'Back', clients_path %>
+      </div>
+    </div>
+  </div>
+  
+<%end%>

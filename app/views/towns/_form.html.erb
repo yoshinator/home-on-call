@@ -11,27 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :county %>
-    <%= form.text_field :county %>
+    <%= form.text_field :county, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :state %>
-    <%= form.text_field :state %>
+    <%= form.text_field :state, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :market_id %>
-    <%= form.collection_select(:market_id, Market.all, :id, :name, prompt: true) %>
+    <%= form.collection_select(:market_id, Market.all, :id, :name, {prompt: true},  {class: "form-control"}) %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary btn-sm" %>
   </div>
 <% end %>

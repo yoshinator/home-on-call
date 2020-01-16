@@ -11,47 +11,47 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :fname %>
-    <%= form.text_field :fname %>
+  <div class="field form-group">
+    <%=form.label :fname%>
+    <%= form.text_field :fname, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :lname %>
-    <%= form.text_field :lname %>
+    <%= form.text_field :lname, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :email %>
-    <%= form.text_field :email %>
+    <%= form.text_field :email, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :phone %>
-    <%= form.text_field :phone %>
+    <%= form.text_field :phone, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :company_name %>
-    <%= form.text_field :company_name %>
+    <%= form.text_field :company_name, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :active %>
-    <%= form.check_box :active %>
+    <%= form.check_box :active, class: "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :market_id %>
-    <%= form.collection_select(:market_id, Market.all, :id, :name, prompt: true)%>
+    <%= form.collection_select(:market_id, Market.all, :id, :name, {prompt: true}, {class: "form-control"})%>
   </div>
 
   <div class="field">
     <%= form.label :business_type_id %>
-    <%= form.collection_select(:business_type_id, BusinessType.all, :id, :name, prompt: true) %>  
+    <%= form.collection_select(:business_type_id, BusinessType.all, :id, :name, {prompt: true}, {class: "form-control"}) %>  
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary btn-sm" %>
   </div>
 <% end %>

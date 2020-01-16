@@ -1,6 +1,17 @@
-<h1>Editing Market</h1>
+<%= content_for :my_mast do %>
+  
+<div class="container d-flex h-100">
+  <div class="card mx-auto my-5 justify-content-center align-self-center" style="width: 28rem;">
 
-<%= render 'form', market: @market %>
+    <div class="card-body">
+      <h5 class="card-title">Edit Market</h5>
 
-<%= link_to 'Show', @market %> |
-<%= link_to 'Back', markets_path %>
+      <%= render 'form', market: @market %>
+
+      <%= link_to 'Show', @market %> |
+      <%= link_to 'Back', markets_path %>
+    </div>
+    
+  </div>
+</div>
+<%end%>

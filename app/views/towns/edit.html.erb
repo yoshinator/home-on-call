@@ -1,6 +1,18 @@
-<h1>Editing Town</h1>
+<%= content_for :my_mast do %>
+  
+<div class="container d-flex h-100">
+  <div class="card mx-auto my-5 justify-content-center align-self-center" style="width: 28rem;">
 
-<%= render 'form', town: @town %>
+    <div class="card-body">
+      <h5 class="card-title">Edit Town</h5>
 
-<%= link_to 'Show', @town %> |
-<%= link_to 'Back', towns_path %>
+      <%= render 'form', town: @town %>
+
+      <%= link_to 'Show', @town %> |
+      <%= link_to 'Back', towns_path %>
+    </div>
+
+  </div>
+
+</div>
+<%end%>
