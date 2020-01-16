@@ -1,9 +1,12 @@
-import greyscale from './greyscale'
-import easing from './easing'
+import greyscale from './greyscale';
+import easing from './easing';
+import tinyMce from "./vendor/tinymce";
+
 $(document).on('ready turbolinks:load', function () {
 
-  easing()
-  greyscale()
+  greyscale();
+  easing();
+  tinyMce();
   // Multi Step Lead Form.
 
   $("#next-1").click(function (e) {
@@ -86,6 +89,6 @@ $(document).on('ready turbolinks:load', function () {
   });
 
   // Modal toggle
-  $('#myModal').modal()
+  $('#myModal').modal();
 
 });

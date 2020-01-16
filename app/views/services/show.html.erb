@@ -7,12 +7,12 @@
 
 <p>
   <strong>Content:</strong>
-  <%= @service.content %>
+  <%= sanitize(@service.content) %>
 </p>
 
 <p>
   <strong>Businesstype:</strong>
-  <%= @service.business_type_id %>
+  <%= @service.business_type.name %>
 </p>
 
 <p>

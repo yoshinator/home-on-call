@@ -17,8 +17,8 @@
     <% @services.each do |service| %>
       <tr>
         <td><%= service.title %></td>
-        <td><%= service.content %></td>
-        <td><%= service.business_type_id %></td>
+        <td><%= sanitize(service.content).truncate(27, separator: /\s/) %></td>
+        <td><%= service.business_type.name %></td>
         <td><%= service.slug %></td>
         <td><%= link_to 'Show', service %></td>
         <td><%= link_to 'Edit', edit_service_path(service) %></td>
