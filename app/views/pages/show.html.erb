@@ -2,11 +2,12 @@
 <%= content_for(:meta_description, "#{@service.title} in #{@town.name}, #{@town.state.upcase}") %>
 <%= content_for(:meta_keywords, "#{@service.title}, #{@town.name}, #{@town.state.upcase}") %>
 
-
-<h1>THIS IS THE PUBLIC BULK SERVICE SHOW PAGE</h1>
+<h2>THIS IS THE PUBLIC BULK SERVICE SHOW PAGE</h2>
 <h1><%="#{@town.name.capitalize} #{@town.state.upcase} #{@service.title}"%></h1>
-<%=sanitize(@service.content)%>
+<%= image_tag @service.image, alt: "#{@service.title} in #{@town.name}, #{@town.state.upcase}" %>
+<%=sanitize(muxer(@service.content, @town))%>
 
+<%= render "layouts/lead-form"%>
 <h2>Other Services in <%=@town.name%></h2>
 <ul>
   <%@service.business_type.services.each do |service|%>
