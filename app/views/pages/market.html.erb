@@ -1,0 +1,13 @@
+<%= content_for(:title, "Home On Call | #{@market.name}") %>
+<%= content_for(:meta_description, "Home On Call  | #{@market.name}") %>
+<%= content_for(:meta_keywords, "Home On Call | #{@market.name}") %>
+<h1><%=@market.name%></h1>
+
+
+<h2>All cities in <%=@market.name%></h2>
+
+<ul class="ulcolumns">
+  <%@market.towns.all.each do |town|%>
+  <li><%=link_to town.name, "/t/#{@market.slug}/#{town.slug}"%></li>
+  <%end%>
+</ul>

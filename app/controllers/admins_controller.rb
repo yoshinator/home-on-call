@@ -1,7 +1,7 @@
 class AdminsController < ApplicationController
   before_action :set_admin, only: [:show, :edit, :update, :destroy]
   before_action :require_signin
-  before_action :require_super, except: [:show]
+  before_action :require_super, except: [:show, :edit, :update]
 
   # GET /admins
   def index
@@ -58,6 +58,10 @@ class AdminsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def admin_params
-      params.require(:admin).permit(:fname, :lname, :email, :password, :password_confirmation, :super, :client_access, :edit_acces)
+      # List of common params
+      list_params_allowed = [:fname, :lname, :email, :password, :password_confirmation]
+      # Add the params only for admin
+      list_params_allowed <<  :super << :client_access << :edit_acces if current_user.super
+      params.require(:admin).permit(list_params_allowed)
     end
 end

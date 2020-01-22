@@ -11,47 +11,47 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :fname %>
-    <%= form.text_field :fname %>
+    <%= form.text_field :fname, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :lname %>
-    <%= form.text_field :lname %>
+    <%= form.text_field :lname, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :email %>
-    <%= form.text_field :email %>
+    <%= form.text_field :email, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :password %>
-    <%= form.password_field :password %>
+    <%= form.password_field :password, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation %>
+    <%= form.password_field :password_confirmation, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :super %>
-    <%= form.text_field :super %>
+  <div class="field form-check">
+    <%= form.check_box :super, class: "form-check-input" if current_user.super%>
+    <%= form.label :super, class: "form-check-label" if current_user.super%>
   </div>
 
-  <div class="field">
-    <%= form.label :client_access %>
-    <%= form.check_box :client_access %>
+  <div class="field form-check">
+    <%= form.check_box :client_access, class: "form-check-input" %>
+    <%= form.label :client_access, class: "form-check-label" %>
   </div>
 
-  <div class="field">
-    <%= form.label :edit_access %>
-    <%= form.check_box :edit_access %>
+  <div class="field form-check">
+    <%= form.check_box :edit_access, class: "form-check-input" %>
+    <%= form.label :edit_access, class: "form-check-label" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>

@@ -15,7 +15,13 @@ class PagesController < ApplicationController
 
   def town 
     @town = Town.find_by!(slug: params[:town_id])
+    @market = Market.find_by!(slug: params[:market_id])
     @services = Service.all
   end
+
+  def market 
+    @market = Market.find_by!(slug: params[:market_id])
+    @towns = @market.towns
+  end 
 
 end

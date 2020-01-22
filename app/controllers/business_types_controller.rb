@@ -5,7 +5,7 @@ class BusinessTypesController < ApplicationController
 
   # GET /business_types
   def index
-    @business_types = BusinessType.all
+    @business_types = BusinessType.alll(current_user)
   end
 
   # GET /business_types/1

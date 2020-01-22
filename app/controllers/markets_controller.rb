@@ -5,11 +5,12 @@ class MarketsController < ApplicationController
 
   # GET /markets
   def index
-    @markets = Market.all
+    @markets = Market.alll(current_user)
   end
 
   # GET /markets/1
   def show
+    @towns = @market.towns
   end
 
   # GET /markets/new

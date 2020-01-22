@@ -1,5 +1,17 @@
-<h1>New Admin</h1>
+<%= content_for :my_mast do %>
+  
+<div class="container d-flex h-100">
 
-<%= render 'form', admin: @admin %>
+  <div class="card mx-auto my-5 justify-content-center align-self-center" style="width: 28rem;">
 
-<%= link_to 'Back', admins_path %>
+    <div class="card-body">
+      <h5 class="card-title">Create New admins_path</h5> 
+      <%= render 'form', admin: @admin %>
+
+      <%= link_to 'Back', admins_path %>
+    </div>
+
+  </div>
+
+</div>
+<%end%>

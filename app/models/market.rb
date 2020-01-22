@@ -7,6 +7,14 @@ class Market < ApplicationRecord
     slug
   end
 
+  def self.alll(current_user) 
+    if current_user.super 
+      @markets = Market.all
+    else 
+      @markets = Market.all.where.not(name: "Master")
+    end
+  end 
+
   private 
   def set_slug
     self.slug = self.name.parameterize
