@@ -54,6 +54,6 @@ class LeadsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def lead_params
-      params.require(:lead).permit(:client_id, :f_name, :l_name, :phone, :email, :street1, :street2, :city, :state, :business, :content)
+      params.require(:lead).permit(:client_id, :f_name, :l_name, :phone, :email, :street1, :street2, :city, :state, :business, :content, :service_type)
     end
 end
