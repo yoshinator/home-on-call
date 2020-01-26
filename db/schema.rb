@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_22_153704) do
+ActiveRecord::Schema.define(version: 2020_01_22_210703) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,23 @@ ActiveRecord::Schema.define(version: 2020_01_22_153704) do
     t.index ["market_id"], name: "index_clients_on_market_id"
   end
 
+  create_table "leads", force: :cascade do |t|
+    t.bigint "client_id", null: false
+    t.string "f_name"
+    t.string "l_name"
+    t.string "phone"
+    t.string "email"
+    t.string "street1"
+    t.string "street2"
+    t.string "city"
+    t.string "state"
+    t.boolean "business"
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["client_id"], name: "index_leads_on_client_id"
+  end
+
   create_table "markets", force: :cascade do |t|
     t.string "name"
     t.string "slug"
@@ -100,6 +117,7 @@ ActiveRecord::Schema.define(version: 2020_01_22_153704) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "clients", "business_types"
   add_foreign_key "clients", "markets"
+  add_foreign_key "leads", "clients"
   add_foreign_key "services", "business_types"
   add_foreign_key "towns", "markets"
 end

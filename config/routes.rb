@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :leads
   resources :admins
   root to: 'pages#home'
 

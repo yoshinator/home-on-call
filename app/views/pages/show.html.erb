@@ -7,7 +7,7 @@
 <%= image_tag @service.image, alt: "#{@service.title} in #{@town.name}, #{@town.state.upcase}" %>
 <%=sanitize(muxer(@service.content, @town))%>
 
-<%= render "layouts/lead-form"%>
+<%= render "layouts/lead-form", lead: @lead%>
 <h2>Other Services in <%=@town.name%></h2>
 <ul>
   <%@service.business_type.services.each do |service|%>

@@ -6,6 +6,7 @@ class PagesController < ApplicationController
     @service = Service.find_by!(slug: params[:service_id])
     @town = Town.find_by!(slug: params[:town_id])
     @client = Page.get_client(@town, @service)
+    @lead = Lead.new()
   end 
 
   def service

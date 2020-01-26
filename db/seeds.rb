@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Admin.create(fname: "yoan", lname: "ante", email: "yoanante@gmail.com", super: true, password:"123123123")
+Admin.create(fname: "rafael", lname: "Calle", email: "pito@gmail.com", client_access: true, password:"123123123")
+
 
 m0 = Market.create(name: "Master")
 m1 = Market.create(name: "North East Jersey")
