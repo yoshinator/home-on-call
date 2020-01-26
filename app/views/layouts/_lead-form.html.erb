@@ -12,26 +12,21 @@
 
         <!-- <form action="" method="post" id="form-data" class="pt-5 pb-2 px-2 bg-light"> -->
         <%= form_with model: lead, class: "pt-5 pb-2 px-2 bg-light" do |f| %>
-          <%= f.hidden_field :client, value: @client.id%>
+          <%= f.hidden_field :client_id, value: @client.id%>
           <div id="first" class="text-left">
             <h4 class="text-center p-1">What kind of service are you looking for? </h4>
             <div class="form-check">
-              <%= f.radio_button "business_id", "1", {checked: true, class: "form-check-input"}%>
-              <label class="form-check-label" for="lead_business_id_1">
-                Junk or waste removal
-              </label>
+              <%= f.radio_button :service_type, "interior-painting", class: "form-check-input", checked: true%>
+              <%= f.label :service_type, "Interior Painting", value: "interior-painting", class: "form-check-label"%>
             </div>
             <div class="form-check">
-              <%= f.radio_button "business_id", "2", {class: "form-check-input"}%>
-              <label class="form-check-label" for="lead_business_id_2">
-                Septic or grease trap service
-              </label>
+              <%= f.radio_button :service_type, "exterior-painting", class: "form-check-input"%>
+              <%= f.label :service_type, "Exterior Painting", value: "exterior-painting", class: "form-check-label" %>
             </div>
             <div class="form-check">
-              <%= f.radio_button "business_id", "2", {class: "form-check-input", id: "lead_business_id_3"}%>
-              <label class="form-check-label" for="lead_business_id_3">
-                Sewer line or excavation
-              </label>
+              <%= f.radio_button :service_type, "other", class: "form-check-input"%>
+              <%= f.label :service_type, "Other", value: "other", class: "form-check-label"%>
+
             </div>
             <div class="form-group text-right">
               <a href="#" class="btn btn-primary mx-auto" id="next-1">Next</a>
@@ -41,17 +36,12 @@
           <div id="second" class="text-left">
             <h4 class="text-center p-1">Is this for your home or business? </h4>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="lead[job_location]" id="placeRadio1" value="home"
-                checked>
-              <label class="form-check-label" for="placeRadio1">
-                Home
-              </label>
+              <%= f.radio_button :business, "false", class:"form-check-input", checked: true%>
+              <%= f.label :business, "Home",  value: false, class:"form-check-label" %>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="lead[job_location]" id="placeRadio2" value="business">
-              <label class="form-check-label" for="placeRadio2">
-                Business
-              </label>
+              <%= f.radio_button :business, "true", class:"form-check-input"%>
+              <%= f.label :business, "Business", value: true, class:"form-check-label" %>
             </div>
             <div class="form-group text-right">
               <a href="#" class="btn btn-danger mx-auto" id="prev-2">Prev</a>
@@ -60,24 +50,18 @@
           </div>
 
           <div id="third" class="text-left">
-            <h4 class="text-center p-1">What's the timeline to get this done? </h4>
+            <h4 class="text-center p-1">What's the timeline to get this project done? </h4>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="lead[timeline]" id="timeRadio1" value="urgent" checked>
-              <label class="form-check-label" for="timeRadio1">
-                Urgent
-              </label>
+              <%= f.radio_button :time_line, "right-away", class:"form-check-input", checked: true%>
+              <%= f.label :time_line, "Right Away", value: "right-away", class:"form-check-label" %>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="lead[timeline]" id="timeRadio2" value="1-2 days">
-              <label class="form-check-label" for="timeRadio2">
-                1-2 days
-              </label>
+              <%= f.radio_button :time_line, "1-3-days", class:"form-check-input"%>
+              <%= f.label :time_line, "1-3 Days", value: "1-3-days", class:"form-check-label" %>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="lead[timeline]" id="timeRadio3" value="1-3 weeks">
-              <label class="form-check-label" for="timeRadio3">
-                1-3 weeks
-              </label>
+              <%= f.radio_button :time_line, "1-week-to-a-month", class:"form-check-input"%>
+              <%= f.label :time_line, "1 Week to a Month", value: "1-week-to-a-month", class:"form-check-label" %>
             </div>
             <div class="form-group text-right">
               <a href="#" class="btn btn-danger mx-auto" id="prev-3">Prev</a>
@@ -88,12 +72,9 @@
           <div id="fourth" class="text-left">
             <h4 class="text-center p-1">Contact info </h4>
             <div class="form-group">
-              <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1 " name="lead[f_name]"
-                id="inputName" placeholder="Enter your name...">
-              <input type="email" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1 " name="lead[email]"
-                id="inputEmail" placeholder="Enter your email address...">
-              <input type="tel" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1 " name="lead[phone]"
-                id="inputPhone" placeholder="Enter your phone number...">
+              <%= f.text_field :f_name, class: "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1 ", placeholder: "Enter your name...",required: true%> 
+              <%= f.email_field :email, class: "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1 ", placeholder: "Enter your email...",required: true%> 
+              <%= f.text_field :phone, class: "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1 ", placeholder: "Enter your phone number...",required: true%> 
             </div>
             <div class="form-group text-right">
               <a href="#" class="btn btn-danger mx-auto" id="prev-4">Prev</a>
@@ -104,17 +85,13 @@
           <div id="fifth" class="text-left">
             <h4 class="text-center p-1">Job Location </h4>
             <div class="form-group">
-              <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1 " name="lead[street_1]"
-                id="inputStreet" placeholder="Enter street address of job...">
-              <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1 " name="lead[city]"
-                id="inputCity" placeholder="Enter town or city...">
-              <input type="number" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1 " name="lead[zip]"
-                id="inputZip" placeholder="Enter zip code...">
+              <%= f.text_field :street1, class: "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1 ", placeholder: "Enter street address of job...", required: true%> 
+              <%= f.text_field :city, class: "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1 ", placeholder: "Enter town or city", required: true%> 
+              <%= f.text_field :zip, class: "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1 ", placeholder: "Enter your zip"%> 
             </div>
             <div class="form-group text-right">
               <a href="#" class="btn btn-danger mx-auto" id="prev-5">Prev</a>
               <%= f.submit "Submit", class: "btn btn-primary mx-auto"%>
-              <!--<a href="#" class="btn btn-primary mx-auto" id="next-5">Next</a>-->
             </div>
           </div>
         <%end%>

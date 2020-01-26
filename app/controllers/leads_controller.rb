@@ -1,6 +1,6 @@
 class LeadsController < ApplicationController
   before_action :set_lead, only: [:show, :edit, :update, :destroy]
-  before_action :require_signin, except: [:new, :create]
+  before_action :require_signin, except: [:create]
 
   # GET /leads
   def index
@@ -22,7 +22,14 @@ class LeadsController < ApplicationController
 
   # POST /leads
   def create
-    @lead = Lead.new(lead_params)
+    @lead = Lead.new()
+    @lead.f_name = lead_params[:f_name]
+    @lead.client_id = lead_params[:client_id]
+    @lead.email = lead_params[:email]
+    @lead.street1 = lead_params[:street1]
+    @lead.city = lead_params[:city]
+    @lead.phone = lead_params[:phone]
+    @lead.content = "Service type: #{lead_params[:service_type]}, \n Time Line: #{lead_params[:time_line]}, \nIs this for a business: #{lead_params[:business]}"
 
     if @lead.save
       redirect_to @lead, notice: 'Lead was successfully created.'
@@ -52,8 +59,9 @@ class LeadsController < ApplicationController
       @lead = Lead.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
+    # Only allow a trusted parameter "white list" through. 
+    # :service type and :time_line are not in the schema add them to the content.
     def lead_params
-      params.require(:lead).permit(:client_id, :f_name, :l_name, :phone, :email, :street1, :street2, :city, :state, :business, :content, :service_type)
+      params.require(:lead).permit(:client_id, :f_name, :l_name, :phone, :email, :street1, :street2, :city, :state, :business, :content, :service_type, :time_line, :zip)
     end
 end
