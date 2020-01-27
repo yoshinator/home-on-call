@@ -1,0 +1,2 @@
+class LeadMailer < ApplicationMailer
+end

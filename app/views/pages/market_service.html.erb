@@ -1,0 +1,13 @@
+<%= content_for(:title, "#{@service.title} #{@market.name}") %>
+<%= content_for(:meta_description, "#{@service.title} in #{@market.name}") %>
+<%= content_for(:meta_keywords, "#{@service.title}, #{@market.name}") %>
+<h1>This is the PUBLIC Market Service Page</h1>
+
+
+<h2>Cities available</h2>
+
+<ul>
+  <%@market.towns.all.each do |town|%>
+  <li><%=link_to town.name, "/t/#{@market.slug}/#{town.slug}"%></li>
+  <%end%>
+</ul>

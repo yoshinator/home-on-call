@@ -5,13 +5,18 @@ class PagesController < ApplicationController
   def show
     @service = Service.find_by!(slug: params[:service_id])
     @town = Town.find_by!(slug: params[:town_id])
-    @client = Page.get_client(@town, @service)
+    @client = Page.get_client(@town.market, @service)
     @lead = Lead.new()
   end 
 
   def service
     @service = Service.find_by!(slug: params[:service_id])
+  end
+
+  def market_service
+    @service = Service.find_by!(slug: params[:service_id])
     @market = Market.find_by!(slug: params[:market_id])
+    @client = Page.get_client(@market, @service)
   end
 
   def town 

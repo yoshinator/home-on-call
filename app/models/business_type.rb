@@ -3,9 +3,9 @@ class BusinessType < ApplicationRecord
 
   def self.alll(current_user) 
     if current_user.super 
-      @markets = Market.all
+      @business_types = BusinessType.all
     else 
-      @markets = Market.all.where.not(name: "Master")
+      @business_Types = BusinessType.all.where.not(name: "Master")
     end
   end 
 end

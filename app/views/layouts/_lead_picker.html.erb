@@ -1,0 +1,3 @@
+<%= render "layouts/painting_lead_form", lead: lead, client: client if service.business_type.name.downcase == "painting"%>
+<%= render "layouts/junk_removal_lead_form", lead: lead, client: client if service.business_type.name.downcase == "junk removal"%>
+<%= render "layouts/hvac_lead_form", lead: lead, client: client if service.business_type.name.downcase == "hvac"%>
