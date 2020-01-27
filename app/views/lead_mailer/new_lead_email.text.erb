@@ -1,0 +1,14 @@
+    You got a new lead from Home On Call!
+
+    Lead details
+    --------------------------
+
+    Name:    <%= @lead.f_name %>
+    Email:   <%= @lead.email%>
+    Address: <%= "#{@lead.street1}  #{@lead.city}, #{@lead.state}" %>
+    Phone:   <%=  @lead.phone%>
+
+    Description:
+    ----------
+
+  <%= @lead.content %>

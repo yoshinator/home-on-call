@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>You got a new lead from Home On Call!</p>
+    <p>
+    Lead details<br>
+    --------------------------
+    </p>
+    <p>Name:    <%= @lead.f_name %></p>
+    <p>Email:   <%= link_to @lead.email, "mailto: #{@lead.email} "%></p>
+    <p>Address: <%= link_to "#{@lead.street1}  #{@lead.city}, #{@lead.state}", "http://maps.google.com/maps?q=#{@lead.street1}+#{@lead.city}+#{@lead.state}" %></p>
+    <p>Phone:   <%= link_to @lead.phone, "tel:+1#{number_to_phone(@lead.phone)}"%></p>
+    <p>
+    Description:<br>
+    ----------
+    </p>
+    <p><%= @lead.content %></p>
+  </body>
+</html>

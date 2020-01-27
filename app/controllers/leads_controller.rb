@@ -32,6 +32,7 @@ class LeadsController < ApplicationController
     @lead.content = "Service type: #{lead_params[:service_type]}, \n Time Line: #{lead_params[:time_line]}, \nIs this for a business: #{lead_params[:business]}"
 
     if @lead.save
+      LeadMailer.with(lead: @lead).new_lead_email.deliver_now
       redirect_to @lead, notice: 'Lead was successfully created.'
     else
       render :new

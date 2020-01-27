@@ -1,4 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com'
+  # TODO: change this to homeoncall domain
+  default from: 'awsmailer22@gmail.com'
   layout 'mailer'
 end
