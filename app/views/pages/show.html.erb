@@ -7,12 +7,8 @@
 <%= image_tag @service.image, alt: "#{@service.title} in #{@town.name}, #{@town.state.upcase}" %>
 <%=sanitize(muxer(@service.content, @town))%>
 
-<%# TODO: Breat out all these renders into their own partial %>
 <%= render "layouts/lead_picker", lead: @lead, client: @client, service: @service%>
 
-<%= render "layouts/painting_lead_form", lead: @lead, client: @client if @service.business_type.name.downcase == "painting"%>
-<%= render "layouts/junk_removal_lead_form", lead: @lead, client: @client if @service.business_type.name.downcase == "junk removal"%>
-<%= render "layouts/hvac_lead_form", lead: @lead, client: @client if @service.business_type.name.downcase == "hvac"%>
 <h2>Other Services in <%=@town.name%></h2>
 <ul>
   <%@service.business_type.services.each do |service|%>

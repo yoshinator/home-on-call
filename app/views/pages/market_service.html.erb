@@ -3,6 +3,7 @@
 <%= content_for(:meta_keywords, "#{@service.title}, #{@market.name}") %>
 <h1>This is the PUBLIC Market Service Page</h1>
 
+<%= render "layouts/lead_picker", lead: @lead, client: @client, service: @service%>
 
 <h2>Cities available</h2>
 
