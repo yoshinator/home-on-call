@@ -14,31 +14,3 @@
  *= require_self
  */
 
- body{
-   background-color: #f8f7f1;
-   background-image: asset-url("home-on-call-bg.webp");
-   background-position: center center;
-   background-attachment: fixed;
-   background-size: cover;
-   background-repeat: no-repeat;
- }
-
- .ulcolumns {
-    height: 20%; /*your fixed height*/
-    -webkit-column-count: 4;
-       -moz-column-count: 4;
-            column-count: 4;
- }
-
- .ulcolumns li {
-   display: block;
- }
-
- .service-image {
-  //  height: 200px;
-  width: 200px;
- }
-
- .page-image {
-   width: 20rem;
- }
