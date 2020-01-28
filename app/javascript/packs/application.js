@@ -10,6 +10,7 @@ require("channels")
 import 'bootstrap'
 import './src/application.scss'
 import './src/greyscale.scss'
+import './src/admin.scss'
 
 import './ready'
 import fontawesome from './fontawesome'
