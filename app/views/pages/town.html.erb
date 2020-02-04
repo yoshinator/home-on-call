@@ -2,6 +2,11 @@
 <%= content_for(:meta_description, "#{@town.name} in #{@market.name}") %>
 <%= content_for(:meta_keywords, "#{@town.name}, #{@market.name}") %>
 
+<%= content_for :my_mast do %>
+  <header class="masthead" style="background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%, #161616 100%), url(<%=asset_path 'home_service_bathroom.jpeg'%>);">
+  </header>
+<%end%>
+
 <h1>This is the PUBLIC Town Page</h1>
 <h1><%=@town.name%></h1>
 
@@ -10,6 +15,6 @@
 
 <ul>
   <%@services.each do |service|%>
-  <li><%=link_to service.title, bulk_service_path(service, @town) %></li>
+  <li><%=link_to service.title, public_bulk_service_path(service, @town) %></li>
   <%end%>
 </ul>

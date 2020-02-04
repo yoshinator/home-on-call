@@ -10,10 +10,11 @@ Rails.application.routes.draw do
   resources :markets
   resource :session, only: [:new, :create, :destroy]
 
-  get '/p/:market_id', to: "pages#market", as: "public_market"
-  get '/p/:service_id/:town_id', to: 'pages#show', as: "bulk_service"
+  get '/p/:service_id/:town_id', to: 'pages#show', as: "public_bulk_service"
+  get '/ms/:market_id/:service_id', to: 'pages#market_service', as: "public_market_service"
+  
   get '/t/:market_id/:town_id', to: 'pages#town', as: "public_town"
   get '/s/:service_id', to: 'pages#service', as: "public_service"
-  get '/s/:market_id/:service_id', to: 'pages#market_service', as: "public_market_service"
+  get '/m/:market_id', to: "pages#market", as: "public_market"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

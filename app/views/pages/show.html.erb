@@ -2,7 +2,12 @@
 <%= content_for(:meta_description, "#{@service.title} in #{@town.name}, #{@town.state.upcase}") %>
 <%= content_for(:meta_keywords, "#{@service.title}, #{@town.name}, #{@town.state.upcase}") %>
 
-<h2>THIS IS THE PUBLIC BULK SERVICE SHOW PAGE</h2>
+  <%= content_for :my_mast do %>
+    <header class="masthead" style="background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%, #161616 100%), url(<%=asset_path 'home_service_bathroom.jpeg'%>);">
+    </header>
+  <%end%>
+
+
 <h1><%="#{@town.name.capitalize} #{@town.state.upcase} #{@service.title}"%></h1>
 <%= image_tag @service.image, alt: "#{@service.title} in #{@town.name}, #{@town.state.upcase}" %>
 <%=sanitize(muxer(@service.content, @town))%>
@@ -12,6 +17,6 @@
 <h2>Other Services in <%=@town.name%></h2>
 <ul>
   <%@service.business_type.services.each do |service|%>
-    <li><%=link_to service.title, public_service_path(@town.market, service)%></li>
+    <li><%=link_to service.title, public_bulk_service_path(service, @town)%></li>
   <%end%>
 </ul>

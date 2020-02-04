@@ -11,6 +11,7 @@ class PagesController < ApplicationController
 
   def service
     @service = Service.find_by!(slug: params[:service_id])
+    @markets = Market.all
   end
 
   def market_service

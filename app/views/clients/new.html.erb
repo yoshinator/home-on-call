@@ -1,16 +1,17 @@
 <%= content_for :my_mast do %>
+  <header class="masthead" style="background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%, #161616 100%), url(<%=asset_path 'home_service_bathroom.jpeg'%>);">
   
-  <div class="container d-flex h-100">
-    <div class="card mx-auto my-5 justify-content-center align-self-center" style="width: 28rem;">
+    <div class="container d-flex h-100">
+      <div class="card mx-auto my-5 justify-content-center align-self-center" style="width: 28rem;">
 
-      <div class="card-body">
-        <h5 class="card-title">Create New Client</h5>
+        <div class="card-body">
+          <h5 class="card-title">Create New Client</h5>
 
-        <%= render 'form', client: @client %>
+          <%= render 'form', client: @client %>
 
-        <%= link_to 'Back', clients_path %>
+          <%= link_to 'Back', clients_path %>
+        </div>
       </div>
     </div>
-  </div>
-
+  </header>
 <%end%>

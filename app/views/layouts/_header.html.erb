@@ -1,6 +1,6 @@
   <!-- Header -->
   <%if current_page?(root_path)%>
-  <header class="masthead">
+  <header class="masthead" style="background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%, #161616 100%), url(<%=asset_path 'home_service_bathroom.jpeg'%>);">
     <div class="container d-flex h-100 align-items-center">
       <div class="mx-auto text-center">  
         <h1 class="mx-auto my-0 text-uppercase">Home On Call</h1>
@@ -10,7 +10,6 @@
     </div>
   </header>
   <%else%>
-    <header class="masthead">
-      <%=yield :my_mast%>
-    </header>
+    <!-- masthead -->
+    <%=yield :my_mast%>
   <%end%>

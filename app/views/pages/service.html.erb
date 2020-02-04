@@ -1,12 +1,16 @@
 <%= content_for(:title, "#{@service.title}") %>
 <%= content_for(:meta_description, "#{@service.title}") %>
-<%= content_for(:meta_keywords, "#{@service.title}, #{@market.name}") %>
+<%= content_for(:meta_keywords, "#{@service.title}") %>
+
+<%= content_for :my_mast do %>
+  <header class="masthead" style="background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%, #161616 100%), url(<%=asset_path 'home_service_bathroom.jpeg'%>);">
+  </header>
+<%end%>
+
 <h1>This is the PUBLIC Market Service Page</h1>
 
-<h2>Cities available</h2>
+<h2>Markets Where This Service is available</h2>
 
 <ul>
-  <%@market.towns.all.each do |town|%>
-  <li><%=link_to town.name, "/t/#{@market.slug}/#{town.slug}"%></li>
-  <%end%>
+  <%=list_of_market_services(@markets, @service)%>
 </ul>

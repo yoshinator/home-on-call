@@ -1,18 +1,20 @@
 <%= content_for :my_mast do %>
-  
-<div class="container d-flex h-100">
-  <div class="card mx-auto my-5 justify-content-center align-self-center" style="width: 28rem;">
+<header class="masthead" style="background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%, #161616 100%), url(<%=asset_path 'home_service_bathroom.jpeg'%>);">
 
-    <div class="card-body">
-      <h5 class="card-title">Edit Admin</h5>
+  <div class="container d-flex h-100">
+    <div class="card mx-auto my-5 justify-content-center align-self-center" style="width: 28rem;">
 
-      <%= render 'form', admin: @admin %>
+      <div class="card-body">
+        <h5 class="card-title">Edit Admin</h5>
 
-      <%= link_to 'Show', @admin %> |
-      <%= link_to 'Back', admins_path %>
+        <%= render 'form', admin: @admin %>
+
+        <%= link_to 'Show', @admin %> |
+        <%= link_to 'Back', admins_path %>
+      </div>
+
     </div>
 
   </div>
-
-</div>
+</header>
 <%end%>

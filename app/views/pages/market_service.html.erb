@@ -9,6 +9,6 @@
 
 <ul>
   <%@market.towns.all.each do |town|%>
-  <li><%=link_to town.name, "/t/#{@market.slug}/#{town.slug}"%></li>
+  <li><%=link_to town.name, public_town_path(@market, town)%></li>
   <%end%>
 </ul>

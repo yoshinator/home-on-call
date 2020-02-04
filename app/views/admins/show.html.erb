@@ -1,42 +1,44 @@
 <%= content_for :my_mast do %>
-  <div class="container d-flex h-100">
+  <header class=".masthead" style="background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%, #161616 100%), url(<%=asset_path 'home_service_bathroom.jpeg'%>);">
+    <div class="container d-flex h-100">
 
-    <div class="card mx-auto my-5 justify-content-center align-self-center" style="width: 28rem;">
-      <div class="card-body">
-        <p id="notice"><%= notice %></p>
-        <p>
-          <strong>Fname:</strong>
-          <%= @admin.fname %>
-        </p>
+      <div class="card mx-auto my-5 justify-content-center align-self-center" style="width: 28rem;">
+        <div class="card-body">
+          <p id="notice"><%= notice %></p>
+          <p>
+            <strong>Fname:</strong>
+            <%= @admin.fname %>
+          </p>
 
-        <p>
-          <strong>Lname:</strong>
-          <%= @admin.lname %>
-        </p>
+          <p>
+            <strong>Lname:</strong>
+            <%= @admin.lname %>
+          </p>
 
-        <p>
-          <strong>Email:</strong>
-          <%= @admin.email %>
-        </p>
+          <p>
+            <strong>Email:</strong>
+            <%= @admin.email %>
+          </p>
 
-        <p>
-          <strong>Super:</strong>
-          <%= @admin.super %>
-        </p>
+          <p>
+            <strong>Super:</strong>
+            <%= @admin.super %>
+          </p>
 
-        <p>
-          <strong>Client access:</strong>
-          <%= @admin.client_access %>
-        </p>
+          <p>
+            <strong>Client access:</strong>
+            <%= @admin.client_access %>
+          </p>
 
-        <p>
-          <strong>Edit access:</strong>
-          <%= @admin.edit_access %>
-        </p>
+          <p>
+            <strong>Edit access:</strong>
+            <%= @admin.edit_access %>
+          </p>
 
-        <%= link_to 'Edit', edit_admin_path(@admin) , class: "btn btn-primary"%> 
-        <%= link_to 'Back', admins_path, class: "btn btn-primary"%>
+          <%= link_to 'Edit', edit_admin_path(@admin) , class: "btn btn-primary"%> 
+          <%= link_to 'Back', admins_path, class: "btn btn-primary"%>
+        </div>
       </div>
     </div>
-  </div>
+  </header>
 <%end%>
