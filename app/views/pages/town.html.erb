@@ -7,14 +7,16 @@
   </header>
 <%end%>
 
-<h1>This is the PUBLIC Town Page</h1>
-<h1><%=@town.name%></h1>
+<div class="container">
 
+  <h1><%="#{@town.name}, #{@town.state.upcase}"%></h1>
 
-<h2>Services available</h2>
+  <h2>Below is a list of services available in <strong><%="#{@town.name}, #{@town.state.upcase}"%></strong></h2>
+  <h3>Services available</h3>
 
-<ul>
-  <%@services.each do |service|%>
-  <li><%=link_to service.title, public_bulk_service_path(service, @town) %></li>
-  <%end%>
-</ul>
+  <ul>
+    <%@services.each do |service|%>
+    <li><%=link_to "#{service.title} #{@town.name}, #{@town.state.upcase}", public_bulk_service_path(service, @town) %></li>
+    <%end%>
+  </ul>
+</div>

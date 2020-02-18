@@ -7,10 +7,12 @@
   </header>
 <%end%>
 
-<h1>This is the PUBLIC Market Service Page</h1>
+<div class="container">
+  <h1><%=@service.title%></h1>
 
-<h2>Markets Where This Service is available</h2>
+  <h2>Markets Where <strong><%=@service.title%></strong> is available</h2>
 
-<ul>
-  <%=list_of_market_services(@markets, @service)%>
-</ul>
+  <ul>
+    <%=list_of_market_services(@markets, @service)%>
+  </ul>
+</div>

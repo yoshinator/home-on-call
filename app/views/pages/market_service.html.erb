@@ -1,14 +1,21 @@
 <%= content_for(:title, "#{@service.title} #{@market.name}") %>
 <%= content_for(:meta_description, "#{@service.title} in #{@market.name}") %>
 <%= content_for(:meta_keywords, "#{@service.title}, #{@market.name}") %>
-<h1>This is the PUBLIC Market Service Page</h1>
 
-<%= render "layouts/lead_picker", lead: @lead, client: @client, service: @service%>
+<%= content_for :my_mast do %>
+  <header class="masthead" style="background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%, #161616 100%), url(<%=asset_path 'home_service_bathroom.jpg'%>);">
+  </header>
+<%end%>
 
-<h2>Cities available</h2>
+<div class="container">
+  <h1><%="#{@service.title} in #{@market.name}"%></h1>
+  <%= render "layouts/lead_picker", lead: @lead, client: @client, service: @service%>
 
-<ul>
-  <%@market.towns.all.each do |town|%>
-  <li><%=link_to town.name, public_town_path(@market, town)%></li>
-  <%end%>
-</ul>
+  <h2>Cities available</h2>
+
+  <ul>
+    <%@market.towns.all.each do |town|%>
+    <li><%=link_to town.name, public_town_path(@market, town)%></li>
+    <%end%>
+  </ul>
+</div>
