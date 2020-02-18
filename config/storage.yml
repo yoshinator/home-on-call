@@ -25,7 +25,7 @@ local:
 google:
   service: GCS
   project: homeoncall
-  credentials: <%= ENV['GOOGLE_APPLICATION_CREDENTIALS'].as_json %>
+  credentials: <%= ENV['GOOGLE_APPLICATION_CREDENTIALS'] %>
   bucket: homeoncall.com
 
 # Use rails credentials:edit to set the Azure Storage secret (as azure_storage:storage_access_key)
