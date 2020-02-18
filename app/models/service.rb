@@ -1,6 +1,6 @@
 class Service < ApplicationRecord
   before_save :set_slug
-  has_one_attached :image
+  has_one_attached :image, dependent: :destroy
 
   belongs_to :business_type
   has_many :clients
