@@ -11,7 +11,7 @@
 
         <p>
           <strong>Image: </strong>
-          <%= image_tag @service.image, alt: @service.title, class: "service-image"%>
+          <%= image_tag @service.image, alt: @service.title, class: "service-image" if @service.image%>
         </p>
         <p>
           <strong>Content:</strong>
