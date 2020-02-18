@@ -15,11 +15,11 @@ local:
 #   bucket: your_own_bucket
 
 # Remember not to checkin your GCS keyfile to a repository
-google:
-  service: GCS
-  project: homeoncall
-  credentials: <%= Rails.application.credentials.dig(:GOOGLE).to_json %>
-  bucket: homeoncall.com
+# google:
+#   service: GCS
+#   project: homeoncall
+#   credentials: <%= Rails.application.credentials.dig(:GOOGLE).to_json %>
+#   bucket: homeoncall.com
 
 
 google:
