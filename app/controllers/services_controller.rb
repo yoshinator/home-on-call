@@ -24,8 +24,6 @@ class ServicesController < ApplicationController
   # POST /services
   def create
     @service = Service.new(service_params)
-    puts @service 
-    puts service_params
     if @service.save
       redirect_to @service, notice: 'Service was successfully created.'
     else
