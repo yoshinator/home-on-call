@@ -28,7 +28,7 @@ google:
     type: "service_account"
     project_id: <%= Rails.application.credentials.dig(:GOOGLE, :project_id) %>
     private_key_id: <%= Rails.application.credentials.dig(:GOOGLE, :private_key_id) %>
-    private_key: <%= Rails.application.credentials.dig(:GOOGLE, :private_key).dump %>
+    private_key: <%= Rails.application.credentials.dig(:GOOGLE, :private_key) %>
     client_email: <%= Rails.application.credentials.dig(:GOOGLE, :client_email) %>
     client_id: <%= Rails.application.credentials.dig(:GOOGLE, :client_id) %>
     auth_uri: "https://accounts.google.com/o/oauth2/auth"
