@@ -4,6 +4,8 @@ class Service < ApplicationRecord
 
   belongs_to :business_type
   has_many :clients
+
+  scope :search, -> (term) { where("title ilike ? ", "%#{term}%") }
   
   def to_param
     slug
