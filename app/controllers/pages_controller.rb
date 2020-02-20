@@ -31,4 +31,14 @@ class PagesController < ApplicationController
     @towns = @market.towns
   end 
 
+  def search_results
+    @services = Service.search(page_params[:search])
+  end 
+
+  private 
+
+  def page_params
+    params.permit(:search)
+  end 
+  
 end

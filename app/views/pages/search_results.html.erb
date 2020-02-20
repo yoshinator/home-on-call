@@ -1,0 +1,14 @@
+<%= content_for(:title, "Home On Call") %>
+<%= content_for(:meta_description, "Home On Call. Get a call from a pro within 10 minutes or take 10 percent off the quoted price.") %>
+<%= content_for(:meta_keywords, "Home On Call, Junk Removal, HVAC, Painting") %>
+<%= content_for :my_mast do %>
+  <header class="masthead" style="background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%, #161616 100%), url(<%=asset_path 'home_service_bathroom.jpg'%>);">
+  </header>
+<%end%>
+<div class="container">
+  <h1>Search Results</h1>
+  <% @services.each do |service|%>
+    <%=link_to service.title, public_service_path(service)%>
+  <% end %>
+
+</div>

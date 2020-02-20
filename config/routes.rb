@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  get '/search_results', to: "pages#search_results", as: "search_results"
   resources :leads
   resources :admins
   root to: 'pages#home'
