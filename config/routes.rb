@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
 
   get '/p/:service_id/:town_id', to: 'pages#show', as: "public_bulk_service"
-  get '/ms/:market_id/:s  ervice_id', to: 'pages#market_service', as: "public_market_service"
+  get '/ms/:market_id/:service_id', to: 'pages#market_service', as: "public_market_service"
   
   get '/t/:market_id/:town_id', to: 'pages#town', as: "public_town"
   get '/s/:service_id', to: 'pages#service', as: "public_service"
