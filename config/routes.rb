@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :clients
   resources :services
   resources :business_types
+  get '/towns/bulk', to: 'towns#bulk_new', as: "new_bulk"
+  post '/towns/bulk', to: 'towns#bulk_create', as: "bulk_town"
   resources :towns
   resources :markets
   resource :session, only: [:new, :create, :destroy]

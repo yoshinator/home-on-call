@@ -1,0 +1,46 @@
+<%= content_for :my_mast do %>
+  <header class="masthead" style="background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%, #161616 100%), url(<%=asset_path 'home_service_bathroom.jpg'%>);">
+  
+    <div class="container d-flex h-100">
+
+      <div class="card mx-auto my-5 justify-content-center align-self-center" style="width: 28rem;">
+
+        <div class="card-body">
+          <h5 class="card-title">To  bulk create new Towns add one town per line below</h5>
+
+            <%= form_with(url: bulk_town_path, local: true) do |form| %>
+
+              <div class="field form-group">
+                <%= form.label :name %>
+                <%= form.text_area :name, class: "form-control", placeholder: "Add one town per line here no commas" %>
+              </div>
+
+              <div class="field form-group">
+                <%= form.label :county %>
+                <%= form.text_field :county, class: "form-control" %>
+              </div>
+
+              <div class="field form-group">
+                <%= form.label :state %>
+                <%= form.select :state, options_for_select(Town.States), {},class: "form-control" %>
+              </div>
+
+              <div class="field form-group">
+                <%= form.label :market_id %>
+                <%= form.collection_select(:market_id, Market.all, :id, :name, {prompt: true},  {class: "form-control"}) %>
+              </div>
+
+              <div class="actions">
+                <%= form.submit class: "btn btn-primary btn-sm" %>
+              </div>
+            <% end %>
+
+
+          <%= link_to 'Back', towns_path %>
+        </div>
+
+      </div>
+
+    </div>
+  </header>
+<%end%>

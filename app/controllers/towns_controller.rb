@@ -18,9 +18,16 @@ class TownsController < ApplicationController
   end
 
   # GET /towns/1/edit
-  def edit
-  end
+  # def edit
+  # end
 
+  # def bulk_new 
+
+  # end 
+
+  def bulk_create
+    Town.bulk_create(town_params)
+  end 
   # POST /towns
   def create
     @town = Town.new(town_params)
