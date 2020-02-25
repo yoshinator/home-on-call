@@ -7,14 +7,14 @@
     </header>
   <%end%>
 
-<div class="container">
-  <h1><%="#{@town.name.capitalize} #{@town.state.upcase} #{@service.title}"%></h1>
+<div class="container my-3">
+  <h1><%="#{titleize(@town.name)} #{@town.state.upcase} #{@service.title}"%></h1>
   <%= image_tag @service.image, alt: "#{@service.title} in #{@town.name}, #{@town.state.upcase}" %>
   <%=sanitize(muxer(@service.content, @town))%>
 
   <%= render "layouts/lead_picker", lead: @lead, client: @client, service: @service%>
 
-  <h2>Other <%=@service.business_type.name%> Services in <%="#{@town.name}, #{@town.state.upcase}"%></h2>
+  <h2 class="py-2">Other <%=@service.business_type.name%> Services in <%="#{titleize(@town.name)}, #{@town.state.upcase}"%></h2>
   <ul>
     <%@service.business_type.services.each do |service|%>
       <li><%=link_to service.title, public_service_path(service)%></li>
