@@ -1,102 +1,101 @@
-<div class="container bg-dark py-3 rounded">
-  <div class="row">
-    <div class="col-md-10 col-lg-8 mx-auto text-center">
 
-      <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
-      <h2 class="text-white mb-5">Let's get started for free.</h2>
-      <div class="rounded bg-light">
-        <h5 class="text-center bg-warning mb-2 p-2 rounded" id="result">Message</h5>
-        <div class="progress-bar bg-primary rounded" id="progressBar" style="width: 20%" rold="progressbar">
-          <b class="lead" id="progressText">Step - 1 </b>
+<div class="row">
+  <div class="col-md-10 col-lg-8 mx-auto text-center">
+
+    <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
+    <h2 class="text-white mb-5">Let's get started for free.</h2>
+    <div class="rounded bg-light">
+      <h5 class="text-center bg-warning mb-2 p-2 rounded" id="result">Message</h5>
+      <div class="progress-bar bg-primary rounded" id="progressBar" style="width: 20%" rold="progressbar">
+        <b class="lead" id="progressText">Step - 1 </b>
+      </div>
+
+      <!-- <form action="" method="post" id="form-data" class="pt-5 pb-2 px-2 bg-light"> -->
+      <%= form_with model: lead, class: "pt-5 pb-2 px-2 bg-light" do |f| %>
+        <%= f.hidden_field :client_id, value: @client.id%>
+        <div id="first" class="text-left">
+          <h4 class="text-center p-1">What kind of service are you looking for? </h4>
+          <div class="form-check">
+            <%= f.radio_button :service_type, "interior-painting", class: "form-check-input", checked: true%>
+            <%= f.label :service_type, "Interior Painting", value: "interior-painting", class: "form-check-label"%>
+          </div>
+          <div class="form-check">
+            <%= f.radio_button :service_type, "exterior-painting", class: "form-check-input"%>
+            <%= f.label :service_type, "Exterior Painting", value: "exterior-painting", class: "form-check-label" %>
+          </div>
+          <div class="form-check">
+            <%= f.radio_button :service_type, "other", class: "form-check-input"%>
+            <%= f.label :service_type, "Other", value: "other", class: "form-check-label"%>
+
+          </div>
+          <div class="form-group text-right">
+            <a href="#" class="btn btn-primary mx-auto" id="next-1">Next</a>
+          </div>
         </div>
 
-        <!-- <form action="" method="post" id="form-data" class="pt-5 pb-2 px-2 bg-light"> -->
-        <%= form_with model: lead, class: "pt-5 pb-2 px-2 bg-light" do |f| %>
-          <%= f.hidden_field :client_id, value: @client.id%>
-          <div id="first" class="text-left">
-            <h4 class="text-center p-1">What kind of service are you looking for? </h4>
-            <div class="form-check">
-              <%= f.radio_button :service_type, "interior-painting", class: "form-check-input", checked: true%>
-              <%= f.label :service_type, "Interior Painting", value: "interior-painting", class: "form-check-label"%>
-            </div>
-            <div class="form-check">
-              <%= f.radio_button :service_type, "exterior-painting", class: "form-check-input"%>
-              <%= f.label :service_type, "Exterior Painting", value: "exterior-painting", class: "form-check-label" %>
-            </div>
-            <div class="form-check">
-              <%= f.radio_button :service_type, "other", class: "form-check-input"%>
-              <%= f.label :service_type, "Other", value: "other", class: "form-check-label"%>
-
-            </div>
-            <div class="form-group text-right">
-              <a href="#" class="btn btn-primary mx-auto" id="next-1">Next</a>
-            </div>
+        <div id="second" class="text-left">
+          <h4 class="text-center p-1">Is this for your home or business? </h4>
+          <div class="form-check">
+            <%= f.radio_button :business, "false", class:"form-check-input", checked: true%>
+            <%= f.label :business, "Home",  value: false, class:"form-check-label" %>
           </div>
-
-          <div id="second" class="text-left">
-            <h4 class="text-center p-1">Is this for your home or business? </h4>
-            <div class="form-check">
-              <%= f.radio_button :business, "false", class:"form-check-input", checked: true%>
-              <%= f.label :business, "Home",  value: false, class:"form-check-label" %>
-            </div>
-            <div class="form-check">
-              <%= f.radio_button :business, "true", class:"form-check-input"%>
-              <%= f.label :business, "Business", value: true, class:"form-check-label" %>
-            </div>
-            <div class="form-group text-right">
-              <a href="#" class="btn btn-danger mx-auto" id="prev-2">Prev</a>
-              <a href="#" class="btn btn-primary mx-auto" id="next-2">Next</a>
-            </div>
+          <div class="form-check">
+            <%= f.radio_button :business, "true", class:"form-check-input"%>
+            <%= f.label :business, "Business", value: true, class:"form-check-label" %>
           </div>
-
-          <div id="third" class="text-left">
-            <h4 class="text-center p-1">What's the timeline to get this project done? </h4>
-            <div class="form-check">
-              <%= f.radio_button :time_line, "right-away", class:"form-check-input", checked: true%>
-              <%= f.label :time_line, "Right Away", value: "right-away", class:"form-check-label" %>
-            </div>
-            <div class="form-check">
-              <%= f.radio_button :time_line, "1-3-days", class:"form-check-input"%>
-              <%= f.label :time_line, "1-3 Days", value: "1-3-days", class:"form-check-label" %>
-            </div>
-            <div class="form-check">
-              <%= f.radio_button :time_line, "1-week-to-a-month", class:"form-check-input"%>
-              <%= f.label :time_line, "1 Week to a Month", value: "1-week-to-a-month", class:"form-check-label" %>
-            </div>
-            <div class="form-group text-right">
-              <a href="#" class="btn btn-danger mx-auto" id="prev-3">Prev</a>
-              <a href="#" class="btn btn-primary mx-auto" id="next-3">Next</a>
-            </div>
+          <div class="form-group text-right">
+            <a href="#" class="btn btn-danger mx-auto" id="prev-2">Prev</a>
+            <a href="#" class="btn btn-primary mx-auto" id="next-2">Next</a>
           </div>
+        </div>
 
-          <div id="fourth" class="text-left">
-            <h4 class="text-center p-1">Contact info </h4>
-            <div class="form-group">
-              <%= f.text_field :f_name, class: "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1 ", placeholder: "Enter your name...",required: true%> 
-              <%= f.email_field :email, class: "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1 ", placeholder: "Enter your email...",required: true%> 
-              <%= f.text_field :phone, class: "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1 ", placeholder: "Enter your phone number...",required: true%> 
-            </div>
-            <div class="form-group text-right">
-              <a href="#" class="btn btn-danger mx-auto" id="prev-4">Prev</a>
-              <a href="#" class="btn btn-primary mx-auto" id="next-4">Next</a>
-            </div>
+        <div id="third" class="text-left">
+          <h4 class="text-center p-1">What's the timeline to get this project done? </h4>
+          <div class="form-check">
+            <%= f.radio_button :time_line, "right-away", class:"form-check-input", checked: true%>
+            <%= f.label :time_line, "Right Away", value: "right-away", class:"form-check-label" %>
           </div>
+          <div class="form-check">
+            <%= f.radio_button :time_line, "1-3-days", class:"form-check-input"%>
+            <%= f.label :time_line, "1-3 Days", value: "1-3-days", class:"form-check-label" %>
+          </div>
+          <div class="form-check">
+            <%= f.radio_button :time_line, "1-week-to-a-month", class:"form-check-input"%>
+            <%= f.label :time_line, "1 Week to a Month", value: "1-week-to-a-month", class:"form-check-label" %>
+          </div>
+          <div class="form-group text-right">
+            <a href="#" class="btn btn-danger mx-auto" id="prev-3">Prev</a>
+            <a href="#" class="btn btn-primary mx-auto" id="next-3">Next</a>
+          </div>
+        </div>
 
-          <div id="fifth" class="text-left">
-            <h4 class="text-center p-1">Job Location </h4>
-            <div class="form-group">
-              <%= f.text_field :street1, class: "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1 ", placeholder: "Enter street address of job...", required: true%> 
-              <%= f.text_field :city, class: "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1 ", placeholder: "Enter town or city", required: true%> 
-              <%= f.text_field :zip, class: "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1 ", placeholder: "Enter your zip"%> 
-            </div>
-            <div class="form-group text-right">
-              <a href="#" class="btn btn-danger mx-auto" id="prev-5">Prev</a>
-              <%= f.submit "Submit", class: "btn btn-primary mx-auto"%>
-            </div>
+        <div id="fourth" class="text-left">
+          <h4 class="text-center p-1">Contact info </h4>
+          <div class="form-group">
+            <%= f.text_field :f_name, class: "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1 ", placeholder: "Enter your name...",required: true%> 
+            <%= f.email_field :email, class: "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1 ", placeholder: "Enter your email...",required: true%> 
+            <%= f.text_field :phone, class: "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1 ", placeholder: "Enter your phone number...",required: true%> 
           </div>
-        <%end%>
-        <!-- </form> -->
-      </div>
+          <div class="form-group text-right">
+            <a href="#" class="btn btn-danger mx-auto" id="prev-4">Prev</a>
+            <a href="#" class="btn btn-primary mx-auto" id="next-4">Next</a>
+          </div>
+        </div>
+
+        <div id="fifth" class="text-left">
+          <h4 class="text-center p-1">Job Location </h4>
+          <div class="form-group">
+            <%= f.text_field :street1, class: "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1 ", placeholder: "Enter street address of job...", required: true%> 
+            <%= f.text_field :city, class: "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1 ", placeholder: "Enter town or city", required: true%> 
+            <%= f.text_field :zip, class: "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1 ", placeholder: "Enter your zip"%> 
+          </div>
+          <div class="form-group text-right">
+            <a href="#" class="btn btn-danger mx-auto" id="prev-5">Prev</a>
+            <%= f.submit "Submit", class: "btn btn-primary mx-auto"%>
+          </div>
+        </div>
+      <%end%>
+      <!-- </form> -->
     </div>
   </div>
 </div>

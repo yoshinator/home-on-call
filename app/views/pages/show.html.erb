@@ -10,11 +10,15 @@
 <div class="container my-3">
   <h1><%="#{@town.name.titleize} #{@town.state.upcase} #{@service.title.titleize}"%></h1>
   <%=sanitize(muxer(@service.content, @town))%>
+</div>
 
-  <%= render "layouts/lead_picker", lead: @lead, client: @client, service: @service%>
+<%= render "layouts/lead_picker", lead: @lead, client: @client, service: @service%>
+
+<div class="container my-3 text-center">
   <%= image_tag @service.image, alt: "#{@service.title} in #{@town.name}, #{@town.state.upcase}" %>
-  <a href="#lead_picker" class="btn btn-primary btn-lg my-3 js-scroll-trigger text-center">Get Started For Free</a>
-
+  <a href="#lead_picker" class="btn btn-primary btn-lg my-3 js-scroll-trigger">Get Started For Free</a>
+</div>
+<div class="container my-3">
   <h2 class="py-2">Other <%=@service.business_type.name%> Services in <%="#{@town.name.titleize}, #{@town.state.upcase}"%></h2>
   <ul>
     <%@service.business_type.services.each do |service|%>
