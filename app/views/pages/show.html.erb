@@ -17,7 +17,7 @@
   <h2>Other <%=@service.business_type.name%> Services in <%="#{@town.name}, #{@town.state.upcase}"%></h2>
   <ul>
     <%@service.business_type.services.each do |service|%>
-      <li><%=link_to service.title, public_bulk_service_path(service, @town)%></li>
+      <li><%=link_to service.title, public_service_path(service)%></li>
     <%end%>
   </ul>
 </div>
