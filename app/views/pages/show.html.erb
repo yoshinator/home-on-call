@@ -8,13 +8,14 @@
   <%end%>
 
 <div class="container my-3">
-  <h1><%="#{titleize(@town.name)} #{@town.state.upcase} #{@service.title}"%></h1>
-  <%= image_tag @service.image, alt: "#{@service.title} in #{@town.name}, #{@town.state.upcase}" %>
+  <h1><%="#{@town.name.titleize} #{@town.state.upcase} #{@service.title.titleize}"%></h1>
   <%=sanitize(muxer(@service.content, @town))%>
 
   <%= render "layouts/lead_picker", lead: @lead, client: @client, service: @service%>
+  <%= image_tag @service.image, alt: "#{@service.title} in #{@town.name}, #{@town.state.upcase}" %>
+  <a href="#lead_picker" class="btn btn-primary btn-lg my-3 js-scroll-trigger text-center">Get Started For Free</a>
 
-  <h2 class="py-2">Other <%=@service.business_type.name%> Services in <%="#{titleize(@town.name)}, #{@town.state.upcase}"%></h2>
+  <h2 class="py-2">Other <%=@service.business_type.name%> Services in <%="#{@town.name.titleize}, #{@town.state.upcase}"%></h2>
   <ul>
     <%@service.business_type.services.each do |service|%>
       <li><%=link_to service.title, public_service_path(service)%></li>
