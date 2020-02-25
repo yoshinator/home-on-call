@@ -15,6 +15,7 @@ class PagesController < ApplicationController
   end
 
   def market_service
+    @lead = Lead.new()
     @service = Service.find_by!(slug: params[:service_id])
     @market = Market.find_by!(slug: params[:market_id])
     @client = Page.get_client(@market, @service)

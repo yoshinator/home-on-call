@@ -1,17 +1,21 @@
 Rails.application.routes.draw do
 
+  root to: 'pages#home'
   get '/search_results', to: "pages#search_results", as: "search_results"
+  
   resources :leads
   resources :admins
-  root to: 'pages#home'
 
   resources :clients
   resources :services
   resources :business_types
+
   get '/towns/bulk', to: 'towns#bulk_new', as: "new_bulk"
   post '/towns/bulk', to: 'towns#bulk_create', as: "bulk_town"
   resources :towns
   resources :markets
+
+  
   resource :session, only: [:new, :create, :destroy]
 
   get '/p/:service_id/:town_id', to: 'pages#show', as: "public_bulk_service"

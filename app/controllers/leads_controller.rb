@@ -33,7 +33,7 @@ class LeadsController < ApplicationController
 
     if @lead.save
       LeadMailer.with(lead: @lead).new_lead_email.deliver_now
-      redirect_to @lead, notice: 'Lead was successfully created.'
+      redirect_to root_path, notice: 'Thank you for contacting us. We will be in touch with you shortly'
     else
       render :new
     end
