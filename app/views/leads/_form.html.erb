@@ -1,7 +1,7 @@
 <%= form_with(model: lead, local: true) do |form| %>
   <% if lead.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(lead.errors.count, "error") %> prohibited this lead from being saved:</h2>
+      <h2><%= pluralize(lead.errors.count, "error") %> prohibited this query from being saved:</h2>
 
       <ul>
         <% lead.errors.full_messages.each do |message| %>

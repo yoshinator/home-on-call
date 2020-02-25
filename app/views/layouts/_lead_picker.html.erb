@@ -1,7 +1,13 @@
 <div class="py-3" id="lead_picker">
-  <div class="bg-dark py-3 rounded">
-    <%= render "layouts/painting_lead_form", lead: lead, client: client if service.business_type.name.downcase == "painting"%>
-    <%= render "layouts/junk_removal_lead_form", lead: lead, client: client if service.business_type.name.downcase == "junk removal"%>
-    <%= render "layouts/hvac_lead_form", lead: lead, client: client if service.business_type.name.downcase == "hvac"%>
+  <div class="bg-dark py-3 rounded full-height">
+
+    <div class="row mt-5">
+      <div class="col-md-10 col-lg-8 mx-auto text-center">
+        <%= render "layouts/painting_lead_form", lead: lead, client: client if service.business_type.name.downcase == "painting"%>
+        <%= render "layouts/junk_removal_lead_form", lead: lead, client: client if service.business_type.name.downcase == "junk removal"%>
+        <%= render "layouts/hvac_lead_form", lead: lead, client: client if service.business_type.name.downcase == "hvac"%>
+      </div>
+    </div>
+
   </div>
 </div>
