@@ -61,10 +61,6 @@
   background-color: transparent;
 }
 
-.full-height {
-  height: 90vh;
-}
-
 @media (min-width: 992px) {
   #mainNav {
     padding-top: 0;
@@ -388,3 +384,7 @@ footer {
  .page-image {
    width: 20rem;
  }
+ 
+ .full-height {
+  height: 90vh;
+}
