@@ -1,5 +1,9 @@
 <%= content_for(:title, "#{@service.title} #{@town.name}, #{@town.state.upcase}") %>
-<%= content_for(:meta_description, "#{@service.title} in #{@town.name}, #{@town.state.upcase}") %>
+<% if  @service.meta_description%>
+  <%= content_for(:meta_description, sanitize(muxer(@service.meta_description, @market.name)))%>
+<% else%>
+  <%= content_for(:meta_description, "#{@service.title} in #{@market.name}")%>
+<% end %>
 <%= content_for(:meta_keywords, "#{@service.title}, #{@town.name}, #{@town.state.upcase}") %>
 
 <%= content_for :my_mast do %>
