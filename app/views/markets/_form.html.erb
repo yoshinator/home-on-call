@@ -16,6 +16,11 @@
     <%= form.text_field :name, class: "form-control" %>
   </div>
 
+              <div class="field form-group">
+                <%= form.label :state %>
+                <%= form.select :state, options_for_select(Market.States), {},class: "form-control" %>
+              </div>
+
   <div class="actions">
     <%= form.submit class: "btn btn-primary" %>
   </div>

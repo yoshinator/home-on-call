@@ -23,7 +23,7 @@
 
   <div class="field form-group">
     <%= form.label :state %>
-    <%= form.text_field :state, class: "form-control" %>
+    <%= form.select :state, options_for_select(Town.States), {},class: "form-control" %>
   </div>
 
   <div class="field form-group">
