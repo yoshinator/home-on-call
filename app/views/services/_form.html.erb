@@ -17,8 +17,8 @@
   </div>
 
   <div class="field form-group">
-   <%= form.label :meta_description %>
-    <%= form.text_field :meta_description, placeholder: "Meta description [ror_town] for placeholder", class: "form-control" %>
+   <%= form.label :meta_description, id: "meta-word-label" %>
+    <%= form.text_area :meta_description, placeholder: "Meta description [ror_town] for placeholder", class: "form-control" , id:"meta-word-text" %>
   </div>
   
   .
@@ -33,7 +33,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :content%>
+    <%= form.label :content, "Content suggested minimum 350 words"%>
     <%= form.text_area :content, id: "tiny" %>
   </div>
 

@@ -76,4 +76,12 @@ $(document).on('ready turbolinks:load', function () {
   // Modal toggle
   $('#myModal').modal();
 
+  // Show characters left for meta description. 
+  $('#meta-word-text').keyup(function(e){
+    var numWords = $.trim($("#meta-word-text").val()).split("").length;
+    $('#meta-word-label').text(`Characters left ${120-numWords}`)
+    console.log($("#meta-word-text").val())
+
+  })
+
 });

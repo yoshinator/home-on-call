@@ -6,6 +6,7 @@ import 'tinymce/plugins/paste';
 import 'tinymce/plugins/link';
 import 'tinymce/plugins/autosave';
 import 'tinymce/plugins/code';
+import 'tinymce/plugins/wordcount';
 import oxide from '../src/skins/ui/oxide-dark/skin.min.css';
 
 function tinyMce() {
@@ -15,7 +16,7 @@ function tinyMce() {
     // some other settings, like height, language,         
     // order of buttons on your toolbar etc.
     height: 400,
-    plugins: ['table', 'lists', 'paste', 'link', 'autosave', 'code'],
+    plugins: ['table', 'lists', 'paste', 'link', 'autosave', 'code','wordcount'],
     skin_url: oxide
   });
 }
