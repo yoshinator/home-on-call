@@ -1,40 +1,49 @@
 <%= content_for :my_mast do %>
   <header class="masthead" style="background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%, #161616 100%), url(<%=asset_path 'home_service_bathroom.jpg'%>);">
+    <div class="container d-flex h-100">
+      <div class="card mx-auto my-5 justify-content-center align-self-center" style="width: 28rem;">
+        <div class="card-body">
+          <p id="notice"><%= notice %></p>
+
+          <p>
+            <strong>Towns</strong>
+          </p>
+
+          <%= link_to 'Add single town', new_town_path, class: "btn btn-primary btn-sm" %> 
+          <%= link_to 'Add towns in bulk', new_bulk_path, class: "btn btn-primary btn-sm my-3" %>
+          <%= link_to 'See markets', "#markets", class: "btn btn-primary js-scroll-trigger btn-sm" %>
+        </div>
+      </div>
+    </div>
   </header>
 <%end%>
-  <div class="container">
+<div class="container">
   <p id="notice"><%= notice %></p>
 
-  <h1>Towns</h1>
+  <h1 id="markets">Markets</h1>
 
-  <%= link_to 'Add Single Town', new_town_path, class: "btn btn-primary btn-sm mb-4" %>
-  <%= link_to 'Add Towns In Bulk', new_bulk_path, class: "btn btn-primary btn-sm mb-4" %>
+
   <table>
     <thead>
       <tr>
         <th>Name</th>
-        <th>County</th>
         <th>State</th>
-        <th>Market</th>
         <th colspan="3"></th>
       </tr>
     </thead>
 
     <tbody>
-      <% @towns.each do |town| %>
+      <% @markets.each do |market| %>
         <tr>
-          <td><%= town.name %></td>
-          <td><%= town.county %></td>
-          <td><%= town.state %></td>
-          <td><%= town.market_id %></td>
-          <td><%= link_to 'Show', town, class: "btn btn-primary btn-sm" %></td>
-          <td><%= link_to 'Edit', edit_town_path(town), class: "btn btn-primary btn-sm" %></td>
-          <td><%= link_to 'Destroy', town, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary btn-sm" %></td>
+          <td><%= market.name %></td>
+          <td><%= market.state %></td>
+          <td><%= link_to 'Show', market, class: "btn btn-primary btn-sm" %></td>
+          <td><%= link_to 'Edit', edit_market_path(market), class: "btn btn-primary btn-sm" %></td>
+          <td><%= link_to 'Destroy', market, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary btn-sm" %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
-
   <br>
 
 </div>

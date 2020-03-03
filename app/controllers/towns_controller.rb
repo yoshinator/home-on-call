@@ -4,8 +4,9 @@ class TownsController < ApplicationController
   before_action :require_edit_access
 
   # GET /towns
+  # Shows markets instead of towns so that towns are viewed throgh the index only. 
   def index
-    @towns = Town.all
+    @markets = Market.all
   end
 
   # GET /towns/1

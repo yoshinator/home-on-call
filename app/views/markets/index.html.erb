@@ -11,6 +11,7 @@
     <thead>
       <tr>
         <th>Name</th>
+        <th>State</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -19,6 +20,7 @@
       <% @markets.each do |market| %>
         <tr>
           <td><%= market.name %></td>
+          <td><%= market.state %></td>
           <td><%= link_to 'Show', market, class: "btn btn-primary btn-sm"  %></td>
           <td><%= link_to 'Edit', edit_market_path(market), class: "btn btn-primary btn-sm"  %></td>
           <td><%= link_to 'Destroy', market, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary btn-sm"  %></td>

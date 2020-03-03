@@ -12,7 +12,7 @@
 
           <%= link_to 'Edit', edit_market_path(@market), class: "btn btn-primary" %> 
           <%= link_to 'Back', markets_path, class: "btn btn-primary" %>
-          <%= link_to 'Towns', "#{market_path(@market)}/#towns", class: "btn btn-primary" %>
+          <%= link_to 'Towns', "#{market_path(@market)}/#towns", class: "btn btn-primary js-scroll-trigger" %>
         </div>
       </div>
     </div>
@@ -49,4 +49,4 @@
   <br>
 
   <%= link_to 'New Town', new_town_path, class: "btn btn-primary btn-sm mb-4" %>
-  </div>
+</div>
