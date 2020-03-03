@@ -1,6 +1,7 @@
 module PagesHelper
-  def muxer (content, town)
-    content.gsub(/\[ror_town\]/, "#{town.name}, #{town.state}")
+  # Location can be town or market. 
+  def muxer (content, location)
+    content.gsub(/\[ror_town\]/, "#{location.name}, #{location.state if location.state}")
   end 
 
   def header_selector(service) 

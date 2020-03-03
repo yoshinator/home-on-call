@@ -54,6 +54,6 @@ class ServicesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def service_params
-      params.require(:service).permit(:title, :content, :business_type_id, :image, :featured_image, :slug)
+      params.require(:service).permit(:title, :content, :business_type_id, :image, :featured_image, :meta_description, :slug)
     end
 end
