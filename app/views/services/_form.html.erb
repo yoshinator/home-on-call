@@ -12,7 +12,13 @@
   <% end %>
 
   <div class="field form-group">
+    <%= form.label :title %>
     <%= form.text_field :title, autofocus: true, placeholder: "Title of service", class: "form-control" %>
+  </div>
+
+  <div class="field form-group">
+   <%= form.label :meta_description %>
+    <%= form.text_field :meta_description, placeholder: "Meta description [ror_town] for placeholder", class: "form-control" %>
   </div>
   
   .
@@ -27,6 +33,7 @@
   </div>
 
   <div class="field">
+    <%= form.label :content%>
     <%= form.text_area :content, id: "tiny" %>
   </div>
 
