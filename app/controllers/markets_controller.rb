@@ -56,6 +56,6 @@ class MarketsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def market_params
-      params.require(:market).permit(:name)
+      params.require(:market).permit(:name, :state)
     end
 end
