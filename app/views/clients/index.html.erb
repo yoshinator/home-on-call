@@ -32,8 +32,8 @@
           <td><%= client.phone %></td>
           <td><%= client.company_name %></td>
           <td><%= client.active %></td>
-          <td><%= client.market_id %></td>
-          <td><%= client.business_type_id %></td>
+          <td><%= client.market.name %></td>
+          <td><%= client.business_type.name %></td>
           <td><%= link_to 'Show', client, class: "btn btn-primary btn-sm"  %></td>
           <td><%= link_to 'Edit', edit_client_path(client), class: "btn btn-primary btn-sm"  %></td>
           <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary btn-sm"  %></td>

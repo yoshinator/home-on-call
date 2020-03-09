@@ -24,6 +24,15 @@
    background-repeat: no-repeat;
  }
 
+ th, td {
+  padding-left: 1.1em;
+  padding-right: 1.1em;
+ }
+ td:nth-last-child(1), td:nth-last-child(2), td:nth-last-child(3) {
+  padding-left: .2em;
+  padding-right: .2em;
+ }
+
 #mainNav {
   min-height: 56px;
   background-color: #fff;
