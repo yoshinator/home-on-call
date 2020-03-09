@@ -13,12 +13,12 @@
     <div id="first" class="text-left">
       <h4 class="text-center p-1">What kind of service are you looking for? </h4>
       <div class="form-check">
-        <%= f.radio_button :service_type, "interior-painting", class: "form-check-input", checked: true%>
-        <%= f.label :service_type, "Interior Painting", value: "interior-painting", class: "form-check-label"%>
+        <%= f.radio_button :service_type, "Air Conditionings", class: "form-check-input", checked: true%>
+        <%= f.label :service_type, "Air Conditioning", value: "air-conditioning", class: "form-check-label"%>
       </div>
       <div class="form-check">
-        <%= f.radio_button :service_type, "exterior-painting", class: "form-check-input"%>
-        <%= f.label :service_type, "Exterior Painting", value: "exterior-painting", class: "form-check-label" %>
+        <%= f.radio_button :service_type, "heating", class: "form-check-input"%>
+        <%= f.label :service_type, "Heating", value: "heating", class: "form-check-label" %>
       </div>
       <div class="form-check">
         <%= f.radio_button :service_type, "other", class: "form-check-input"%>
