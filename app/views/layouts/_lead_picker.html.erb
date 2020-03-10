@@ -1,8 +1,8 @@
 <div class="py-3" id="lead-picker">
   <div class="bg-dark py-3 rounded full-height">
 
-    <div class="row mt-5 scroll-stop">
-      <div class="col-md-10 col-lg-8 m-auto text-center">
+    <div class="mt-5 mx-3 scroll-stop">
+      <div class="m-auto text-center p-1">
         <%= render "layouts/painting_lead_form", lead: lead, client: client if service.business_type.name.downcase == "painting"%>
         <%= render "layouts/junk_removal_lead_form", lead: lead, client: client if service.business_type.name.downcase == "junk removal"%>
         <%= render "layouts/hvac_lead_form", lead: lead, client: client if service.business_type.name.downcase == "hvac"%>
