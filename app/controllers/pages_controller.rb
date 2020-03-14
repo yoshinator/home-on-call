@@ -37,7 +37,7 @@ class PagesController < ApplicationController
   end 
   
   def sitemap
-    redirect_to 'https://console.cloud.google.com/storage/browser/homeoncall.com/sitemaps/sitemap.xml.gz'
+    redirect_to 'https://storage.cloud.google.com/homeoncall.com/sitemaps/sitemap.xml.gz'
   end
 
   private 
