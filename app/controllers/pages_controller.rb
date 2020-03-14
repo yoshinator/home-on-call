@@ -35,6 +35,10 @@ class PagesController < ApplicationController
   def search_results
     @services = Service.search(page_params[:search])
   end 
+  
+  def sitemap
+    redirect_to 'https://console.cloud.google.com/storage/browser/homeoncall.com/sitemaps/sitemap.xml.gz'
+  end
 
   private 
 

@@ -11,6 +11,7 @@ SitemapGenerator::Sitemap.adapter = SitemapGenerator::GoogleStorageAdapter.new(
 SitemapGenerator::Sitemap.public_path = 'tmp/'
 SitemapGenerator::Sitemap.sitemaps_host = "https://console.cloud.google.com/storage/browser/homeoncall.com"
 SitemapGenerator::Sitemap.sitemaps_path = 'sitemaps/'
+SitemapGenerator::Sitemap.ping_search_engines('https://www.homeoncall.com/sitemap')
 SitemapGenerator::Sitemap.create do
   # Put links creation logic here.
   #

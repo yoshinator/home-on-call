@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
   get '/search_results', to: "pages#search_results", as: "search_results"
+  get '/sitemap', to: 'pages#sitemap'
   
   resources :leads
   resources :admins
