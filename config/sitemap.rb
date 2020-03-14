@@ -3,7 +3,7 @@ SitemapGenerator::Sitemap.default_host = "https://www.homeoncall.com"
 require 'google/cloud/storage'
 
 SitemapGenerator::Sitemap.adapter = SitemapGenerator::GoogleStorageAdapter.new(
-  credentials: ENV['GOOGLE_APPLICATION_CREDENTIALS'],
+  credentials: JSON.parse(ENV['GOOGLE_APPLICATION_CREDENTIALS']),
   project_id: 'homeoncall',
   bucket: 'homeoncall.com'
 )
