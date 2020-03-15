@@ -1,2 +1,2 @@
 # See https://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
-Sitemap: https://www.homeoncall.com/sitemap
+Sitemap: https://www.homeoncall.com/sitemap.xml
