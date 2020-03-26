@@ -1,3 +1,7 @@
+# USAGE INSTRUCTIONS
+# rake sitemap:create   #Create sitemaps without pinging search engines
+# rake sitemap:refresh  #Create sitemaps and ping search engines
+# rake sitemap:clean    #Clean up sitemaps in the sitemap path
 # Set the host name for URL creation
 SitemapGenerator::Sitemap.default_host = "https://www.homeoncall.com"
 require 'google/cloud/storage'
@@ -38,22 +42,20 @@ SitemapGenerator::Sitemap.create do
 
   Service.find_each do |service|
     add public_service_path(service), :changefreq => 'weekly', :lastmod => service.updated_at
-    Town.find_each do |town|
+  end 
+  
+  Town.find_each do |town|
+    add public_town_path(town)
+    Service.find_each do |service|
       add public_bulk_service_path(service, town), :changefreq => 'weekly', :lastmod => service.updated_at
-        Market.find_each do |market|
-          add public_town_path(market, town), :changefreq => 'weekly', :lastmod => town.updated_at
-        end 
-    end 
-
-    Market.find_each do |market|
-      add public_market_service_path(market, service), :changefreq => 'weekly', :lastmod => service.updated_at
     end
   end 
 
   Market.find_each do |market|
     add public_market_path(market), :changefreq => 'monthly', :lastmod => market.updated_at
-  end 
-
-
+    Service.find_each do |service|
+      add public_market_service_path(market, service), :changefreq => 'weekly', :lastmod => service.updated_at
+    end 
+  end
 
 end
