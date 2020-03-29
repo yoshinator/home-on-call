@@ -23,11 +23,12 @@ class TownsController < ApplicationController
   # end
 
   # def bulk_new 
-
+  #   @town = Town.new
   # end 
 
   def bulk_create
     Town.bulk_create(town_params)
+    redirect_to towns_path
   end 
   # POST /towns
   def create

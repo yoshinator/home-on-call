@@ -15,7 +15,7 @@ class Town < ApplicationRecord
    def self.bulk_create(towns_hash)
      town_names = towns_hash[:name].split("\r\n")
      town_names.each do |name|
-      t = self.new(name: name, county: towns_hash[:county], state: towns_hash[:state])
+      t = self.new(name: name, county: towns_hash[:county], state: towns_hash[:state], market_id: towns_hash[:market_id])
       t.save()
      end 
    end 

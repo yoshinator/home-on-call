@@ -8,7 +8,7 @@
         <div class="card-body">
           <h5 class="card-title">To  bulk create new Towns add one town per line below</h5>
 
-            <%= form_with(url: bulk_town_path, local: true) do |form| %>
+            <%= form_with(url: bulk_town_path, scope: "town", local: true) do |form| %>
 
               <div class="field form-group">
                 <%= form.label :name %>
