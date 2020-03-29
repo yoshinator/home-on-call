@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
   <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-160236437-1"></script>
@@ -13,7 +13,19 @@
 
     <title><%= yield(:title) %></title>
     <meta name="description" content="<%=yield(:meta_description)%>"/>
-    <meta name="keywords" content="<%=yield(:meta_keywords)%>">
+    <meta name="keywords" content="<%=yield(:meta_keywords)%>"/>
+    <meta name="robots" content="<%=yield(:robots)%>"/>
+    <meta property="og:title" content="<%=yield(:og_title)%>"/>
+    <meta property="og:description" content="<%=yield(:og_description)%>"/>
+    <meta property='og:image' content="<%=yield(:og_image)%>"/>
+    <meta property="og:site_name" content="Home On Call" />
+    <meta property="og:type" content="business.business"/>
+    <meta property="business:contact_data:locality" content="<%=yield(:locality_town)%>"/>
+    <meta property="business:contact_data:region" content="<%=yield(:locality_state)%>"/>
+    <%# <meta property="business:contact_data:postal_code" content="07604"/> %>
+    <meta property="business:contact_data:country_name" content="USA"/>
+    <meta property="business:contact_data:website" content="https://www.homeoncall.com/"/>
+    <meta name="twitter:card" content="summary" />
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>

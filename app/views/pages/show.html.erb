@@ -6,7 +6,12 @@
   <%= content_for(:meta_description, "#{@service.title} in #{@town.name}")%>
 <% end %>
 <%= content_for(:meta_keywords, "#{@service.title}, #{@town.name}, #{@town.state.upcase}") %>
-
+<%= content_for(:robots, "index, follow") %>
+<%= content_for(:og_title, "#{@service.title} #{@town.name}, #{@town.state.upcase}")%>
+<%= content_for(:og_description, "#{sanitize(muxer(@service.meta_description, @town))}")%>
+<%= content_for(:og_image, "#{polymorphic_url @service.image}")%>
+<%= content_for(:locality_town, "#{@town.name}")%>
+<%= content_for(:locality_state, "#{@town.state}")%>
 <!--Masthead Section-->
 <%= content_for :my_mast do %>
   <header class="masthead" style="background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%, #161616 100%), url(<%=header_selector(@service)%>);">

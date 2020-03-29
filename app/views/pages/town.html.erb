@@ -1,6 +1,7 @@
 <%= content_for(:title, "#{@market.name}, #{@town.name}, #{@town.county}") %>
 <%= content_for(:meta_description, "#{@town.name} in #{@market.name}") %>
 <%= content_for(:meta_keywords, "#{@town.name}, #{@market.name}") %>
+<%= content_for(:robots, "<meta name='robots' content='index, follow'>") %>
 
 <%= content_for :my_mast do %>
   <header class="masthead" style="background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%, #161616 100%), url(<%=asset_path 'home_service_bathroom.jpg'%>);">
