@@ -8,9 +8,9 @@
   </header>
 <%end%>
 
-<div class="container">
+<div class="container" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
 
-  <h1><%="#{@town.name}, #{@town.state.upcase}"%></h1>
+  <h1><span itemprop="addressLocality"><%=@town.name%></span>,<span itemprop="addressRegion"> <%=@town.state.upcase%></span></h1>
 
   <h2>Below is a list of services available in <strong><%="#{@town.name}, #{@town.state.upcase}"%></strong></h2>
   <h3>Services available</h3>
