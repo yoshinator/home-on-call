@@ -6,6 +6,8 @@ class PagesController < ApplicationController
     @service = Service.find_by!(slug: params[:service_id])
     @town = Town.find_by!(slug: params[:town_id])
     @client = Page.get_client(@town.market, @service)
+    @google_client = GooglePlaces::Client.new(ENV["GOOGLE_PLACES_API_KEY"])
+    @businesses = @google_client.spots_by_query("#{@service.title} near #{@town.name} #{@town.state}", detail: true)
     @lead = Lead.new()
   end 
 

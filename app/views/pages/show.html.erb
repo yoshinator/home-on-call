@@ -35,11 +35,25 @@
 
 
 <!-- Other services section-->
-<div class="container my-3 scroll-stop" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-  <h2 class="py-2">Other <%=@service.business_type.name%> Services in <span itemprop="addressLocality"><%= @town.name.titleize%></span>, <span itemprop="addressRegion"><%=@town.state.upcase%></span></h2>
-  <ul>
-    <%@service.business_type.services.each do |service|%>
-      <li><%=link_to service.title, public_service_path(service)%></li>
-    <%end%>
-  </ul>
+<div class="row">
+  <div class="container my-3 scroll-stop col-7" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+    <h2 class="py-2">Other <%=@service.business_type.name%> Services in <span itemprop="addressLocality"><%= @town.name.titleize%></span>, <span itemprop="addressRegion"><%=@town.state.upcase%></span></h2>
+    <ul>
+      <%@service.business_type.services.each do |service|%>
+        <li><%=link_to service.title, public_service_path(service)%></li>
+      <%end%>
+    </ul>
+  </div>
+
+    <div class="container col-5">
+    <h4>Businesses Outside of our Network</h4>
+    <%@businesses[1..5].each do |b|%>
+      <div itemscope itemtype="http://schema.org/LocalBusiness">
+        <hr>
+        <p><span itemprop="name"><%=b.name%></span></p> 
+        <p><span itemprop="address"><%=b.formatted_address%></p> 
+        <p><span itemprop="telephone"><%=b.formatted_phone_number%></span></p> 
+      </div>
+      <%end%>
+    </div>
 </div>
