@@ -47,7 +47,7 @@ SitemapGenerator::Sitemap.create do
   Town.find_each do |town|
     add public_town_path(town)
     Service.find_each do |service|
-      add public_bulk_service_path(service, town), :changefreq => 'weekly', :lastmod => service.updated_at
+      add public_bulk_service_path(service, town),:priority => 1, :changefreq => 'weekly', :lastmod => service.updated_at
     end
   end 
 
