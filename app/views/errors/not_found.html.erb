@@ -8,11 +8,13 @@
   <div class="row">
     <%@business_types.all.each do |bt| %>
       <div class="col">
-      <h3>Industry: <%=bt.name%></h3>
-      <%bt.services.each do |s|%>
-        <%=link_to s.title, public_service_path(s) %>
+      <%if bt.name.downcase != "master"%>
+        <h3>Industry: <%=bt.name%></h3>
+        <%bt.services.each do |s|%>
+          <%=link_to s.title, public_service_path(s) %>
+        <%end%>
       <%end%>
+      </div>
     <%end%>
-    </div>
   </div>
 </div>

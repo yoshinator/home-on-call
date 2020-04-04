@@ -1,2 +1,20 @@
-<h1>Errors#internal_error</h1>
-<p>Find me in app/views/errors/internal_error.html.erb</p>
+<%= content_for :my_mast do %>
+  <header class="masthead" style="background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%, #161616 100%), url(<%=header_selector(@service)%>);">
+  </header>
+<%end%>
+<div class="container">
+  <h1>Sorry. There is a problem on our end </h1>
+  <h2>Here is a list of our services: </h2>
+  <div class="row">
+    <%@business_types.all.each do |bt| %>
+      <div class="col">
+      <%if bt.name.downcase != "master"%>
+        <h3>Industry: <%=bt.name%></h3>
+        <%bt.services.each do |s|%>
+          <%=link_to s.title, public_service_path(s) %>
+        <%end%>
+      <%end%>
+      </div>
+    <%end%>
+  </div>
+</div>
