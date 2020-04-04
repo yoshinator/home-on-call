@@ -1,5 +1,6 @@
 class ErrorsController < ApplicationController
   def not_found
+    @business_types = BusinessType.all
     render :not_found, status: 404
   end
 

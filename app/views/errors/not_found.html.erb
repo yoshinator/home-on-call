@@ -1,2 +1,18 @@
-<h1>Errors#not_found</h1>
-<p>Find me in app/views/errors/not_found.html.erb</p>
+<%= content_for :my_mast do %>
+  <header class="masthead" style="background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%, #161616 100%), url(<%=header_selector(@service)%>);">
+  </header>
+<%end%>
+<div class="container">
+  <h1>Sorry The Page You are Looking is no Longer Available</h1>
+  <h2>But here is a list of our services: </h2>
+  <div class="row">
+    <%@business_types.all.each do |bt| %>
+      <div class="col">
+      <h3>Industry: <%=bt.name%></h3>
+      <%bt.services.each do |s|%>
+        <%=link_to s.name, public_service_path(s) %>
+      <%end%>
+    <%end%>
+    </div>
+  </div>
+</div>
