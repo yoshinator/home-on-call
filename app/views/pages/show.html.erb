@@ -44,10 +44,9 @@
       <%end%>
     </ul>
   </div>
-
     <div class="container col-5">
     <h4>Businesses Outside of our Network</h4>
-    <%@businesses[1..5].each do |b|%>
+    <%@businesses.each do |b|%>
       <div itemscope itemtype="http://schema.org/LocalBusiness">
         <hr>
         <p><span itemprop="name"><%=b.name%></span></p> 
