@@ -397,3 +397,11 @@ footer {
  .full-height {
   height: 90vh;
 }
+
+#map {
+  margin: auto;
+  height: 50vh;
+  width: 50vh;
+  border: .2em solid #64a19d;
+  border-radius: .3em
+}
