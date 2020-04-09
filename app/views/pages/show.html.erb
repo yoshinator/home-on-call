@@ -35,7 +35,7 @@
 
 
 <!-- Other services section-->
-<div class="row">
+<div class="row container">
   <div class="container my-3 scroll-stop col-7" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
     <h2 class="py-2">Other <%=@service.business_type.name%> Services in <span itemprop="addressLocality"><%= @town.name.titleize%></span>, <span itemprop="addressRegion"><%=@town.state.upcase%></span></h2>
     <ul>
@@ -49,14 +49,15 @@
     <%@businesses.each do |b|%>
       <div itemscope itemtype="http://schema.org/LocalBusiness">
         <hr>
-        <p><span itemprop="name"><%=b.name%></span></p> 
-        <p><span itemprop="address"><%=b.formatted_address%></p> 
-        <p><span itemprop="telephone"><%=b.formatted_phone_number%></span></p> 
+        <p class="small"><span itemprop="name"><%=b.name%></span></p> 
+        <p class="small"><span itemprop="address"><%=b.formatted_address%></p> 
+        <p class="small"><span itemprop="telephone"><%=b.formatted_phone_number%></span></p> 
       </div>
       <%end%>
     </div>
-    <!--Google Maps Dog-->
 </div>
+</div>
+    <!--Google Maps Dog-->
     <div id="map"></div>
     <div class="text-center p-0">
     <a href="#lead-picker" class="btn btn-primary btn-lg my-3 js-scroll-trigger">Get A Quote</a>
