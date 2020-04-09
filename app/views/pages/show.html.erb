@@ -27,9 +27,6 @@
 <!--Lead Form-->
 <%= render "layouts/lead_picker", lead: @lead, client: @client, service: @service%>
 
-<!--Google Maps Dog-->
-<div id="map"></div>
-
 <!-- Bottom image Section-->
 <div class="container my-3 text-center">
   <%= image_tag @service.image, alt: "#{@service.title} in #{@town.name}, #{@town.state.upcase}", class: "img-fluid"%>
@@ -58,7 +55,12 @@
       </div>
       <%end%>
     </div>
+    <!--Google Maps Dog-->
 </div>
+    <div id="map"></div>
+    <div class="text-center p-0">
+    <a href="#lead-picker" class="btn btn-primary btn-lg my-3 js-scroll-trigger">Get A Quote</a>
+    </div>
 <%if !@spot.nil?%>
   <script>
     var map;
@@ -69,7 +71,7 @@
       var location = {lat: <%=@spot.lat%>, lng: <%=@spot.lng%>}
       var map = new google.maps.Map(document.getElementById('map'), {
         center: location,
-        zoom: 14
+        zoom: 12
       });
       var marker = new google.maps.Marker({position: location, map: map, title: `${title} in ${town}, ${state}`});
 
@@ -77,6 +79,15 @@
         content: `${title} in ${town}, ${state}`
       });
       infowindow.open(map, marker);
+      <%@businesses.each_with_index do |b, i|%>
+          var newMarker<%=i%> = new google.maps.Marker({position: {lat:<%=b.lat%>, lng:<%=b.lng%> }, map: map, title: "<%=b.name%>"})
+          var infowindow<%=i%> = new google.maps.InfoWindow({
+            content: `<%=b.name%> in ${town}, ${state}`
+          });
+          newMarker<%=i%>.addListener('click', function(){
+            infowindow<%=i%>.open(map, newMarker<%=i%>);
+          })
+      <%end%>
     }
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAPS_API']%>&callback=initMap"
