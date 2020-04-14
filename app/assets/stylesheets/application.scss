@@ -33,6 +33,10 @@
   padding-right: .2em;
  }
 
+ main {
+   display: block; //fix ie bug where main is displayed inline
+ }
+
 #mainNav {
   min-height: 56px;
   background-color: #fff;

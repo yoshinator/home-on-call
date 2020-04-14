@@ -2,9 +2,10 @@
   <header class="masthead" style="background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%, #161616 100%), url(<%=asset_path 'home_service_bathroom.jpg'%>);">
   </header>
 <%end%>  
-<h1>Editing Business Type</h1>
+<div class="container">
+  <h1>Editing Business Type</h1>
+  <%= render 'form', business_type: @business_type %>
 
-<%= render 'form', business_type: @business_type %>
-
-<%= link_to 'Show', @business_type %> |
-<%= link_to 'Back', business_types_path %>
+  <%= link_to 'Show', @business_type %> |
+  <%= link_to 'Back', business_types_path %>
+</div>

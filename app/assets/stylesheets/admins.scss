@@ -41,3 +41,74 @@ div.actions {
 #error_explanation ul li {
   font-size: 12px;
   list-style: square; }
+
+  // faq
+#faq .collapsible {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#faq .collapsible-item {
+    width: 46%;
+    flex-shrink: 0;
+}
+
+#faq .collapsible.vertical .collapsible-item {
+    width: 100%;
+    flex-shrink: 0;
+}
+/*#region collapsible */
+.collapsible {
+    list-style: none;
+    padding: 0;
+    font-size: 16px;
+    line-height: 22px;
+    color: #3B3B3B;;
+}
+
+.collapsible-item {
+    margin-bottom: 22px;
+}
+
+.collapsible-item-title {
+    font-size: 18px;
+    line-height: 22px;
+    color: #1988D9;
+    margin-bottom: 6px;
+    position: relative;
+    padding-right: 20px;
+    cursor: pointer;
+}
+
+.collapsible-item-title:after {
+    content: '';
+    background: image-url('triangle-blue.png') no-repeat;
+    width: 12px;
+    height: 9px;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%) rotate(-90deg);
+}
+
+.collapsible-item-body {
+    display: none;
+}
+
+.collapsible-item-body p {
+    margin-top: 0;
+}
+
+.collapsible-item-body p:last-child {
+    margin-bottom: 0;
+}
+
+.collapsible-item.active .collapsible-item-body {
+    display: block;
+}
+
+.collapsible-item.active .collapsible-item-title:after {
+    transform: translateY(-50%);
+}

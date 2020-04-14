@@ -55,6 +55,6 @@ class BusinessTypesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def business_type_params
-      params.require(:business_type).permit(:name)
+      params.require(:business_type).permit(:name, :faq1, :faa1, :faq2, :faa2, :faq3, :faa3, :faq4, :faa4)
     end
 end

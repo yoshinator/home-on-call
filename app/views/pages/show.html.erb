@@ -19,32 +19,34 @@
 <%end%>
 
 <!--Main Content Section-->
-<div class="container my-3 scroll-stop">
+<main class="container my-3 scroll-stop">
   <h1><%="#{@town.name.titleize} #{@town.state.upcase} #{@service.title.titleize}"%></h1>
   <%=sanitize(muxer(@service.content, @town))%>
-</div>
+</main>
 
 <!--Lead Form-->
 <%= render "layouts/lead_picker", lead: @lead, client: @client, service: @service%>
 
 <!-- Bottom image Section-->
-<div class="container my-3 text-center">
+<section class="container my-3 text-center">
   <%= image_tag @service.image, alt: "#{@service.title} in #{@town.name}, #{@town.state.upcase}", class: "img-fluid"%>
   <a href="#lead-picker" class="btn btn-primary btn-lg my-3 js-scroll-trigger">Get Started For Free</a>
-</div>
+</section>
 
+<!-- FAQ Section -->
+<%= render 'faq', business_type: @service.business_type %>
 
 <!-- Other services section-->
-<div class="row container">
-  <div class="container my-3 scroll-stop col-7" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+<section class="row container">
+  <section class="container my-3 scroll-stop col-7" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
     <h2 class="py-2">Other <%=@service.business_type.name%> Services in <span itemprop="addressLocality"><%= @town.name.titleize%></span>, <span itemprop="addressRegion"><%=@town.state.upcase%></span></h2>
     <ul>
       <%@service.business_type.services.each do |service|%>
         <li><%=link_to service.title, public_service_path(service)%></li>
       <%end%>
     </ul>
-  </div>
-    <div class="container col-5">
+  </section>
+  <section class="container col-5">
     <h4>Businesses Outside of our Network</h4>
     <%@businesses.each do |b|%>
       <div itemscope itemtype="http://schema.org/LocalBusiness">
@@ -54,9 +56,10 @@
         <p class="small"><span itemprop="telephone"><%=b.formatted_phone_number%></span></p> 
       </div>
       <%end%>
-    </div>
-</div>
-</div>
+    </section>
+  </section>
+</section>
+
     <!--Google Maps Dog-->
     <div id="map"></div>
     <div class="text-center p-0">
@@ -93,4 +96,7 @@
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAPS_API']%>&callback=initMap"
   async defer ></script>
+    <!--END Google Maps Dog-->
+
+  
 <%end%>
