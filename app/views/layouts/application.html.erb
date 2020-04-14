@@ -12,6 +12,7 @@
     </script>
 
     <title>ᐈ <%= yield(:title) %></title>
+    <%= "<link rel='canonical' href='#{yield(:canonical)}'/>".html_safe if content_for?(:canonical)%>
     <meta name="description" content="<%=yield(:meta_description)%>"/>
     <meta name="keywords" content="<%=yield(:meta_keywords)%>"/>
     <meta name="robots" content="<%=yield(:robots)%>"/>
