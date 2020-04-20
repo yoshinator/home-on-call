@@ -47,14 +47,14 @@ SitemapGenerator::Sitemap.create do
   Town.find_each do |town|
     add public_town_path(town)
     Service.find_each do |service|
-      add public_bulk_service_path(service, town),:priority => 1, :changefreq => 'weekly', :lastmod => service.updated_at
+      add public_bulk_service_path(service, town),:priority => 1, :changefreq => 'weekly', :lastmod => Time.now
     end
   end 
 
   Market.find_each do |market|
     add public_market_path(market), :changefreq => 'monthly', :lastmod => market.updated_at
     Service.find_each do |service|
-      add public_market_service_path(market, service), :changefreq => 'weekly', :lastmod => service.updated_at
+      add public_market_service_path(market, service), :changefreq => 'weekly', :lastmod => Time.now
     end 
   end
 
