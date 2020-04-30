@@ -1,14 +1,14 @@
 <%= content_for(:canonical, request.url)%>
 <%= content_for(:title, "#{@service.title} #{@town.name}, #{@town.state.upcase}") %>
 <% if  @service.meta_description%>
-  <%= content_for(:meta_description, sanitize(muxer(@service.meta_description, @town)))%>
+  <%= content_for(:meta_description, sanitize(muxer_light(@service.meta_description, @town)))%>
 <% else%>
   <%= content_for(:meta_description, "#{@service.title} in #{@town.name}")%>
 <% end %>
 <%= content_for(:meta_keywords, "#{@service.title}, #{@town.name}, #{@town.state.upcase}") %>
 <%= content_for(:robots, "INDEX, FOLLOW") %>
 <%= content_for(:og_title, "#{@service.title} #{@town.name}, #{@town.state.upcase}")%>
-<%= content_for(:og_description, "#{sanitize(muxer(@service.meta_description, @town))}")%>
+<%= content_for(:og_description, "#{sanitize(muxer_light(@service.meta_description, @town))}")%>
 <%= content_for(:og_image, "#{polymorphic_url @service.image}")%>
 <%= content_for(:locality_town, "#{@town.name}")%>
 <%= content_for(:locality_state, "#{@town.state}")%>
@@ -21,7 +21,7 @@
 <!--Main Content Section-->
 <main class="container my-3 scroll-stop">
   <h1><%="#{@town.name.titleize} #{@town.state.upcase} #{@service.title.titleize}"%></h1>
-  <%=sanitize(muxer(@service.content, @town))%>
+  <%=sanitize(muxer(@service, @town))%>
 </main>
 
 <!--Lead Form-->

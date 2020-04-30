@@ -1,7 +1,7 @@
 <%= content_for(:canonical, request.url)%>
 <%= content_for(:title, "#{@service.title} #{@market.name}") %>
 <% if  @service.meta_description%>
-  <%= content_for(:meta_description, sanitize(muxer(@service.meta_description, @market)))%>
+  <%= content_for(:meta_description, sanitize(muxer_light(@service.meta_description, @market)))%>
 <% else%>
   <%= content_for(:meta_description, "#{@service.title} in #{@market.name}")%>
 <% end %>
