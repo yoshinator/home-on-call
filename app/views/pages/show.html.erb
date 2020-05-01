@@ -51,9 +51,9 @@
     <%@businesses.each do |b|%>
       <div itemscope itemtype="http://schema.org/LocalBusiness">
         <hr>
-        <p class="small"><span itemprop="name"><%=b.name%></span></p> 
-        <p class="small"><span itemprop="address"><%=b.formatted_address%></p> 
-        <p class="small"><span itemprop="telephone"><%=b.formatted_phone_number%></span></p> 
+        <p class="small"><span itemprop="name"><%=b["name"]%></span></p> 
+        <p class="small"><span itemprop="address"><%=b["formatted_address"]%></p> 
+        <p class="small"><span itemprop="telephone"><%=b["formatted_phone_number"]%></span></p> 
       </div>
       <%end%>
     </section>
@@ -65,14 +65,14 @@
     <div class="text-center p-0">
     <a href="#lead-picker" class="btn btn-primary btn-lg my-3 js-scroll-trigger">Get A Quote</a>
     </div>
-<%if !@spot.nil?%>
+<%if @spot%>
   <script>
     var map;
     function initMap() {
       var title = "<%=@service.title%>"
       var town = "<%=@town.name.titleize%>"
       var state = "<%=@town.state.upcase%>"
-      var location = {lat: <%=@spot.lat%>, lng: <%=@spot.lng%>}
+      var location = {lat: <%=@spot["geometry"]["location"]["lat"]%>, lng: <%=@spot["geometry"]["location"]["lng"]%>}
       var map = new google.maps.Map(document.getElementById('map'), {
         center: location,
         zoom: 12
@@ -84,9 +84,9 @@
       });
       infowindow.open(map, marker);
       <%@businesses.each_with_index do |b, i|%>
-          var newMarker<%=i%> = new google.maps.Marker({position: {lat:<%=b.lat%>, lng:<%=b.lng%> }, map: map, title: "<%=b.name%>"})
+          var newMarker<%=i%> = new google.maps.Marker({position: {lat:<%=b["geometry"]["location"]["lat"]%>, lng:<%=b["geometry"]["location"]["lng"]%> }, map: map, title: "<%=b["name"]%>"})
           var infowindow<%=i%> = new google.maps.InfoWindow({
-            content: `<%=b.name%> in ${town}, ${state}`
+            content: `<%=b["name"]%> in ${town}, ${state}`
           });
           newMarker<%=i%>.addListener('click', function(){
             infowindow<%=i%>.open(map, newMarker<%=i%>);
@@ -96,7 +96,11 @@
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAPS_API']%>&callback=initMap"
   async defer ></script>
-    <!--END Google Maps Dog-->
-
-  
+    <!--END Google Maps Dog-->  
 <%end%>
+
+<!--Local Image-->
+<div class="container text-center my-5">
+<h5>Picture of <%=@town.name.capitalize%>, <%=@town.state.upcase%></h5>
+  <%= image_tag @page.town_image, alt: "#{@service.title} #{@town.name}"%>
+</div>

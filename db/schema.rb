@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_13_232447) do
+ActiveRecord::Schema.define(version: 2020_05_01_163314) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -102,6 +102,17 @@ ActiveRecord::Schema.define(version: 2020_04_13_232447) do
     t.string "state"
   end
 
+  create_table "pages", force: :cascade do |t|
+    t.bigint "town_id", null: false
+    t.bigint "service_id", null: false
+    t.json "google_town_info"
+    t.json "google_business_info"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["service_id"], name: "index_pages_on_service_id"
+    t.index ["town_id"], name: "index_pages_on_town_id"
+  end
+
   create_table "services", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -128,6 +139,8 @@ ActiveRecord::Schema.define(version: 2020_04_13_232447) do
   add_foreign_key "clients", "business_types"
   add_foreign_key "clients", "markets"
   add_foreign_key "leads", "clients"
+  add_foreign_key "pages", "services"
+  add_foreign_key "pages", "towns"
   add_foreign_key "services", "business_types"
   add_foreign_key "towns", "markets"
 end
