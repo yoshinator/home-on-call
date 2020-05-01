@@ -9,6 +9,7 @@ class PagesController < ApplicationController
     @google_client = GooglePlaces::Client.new(ENV["GOOGLE_PLACES_API_KEY"])
     @businesses = @google_client.spots_by_query("#{@service.title} near #{@town.name} #{@town.state}", detail: true)
     @spot = @google_client.spots_by_query("#{@town.name}, #{@town.state}")[0]
+    binding.pry
     @lead = Lead.new()
   end 
 
