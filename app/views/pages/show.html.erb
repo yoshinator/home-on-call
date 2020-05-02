@@ -100,7 +100,9 @@
 <%end%>
 
 <!--Local Image-->
-<div class="container text-center my-5">
-<h5>Picture of <%=@town.name.capitalize%>, <%=@town.state.upcase%></h5>
-  <%= image_tag @page.town_image, alt: "#{@service.title} #{@town.name}"%>
-</div>
+<%if @page.town_image.attached?%>
+  <div class="container text-center my-5">
+  <h5>Picture of <%=@town.name.capitalize%>, <%=@town.state.upcase%></h5>
+    <%= image_tag @page.town_image, alt: "#{@service.title} #{@town.name}"%>
+  </div>
+<%end%>

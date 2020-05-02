@@ -12,9 +12,7 @@ class Page < ApplicationRecord
         spot = google_client.spots_by_query("#{town.name}, #{town.state}")[0]
         page.google_town_info = spot.json_result_object.to_json || ""
         page.google_business_info = parse_businesses(businesses).to_json || ""
-        image_url = spot.photos[0].fetch_url(300)
-        image = URI.open(image_url)
-        page.town_image.attach(io: image, filename: "#{service.title}-#{town.name}-#{town.state}.jpg", content_type: 'image/jpg')
+        check_for_and_attach_image(spot,page,service, town)
         page.save
       end 
     page
@@ -39,5 +37,14 @@ class Page < ApplicationRecord
     end 
     business_hash
   end 
+
+  def self.check_for_and_attach_image(spot, page, service, town)
+    if spot.photos[0]
+      image_url = spot.photos[0]&.fetch_url(300)
+      image = URI.open(image_url)
+      page.town_image.attach(io: image, filename: "#{service.title}-#{town.name}-#{town.state}.jpg", content_type: 'image/jpg')
+    end 
+    page
+  end
 
 end
