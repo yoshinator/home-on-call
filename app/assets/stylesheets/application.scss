@@ -163,6 +163,10 @@
     border: 2px solid #64a19d;
     border-radius: .5rem;
   }
+  .lead-picker {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
 }
 
 @media (min-width: 992px) {
@@ -406,4 +410,14 @@ footer {
 #map {
   height: 50vh;
   padding: 3em;
+}
+
+.h2 {
+  font-size: 1.7em !important;
+  background-color: rgba(255, 255, 255, 1) !important;
+}
+
+.text-overlay {
+  background-color: rgba(35, 37, 37, .4);
+  border-radius: .2em;
 }

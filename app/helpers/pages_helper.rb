@@ -1,5 +1,4 @@
 module PagesHelper
-  # Location can be town or market. They both have name and state attributes.
   def muxer (service, town)
     content = service.content.gsub(/\[ror_town\]/, "#{town.name if town.name}, #{town.state if town.state}")
     c = content.match(/(?<link>\+(.*?)\+)/)
@@ -12,7 +11,8 @@ module PagesHelper
       return content
     end
   end 
-
+  
+  # Location can be town or market. They both have name and state attributes.
   def muxer_light(content, location)
     content.gsub(/\[ror_town\]/, "#{location.name if location.name}, #{location.state if location.state}")
   end
