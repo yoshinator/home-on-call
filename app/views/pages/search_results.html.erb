@@ -8,7 +8,7 @@
 <div class="container">
   <h1>Search Results</h1>
   <% @services.each do |service|%>
-    <%=link_to service.title, public_service_path(service)%>
+    <h4 class="h4"><%=link_to service.title, public_service_path(service)%></h4> 
   <% end %>
 
 </div>
