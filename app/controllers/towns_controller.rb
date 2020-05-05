@@ -27,8 +27,11 @@ class TownsController < ApplicationController
   # end 
 
   def bulk_create
-    Town.bulk_create(town_params)
-    redirect_to towns_path
+    if Town.bulk_create(town_params)
+      redirect_to towns_path, notice: 'Towns were succesfully created'
+    else 
+      render :bulk_new
+    end
   end 
   # POST /towns
   def create
