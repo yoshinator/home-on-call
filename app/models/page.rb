@@ -6,9 +6,9 @@ class Page < ApplicationRecord
   # Store Google Data. 
   def self.init(service, town)
     page = self.find_or_create_by(service_id: service.id, town_id: town.id)
-      if !page.google_town_info && !page.google_business_info || page.updated_at.advance(months: 6) > Time.now
+      if !page.google_town_info && !page.google_business_info || page.updated_at.advance(months: 12) > Time.now
         google_client = GooglePlaces::Client.new(ENV["GOOGLE_PLACES_API_KEY"])
-        businesses = google_client.spots_by_query("#{service.title} near #{town.name} #{town.state}", detail: true)
+        businesses = google_client.spots_by_query("#{service.title} near #{town.name} #{town.state}")
         spot = google_client.spots_by_query("#{town.name}, #{town.state}")[0]
         page.google_town_info = spot.json_result_object.to_json || ""
         page.google_business_info = parse_businesses(businesses).to_json || ""
