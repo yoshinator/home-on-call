@@ -61,7 +61,10 @@
         <hr>
         <p class="small"><span itemprop="name"><%=b["name"]%></span></p> 
         <p class="small"><span itemprop="address"><%=b["formatted_address"]%></p> 
-        <%= "<p class='small'><span itemprop='telephone'> #{b['formatted_phone_number']}</span></p>" if b['formatted_phone_number'] %>
+        <%if b['formatted_phone_number']%>
+          <p class='small'><span itemprop='telephone'> 
+          <%=b['formatted_phone_number']%></span></p>
+        <%end%>
       </div>
       <%end%>
     </section>
