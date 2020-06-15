@@ -41,7 +41,7 @@ SitemapGenerator::Sitemap.create do
   #   end
 
   Service.find_each do |service|
-    add public_service_path(service), :changefreq => 'weekly', :lastmod => service.updated_at
+    add public_service_path(service), :changefreq => 'weekly', :lastmod => Time.now
   end 
   
   Town.find_each do |town|
@@ -52,7 +52,7 @@ SitemapGenerator::Sitemap.create do
   end 
 
   Market.find_each do |market|
-    add public_market_path(market), :changefreq => 'monthly', :lastmod => market.updated_at
+    add public_market_path(market), :changefreq => 'monthly', :lastmod => Time.now
     Service.find_each do |service|
       add public_market_service_path(market, service), :changefreq => 'weekly', :lastmod => Time.now
     end 
