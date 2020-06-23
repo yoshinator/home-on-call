@@ -1,7 +1,6 @@
 <%= content_for(:canonical, request.url)%>
 <%= content_for(:title, "#{@market.name}, #{@town.name}, #{@town.county}") %>
 <%= content_for(:meta_description, "#{@town.name} in #{@market.name}") %>
-<%= content_for(:meta_keywords, "#{@town.name}, #{@market.name}") %>
 <%= content_for(:robots, "INDEX, FOLLOW") %>
 
 <%= content_for :my_mast do %>

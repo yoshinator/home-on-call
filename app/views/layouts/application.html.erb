@@ -18,7 +18,6 @@
     <%end%>
     <%= "<link rel='canonical' href='#{yield(:canonical)}'/>".html_safe if content_for?(:canonical)%>
     <meta name="description" content="<%=yield(:meta_description)%>"/>
-    <meta name="keywords" content="<%=yield(:meta_keywords)%>"/>
     <meta name="robots" content="<%=yield(:robots)%>"/>
     <meta property="og:title" content="<%=yield(:og_title)%>"/>
     <meta property="og:description" content="<%=yield(:og_description)%>"/>
@@ -44,6 +43,14 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+
+
+<%= favicon_link_tag 'favicon/favicon.ico' %>
+<%= favicon_link_tag "favicon/apple-touch-icon.png", rel: 'apple-touch-icon', type: 'image/png' %>
+<%= favicon_link_tag "favicon/android-chrome-192x192.png", rel: 'android-chrome-icon', type: 'image/png', sizes: "192x192" %>
+<%= favicon_link_tag "favicon/android-chrome-512x512.png", rel: 'android-chrome-icon', type: 'image/png', sizes: "512x512" %>
+
   </head>
 
   <body id="page-top">

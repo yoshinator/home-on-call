@@ -5,7 +5,6 @@
 <% else%>
   <%= content_for(:meta_description, "#{@service.title} in #{@town.name}")%>
 <% end %>
-<%= content_for(:meta_keywords, "#{@service.title}, #{@town.name}, #{@town.state.upcase}") %>
 <%= content_for(:robots, "INDEX, FOLLOW") %>
 <%= content_for(:og_title, "#{@service.title} #{@town.name}, #{@town.state.upcase}")%>
 <%= content_for(:og_description, "#{sanitize(muxer_light(@service.meta_description, @town))}")%>
