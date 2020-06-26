@@ -26,10 +26,11 @@
 <%end%>
 
 <!--Main Content Section-->
-<main class="container my-3 scroll-stop">
+<main >
+  <article class="container my-3 scroll-stop">
+    <%=sanitize(muxer(@service, @town))%>
+  </article>
 
-  <%=sanitize(muxer(@service, @town))%>
-</main>
 
 <!--Lead Form-->
 <%= render "layouts/lead_picker", lead: @lead, client: @client, service: @service%>
@@ -44,7 +45,7 @@
 <%= render 'faq', business_type: @service.business_type %>
 
 <!-- Other services section-->
-<section class="row container">
+<aside class="row container">
   <section class="container my-3 scroll-stop col-7" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
     <h2 class="py-2">Other <%=@service.business_type.name%> Services in <span itemprop="addressLocality"><%= @town.name.titleize%></span>, <span itemprop="addressRegion"><%=@town.state.upcase%></span></h2>
     <ul>
@@ -68,7 +69,7 @@
       <%end%>
     </section>
   </section>
-</section>
+</aside>
 
     <!--Google Maps Dog-->
     <div id="map"></div>
@@ -116,3 +117,4 @@
     <%= image_tag @page.town_image, alt: "#{@service.title} #{@town.name}"%>
   </div>
 <%end%>
+</main>
