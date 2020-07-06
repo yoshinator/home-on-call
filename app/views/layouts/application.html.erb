@@ -54,6 +54,19 @@
 <%= favicon_link_tag "favicon/android-chrome-192x192.png", rel: 'android-chrome-icon', type: 'image/png', sizes: "192x192" %>
 <%= favicon_link_tag "favicon/android-chrome-512x512.png", rel: 'android-chrome-icon', type: 'image/png', sizes: "512x512" %>
 
+<script type="application/ld+json">
+{ "@context" : "http://schema.org",
+  "@type" : "Organization",
+  "name" : "HomeOnCall",
+  "alternateName" : "Home On Call",
+  "url" : "https://www.homeoncall.com/",
+  "contactPoint": [
+    { "@type": "ContactPoint",
+      "telephone": "+1-201-675-6069",
+      "contactType": "Customer Service"}],
+  "sameAs" : [ "https://www.facebook.com/HomeOnCall"]
+}
+</script>
   </head>
 
   <body id="page-top">
