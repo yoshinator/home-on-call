@@ -1,12 +1,11 @@
 import greyscale from './greyscale';
 import easing from './easing';
-import tinyMce from "./vendor/tinymce";
 
 $(document).on('ready turbolinks:load', function () {
 
   greyscale();
   easing();
-  tinyMce();
+
   // Multi Step Lead Form.
 
   $("#next-1").click(function (e) {
