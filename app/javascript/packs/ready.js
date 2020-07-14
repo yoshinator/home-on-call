@@ -1,3 +1,5 @@
+
+import 'bootstrap'
 import greyscale from './greyscale';
 import easing from './easing';
 
