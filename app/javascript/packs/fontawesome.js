@@ -7,3 +7,5 @@ export default function fontawesome(){
   library.add(fab, fas, far)
   dom.watch()
 }
+
+fontawesome()
