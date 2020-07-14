@@ -1,4 +1,4 @@
-
+import './src/bootstraplazy.scss'
 import 'bootstrap'
 import greyscale from './greyscale';
 import easing from './easing';
