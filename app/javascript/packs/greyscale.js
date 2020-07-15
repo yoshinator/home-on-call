@@ -1,4 +1,5 @@
 // GREY SCALE
+import 'bootstrap'
 export default function greyscale(){
   (function ($) {
     "use strict"; // Start of use strict
