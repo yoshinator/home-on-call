@@ -1,10 +1,8 @@
 // GREY SCALE
-import 'bootstrap'
 export default function greyscale(){
   (function ($) {
     "use strict"; // Start of use strict
     
-    console.log("scrolling")
     // Smooth scrolling using jQuery easing
     $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
       if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
