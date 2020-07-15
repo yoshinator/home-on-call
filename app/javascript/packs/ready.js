@@ -77,14 +77,14 @@ $(document).on('ready turbolinks:load', function () {
   $('#myModal').modal();
 
   // Show characters left for meta description. 
-  $('#meta-word-text').keyup(function(e){
+  $('#meta-word-text').keyup(function (e) {
     var numWords = $.trim($("#meta-word-text").val()).split("").length;
-    $('#meta-word-label').text(`Characters left ${120-numWords}`)
+    $('#meta-word-label').text(`Characters left ${120 - numWords}`)
     console.log($("#meta-word-text").val())
   })
 
   // FAQ Collapse
-  $(".collapsible-item").click(function(e){
+  $(".collapsible-item").click(function (e) {
     console.log(this)
     $(e.target).siblings().toggle()
     $(this).toggleClass("active")
