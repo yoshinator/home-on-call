@@ -16,6 +16,9 @@
       <%else%>
       <title> Home On Call | Quality Local Contractors</title>
     <%end%>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', :defer => "defer" %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= "<link rel='canonical' href='#{yield(:canonical)}'/>".html_safe if content_for?(:canonical)%>
     <meta name="description" content="<%=yield(:meta_description)%>"/>
     <meta name="robots" content="<%=yield(:robots)%>"/>
@@ -38,13 +41,6 @@
     <%= csp_meta_tag %>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <!--links go here-->
-    
-
-
 
 <%= favicon_link_tag 'favicon/favicon.ico' %>
 <%= favicon_link_tag "favicon/apple-touch-icon.png", rel: 'apple-touch-icon', type: 'image/png' %>
