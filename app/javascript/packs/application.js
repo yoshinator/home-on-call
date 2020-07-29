@@ -8,7 +8,6 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
-$(document).on('turbolinks:load', ()=> console.log("FUCKKKK!!"))
 import 'bootstrap'
 import './src/application.scss'
 import './ready'
