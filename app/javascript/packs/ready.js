@@ -76,7 +76,6 @@ $(document).on('turbolinks:load', function () {
   // // Modal toggle
   // $('#myModal').modal();
 
-<<<<<<< HEAD
   // Show characters left for meta description. 
   $('#meta-word-text').keyup(function (e) {
     var numWords = $.trim($("#meta-word-text").val()).split("").length;
@@ -89,17 +88,3 @@ $(document).on('turbolinks:load', function () {
     $(this).toggleClass("active")
   })
 });
-=======
-  // // Show characters left for meta description. 
-  // $('#meta-word-text').keyup(function(e){
-  //   var numWords = $.trim($("#meta-word-text").val()).split("").length;
-  //   $('#meta-word-label').text(`Characters left ${120-numWords}`)
-  // })
-
-  // // FAQ Collapse
-  // $(".collapsible-item").click(function(e){
-  //   $(e.target).siblings().toggle()
-  //   $(this).toggleClass("active")
-  // })
-});
->>>>>>> ad22a3f... ?
