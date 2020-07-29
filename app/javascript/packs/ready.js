@@ -2,7 +2,7 @@ import greyscale from './greyscale';
 import easing from './easing';
 
 console.log("OUTSIDE DOCUMENT READY")
-$(document).on('turbolinks:load', function () {
+$(document).on('ready turbolinks:load', function () {
  console.log("INSIDE DOCUMENT READY")
   // greyscale();
   // easing();
