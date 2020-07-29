@@ -2,7 +2,7 @@ import greyscale from './greyscale';
 import easing from './easing';
 
 $(document).on('ready turbolinks:load', function () {
-
+ console.log("LOADED Potato")
   greyscale();
   easing();
 
