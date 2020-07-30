@@ -4,80 +4,84 @@ import easing from './easing';
 console.log("OUTSIDE DOCUMENT READY")
 $(document).on('ready turbolinks:load', function () {
  console.log("INSIDE DOCUMENT READY")
-  // greyscale();
-  // easing();
+  greyscale();
+  easing();
 
-  // // Multi Step Lead Form.
+  // Multi Step Lead Form.
 
-  // $("#next-1").click(function (e) {
-  //   e.preventDefault();
-  //   $("#second").show();
-  //   $("#first").hide();
-  //   $("#progressBar").css("width", "40%");
-  //   $("#progressText").text("Step - 2");
-  // });
+  $("#next-1").click(function (e) {
+    e.preventDefault();
+    $("#second").show();
+    $("#first").hide();
+    $("#progressBar").css("width", "40%");
+    $("#progressText").text("Step - 2");
+  });
 
-  // $("#next-2").click(function (e) {
-  //   e.preventDefault();
-  //   $("#third").show();
-  //   $("#second").hide();
-  //   $("#progressBar").css("width", "60%");
-  //   $("#progressText").text("Step - 3");
-  // });
+  $("#next-2").click(function (e) {
+    e.preventDefault();
+    $("#third").show();
+    $("#second").hide();
+    $("#progressBar").css("width", "60%");
+    $("#progressText").text("Step - 3");
+  });
 
-  // $("#next-3").click(function (e) {
-  //   e.preventDefault();
-  //   $("#fourth").show();
-  //   $("#third").hide();
-  //   $("#progressBar").css("width", "80%");
-  //   $("#progressText").text("Step - 4");
-  // });
+  $("#next-3").click(function (e) {
+    e.preventDefault();
+    $("#fourth").show();
+    $("#third").hide();
+    $("#progressBar").css("width", "80%");
+    $("#progressText").text("Step - 4");
+  });
 
-  // $("#next-4").click(function (e) {
-  //   e.preventDefault();
-  //   $("#fifth").show();
-  //   $("#fourth").hide();
-  //   $("#progressBar").css("width", "100%");
-  //   $("#progressText").text("Step - 5");
-  // });
+  $("#next-4").click(function (e) {
+    e.preventDefault();
+    $("#fifth").show();
+    $("#fourth").hide();
+    $("#progressBar").css("width", "100%");
+    $("#progressText").text("Step - 5");
+  });
 
-  // $("#prev-2").click(function (e) {
-  //   e.preventDefault();
-  //   $("#second").hide();
-  //   $("#first").show();
-  //   $("#progressBar").css("width", "20%");
-  //   $("#progressText").text("Step - 1");
-  // })
+  $("#prev-2").click(function (e) {
+    e.preventDefault();
+    $("#second").hide();
+    $("#first").show();
+    $("#progressBar").css("width", "20%");
+    $("#progressText").text("Step - 1");
+  })
 
-  // $("#prev-3").click(function (e) {
-  //   e.preventDefault();
-  //   $("#third").hide();
-  //   $("#second").show();
-  //   $("#progressBar").css("width", "40%");
-  //   $("#progressText").text("Step - 2");
-  // })
+  $("#prev-3").click(function (e) {
+    e.preventDefault();
+    $("#third").hide();
+    $("#second").show();
+    $("#progressBar").css("width", "40%");
+    $("#progressText").text("Step - 2");
+  })
 
-  // $("#prev-4").click(function (e) {
-  //   e.preventDefault();
-  //   $("#fourth").hide();
-  //   $("#third").show();
-  //   $("#progressBar").css("width", "60%");
-  //   $("#progressText").text("Step - 3");
-  // });
+  $("#prev-4").click(function (e) {
+    e.preventDefault();
+    $("#fourth").hide();
+    $("#third").show();
+    $("#progressBar").css("width", "60%");
+    $("#progressText").text("Step - 3");
+  });
 
-  // $("#prev-5").click(function (e) {
-  //   e.preventDefault();
-  //   $("#fifth").hide();
-  //   $("#fourth").show();
-  //   $("#progressBar").css("width", "80%");
-  //   $("#progressText").text("Step - 4");
-  // });
+  $("#prev-5").click(function (e) {
+    e.preventDefault();
+    $("#fifth").hide();
+    $("#fourth").show();
+    $("#progressBar").css("width", "80%");
+    $("#progressText").text("Step - 4");
+  });
 
-  // // Modal toggle
-  // $('#myModal').modal();
+  // Modal toggle
+  $('#myModal').modal();
 
   // Show characters left for meta description. 
+<<<<<<< HEAD
   $('#meta-word-text').keyup(function (e) {
+=======
+  $('#meta-word-text').keyup(function(e){
+>>>>>>> d9a24bf... staging
     var numWords = $.trim($("#meta-word-text").val()).split("").length;
     $('#meta-word-label').text(`Characters left ${120-numWords}`)
   })
