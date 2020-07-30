@@ -77,11 +77,7 @@ $(document).on('ready turbolinks:load', function () {
   $('#myModal').modal();
 
   // Show characters left for meta description. 
-<<<<<<< HEAD
   $('#meta-word-text').keyup(function (e) {
-=======
-  $('#meta-word-text').keyup(function(e){
->>>>>>> d9a24bf... staging
     var numWords = $.trim($("#meta-word-text").val()).split("").length;
     $('#meta-word-label').text(`Characters left ${120-numWords}`)
   })
