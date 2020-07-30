@@ -16,7 +16,9 @@
       <%else%>
       <title> Home On Call | Quality Local Contractors</title>
     <%end%>
-
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', :defer => "defer" %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= "<link rel='canonical' href='#{yield(:canonical)}'/>".html_safe if content_for?(:canonical)%>
     <meta name="description" content="<%=yield(:meta_description)%>"/>
     <meta name="robots" content="<%=yield(:robots)%>"/>
@@ -38,16 +40,10 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--links go here-->
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<<<<<<< HEAD
-    <!--links go here-->
-    <%= stylesheet_packs_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_packs_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     
 
@@ -72,30 +68,6 @@
       "sameAs" : [ "https://www.facebook.com/HomeOnCall"]
     }
     </script>
-=======
-
-<%= favicon_link_tag 'favicon/favicon.ico' %>
-<%= favicon_link_tag "favicon/apple-touch-icon.png", rel: 'apple-touch-icon', type: 'image/png' %>
-<%= favicon_link_tag "favicon/android-chrome-192x192.png", rel: 'android-chrome-icon', type: 'image/png', sizes: "192x192" %>
-<%= favicon_link_tag "favicon/android-chrome-512x512.png", rel: 'android-chrome-icon', type: 'image/png', sizes: "512x512" %>
-
-<script type="application/ld+json">
-{ "@context" : "http://schema.org",
-  "@type" : "Organization",
-  "name" : "HomeOnCall",
-  "alternateName" : "Home On Call",
-  "url" : "https://www.homeoncall.com/",
-  "contactPoint": [
-    { "@type": "ContactPoint",
-      "telephone": "+1-201-675-6069",
-      "contactType": "Customer Service"},
-      {"@type": "ContactPoint",
-      "email": "info@homeoncall.com",
-      "contactType": "Customer Service"}],
-  "sameAs" : [ "https://www.facebook.com/HomeOnCall"]
-}
-</script>
->>>>>>> 0d8bd5c... staging
   </head>
 
   <body id="page-top">
