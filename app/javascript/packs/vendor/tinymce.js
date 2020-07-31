@@ -18,6 +18,7 @@ function tinyMce() {
     // some other settings, like height, language,         
     // order of buttons on your toolbar etc.
     height: 400,
+    content_css: '/styles/content.min.css', // <-- this is in the public folder
     plugins: ['table', 'lists', 'paste', 'link', 'autosave', 'code','wordcount'],
     skin_url: oxide
   });
