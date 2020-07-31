@@ -1,5 +1,6 @@
 import tinymce from 'tinymce/tinymce';
 import 'tinymce/themes/silver/theme';
+import 'tinymce/icons/default/icons';
 import 'tinymce/plugins/table';
 import 'tinymce/plugins/lists';
 import 'tinymce/plugins/paste';
@@ -13,6 +14,7 @@ function tinyMce() {
   console.log("Initializing tinyMce")
   tinymce.init({
     selector: '#tiny',
+    skin: false,
     // some other settings, like height, language,         
     // order of buttons on your toolbar etc.
     height: 400,

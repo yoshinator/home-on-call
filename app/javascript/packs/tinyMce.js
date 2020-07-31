@@ -1,6 +1,6 @@
 import tinyMce from "./vendor/tinymce";
 
-$(document).on('ready turbolinks:load', ()=>{
+$(document).on('turbolinks:load', ()=>{
   tinyMce()
 })
 
