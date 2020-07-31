@@ -1,3 +1,4 @@
+<%= javascript_pack_tag 'tinyMce' %>
 <%= form_with(model: service, local: true) do |form| %>
   <% if service.errors.any? %>
     <div id="error_explanation">
@@ -49,4 +50,3 @@
   </div>
 <% end %>
 
-<%= javascript_pack_tag 'tinyMce' %>

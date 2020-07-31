@@ -1,2 +1,6 @@
 import tinyMce from "./vendor/tinymce";
-tinyMce()
+
+$(document).on('turbolinks:load', ()=>{
+  tinyMce()
+})
+
