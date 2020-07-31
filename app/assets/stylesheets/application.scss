@@ -15,27 +15,30 @@
  */
 
 
-  body{
+body{
    background-color: #f8f7f1;
    background-image: image-url('home-on-call-bg.webp');
    background-position: center center;
    background-attachment: fixed;
-   background-size: cover;
-   background-repeat: no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: 'Nunito';
+  letter-spacing: 0.0625em;
  }
 
- th, td {
+th, td {
   padding-left: 1.1em;
   padding-right: 1.1em;
- }
- td:nth-last-child(1), td:nth-last-child(2), td:nth-last-child(3) {
+}
+
+td:nth-last-child(1), td:nth-last-child(2), td:nth-last-child(3) {
   padding-left: .2em;
   padding-right: .2em;
- }
+}
 
- main {
-   display: block; //fix ie bug where main is displayed inline
- }
+main {
+  display: block; //fix ie bug where main is displayed inline
+}
 
 #mainNav {
   min-height: 56px;
@@ -122,7 +125,7 @@
   }
 }
 
- .masthead {
+.masthead {
   position: relative;
   width: 100%;
   height: auto !important;
@@ -347,11 +350,6 @@
   margin: 0px;
 }
 
-body {
-  font-family: 'Nunito';
-  letter-spacing: 0.0625em;
-}
-
 a {
   color: #64a19d;
 }
@@ -378,7 +376,6 @@ footer {
 }
 
 // Custom Styles
-
 .none-root-masthead{
   max-height: 10vh;
 }
@@ -394,16 +391,16 @@ footer {
    display: block;
  }
 
- .service-image {
+.service-image {
   //  height: 200px;
   width: 200px;
- }
+}
 
- .page-image {
+.page-image {
    width: 20rem;
- }
+}
  
- .full-height {
+.full-height {
   height: 90vh;
 }
 

@@ -1,8 +1,9 @@
 import greyscale from './greyscale';
 import easing from './easing';
 
+console.log("OUTSIDE DOCUMENT READY")
 $(document).on('ready turbolinks:load', function () {
-
+ console.log("INSIDE DOCUMENT READY")
   greyscale();
   easing();
 
@@ -79,12 +80,18 @@ $(document).on('ready turbolinks:load', function () {
   $('#meta-word-text').keyup(function(e){
     var numWords = $.trim($("#meta-word-text").val()).split("").length;
     $('#meta-word-label').text(`Characters left ${120-numWords}`)
+<<<<<<< HEAD
     console.log($("#meta-word-text").val())
+=======
+>>>>>>> staging
   })
 
   // FAQ Collapse
   $(".collapsible-item").click(function(e){
+<<<<<<< HEAD
     console.log(this)
+=======
+>>>>>>> staging
     $(e.target).siblings().toggle()
     $(this).toggleClass("active")
   })
