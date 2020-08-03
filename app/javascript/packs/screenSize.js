@@ -1,6 +1,6 @@
 $(document).on('ready turbolinks:load', ()=>{
   el = $('.placeholder1')
-
+  console.log(el)
   width = $(window).width();
   mobile_breakpoint = 480;
 
@@ -22,5 +22,6 @@ $(document).on('ready turbolinks:load', ()=>{
   } else {
     url = data.desktopUrl;
   }
+  console.log(el2, data)
   el2.css("background", `url(${url})`)
 })
