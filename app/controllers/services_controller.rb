@@ -34,6 +34,7 @@ class ServicesController < ApplicationController
   # PATCH/PUT /services/1
   def update
     if @service.update(service_params)
+      @service.process_images
       redirect_to @service, notice: 'Service was successfully updated.'
     else
       render :edit

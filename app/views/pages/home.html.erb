@@ -1,3 +1,4 @@
+<%= javascript_pack_tag 'screenSize' %>
 <%= content_for(:canonical, request.url)%>
 <%= content_for(:title, "Home On Call") %>
 <%= content_for(:meta_description, "Home On Call. Get a call from a pro within 30 minutes or take 10 percent off the quoted price.") %>
@@ -17,7 +18,10 @@
         </div>
       </div>
     </div>
-      <img src="<%=asset_path("home-improvement-contractor-service.jpg")%>" class="img-fluid" style="width: 100vw;" alt="Home Improvement Contractor">
+    <img src="" class="img-fluid placeholder1" style="width: 100vw;" alt="Home Improvement Contractor"
+      data-mobile-url=<%=asset_path("home-improvement-contractor-service-mobile.jpg")%>
+      data-desktop-url=<%=asset_path("home-improvement-contractor-service.jpg")%>
+    />
   </section>
 
   <section class="inverted-section">
@@ -34,7 +38,10 @@
       <!-- Featured Service Row -->
       <div class="row align-items-center no-gutters mb-4 mb-lg-5">
         <div class="col-xl-8 col-lg-7">
-          <img class="img-fluid mb-3 mb-lg-0" src=<%=asset_path("air_conditioning_technician.jpg")%> alt="HVAC Technician">
+          <img src="" class="img-fluid mb-3 mb-lg-0 placeholder1" style="width: 100vw;" alt="HVAC Technician"
+            data-mobile-url=<%=asset_path("air_conditioning_technician_mobile.jpg")%>
+            data-desktop-url=<%=asset_path("air_conditioning_technician.jpg")%>
+          />
         </div>
         <div class="col-xl-4 col-lg-5">
           <div class="featured-text text-center text-lg-left">
@@ -48,7 +55,10 @@
       <!-- Painting Service Row -->
       <div id="painting" class="row justify-content-center no-gutters mb-5 mb-lg-0">
         <div class="col-lg-6">
-          <img class="img-fluid" src=<%=asset_path("painting_contractor.jpg")%> alt="Painting contractor near me">
+          <img src="" class="img-fluid mb-3 mb-lg-0 placeholder1" style="width: 100vw;" alt="Painting contractor near me"
+            data-mobile-url=<%=asset_path("painting_contractor_mobile.jpg")%>
+            data-desktop-url=<%=asset_path("painting_contractor.jpg")%>
+          />
         </div>
         <div class="col-lg-6">
           <div class="bg-black text-center h-100 project">
@@ -67,7 +77,10 @@
       <!-- Sewer Line Replacement Service Row -->
       <div id="junk-removal" class="row justify-content-center no-gutters">
         <div class="col-lg-6">
-          <img class="img-fluid" src=<%=asset_path("action-waste-junk-removal-truck.jpg")%> alt="cheap-junk-removal">
+          <img src="" class="img-fluid mb-3 mb-lg-0 placeholder1" style="width: 100vw;" alt="cheap-junk-removal"
+            data-mobile-url=<%=asset_path("action-waste-junk-removal-truck-mobile.jpg")%>
+            data-desktop-url=<%=asset_path("action-waste-junk-removal-truck.jpg")%>
+          />
         </div>
         <div class="col-lg-6 order-lg-first">
           <div class="bg-black text-center h-100 project">
