@@ -13,31 +13,43 @@
     <div class="container">
         <p id="notice"><%= notice %></p>
 
+      <h3>Town Meta</h3>
         <p>
-          <strong>Meta Description:</strong>
+          <p><strong>Town Meta Description:</strong></p>
           <%= @service.meta_description %>
         </p>
+        <h3>Main Meta</h3>
         <p>
-          <strong>Title:</strong>
+          <p><strong>Main Meta Description:</strong></p>
+          <%= @service.main_meta %>
+        </p>
+        <p>
+          <p><strong>Title:</strong></p>
           <%= @service.title %>
         </p>
 
         <p>
-          <strong>Image: </strong>
+          <p><strong>Image: </strong></p>
           <%= image_tag @service.image, alt: @service.title, class: "service-image" if @service.image%>
         </p>
+
         <p>
-          <strong>Content:</strong>
+          <p><strong>Town Content:</strong></p>
           <%= sanitize(@service.content) %>
         </p>
 
         <p>
-          <strong>Businesstype:</strong>
+          <p><strong>Main Content:</strong></p>
+          <%= sanitize(@service.main_content) %>
+        </p>
+
+        <p>
+          <p><strong>Businesstype:</strong></p>
           <%= @service.business_type.name %>
         </p>
 
         <p>
-          <strong>Slug:</strong>
+          <p><strong>Slug:</strong></p>
           <%= @service.slug %>
         </p>
 

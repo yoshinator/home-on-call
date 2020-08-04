@@ -1,27 +1,28 @@
-$(document).on('ready turbolinks:load', ()=>{
-  el = $('.placeholder1')
-  console.log(el)
-  width = $(window).width();
-  mobile_breakpoint = 480;
+export default function screenSize (){
+  let el = $('.placeholder1')
+  if (el){
+    let width = $(window).width();
+    let mobile_breakpoint = 480;
 
-  //homepage images
-  el.get().forEach(img => {
+    //homepage images
+    el.get().forEach(img => {
+      if (width <= mobile_breakpoint) {
+        var url = img.dataset.mobileUrl;
+      } else {
+        var url = img.dataset.desktopUrl;
+      }
+      img.src =  url
+    })
+
+    // mast head on homepage only
+    let el2 = $('.root-mast')
+    let data = el2.data()
     if (width <= mobile_breakpoint) {
-      url = img.dataset.mobileUrl;
+      var url = data.mobileUrl;
     } else {
-      url = img.dataset.desktopUrl;
+      var url = data.desktopUrl;
     }
-    img.src =  url
-  })
-
-  // mast head on homepage only
-  el2 = $('.root-mast')
-  data = el2.data()
-  if (width <= mobile_breakpoint) {
-    url = data.mobileUrl;
-  } else {
-    url = data.desktopUrl;
+    console.log(el2, data)
+    el2.css("background", `url(${url})`)
   }
-  console.log(el2, data)
-  el2.css("background", `url(${url})`)
-})
+}
