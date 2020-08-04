@@ -34,7 +34,6 @@ class ServicesController < ApplicationController
   # PATCH/PUT /services/1
   def update
     if @service.update(service_params)
-      @service.process_images
       redirect_to @service, notice: 'Service was successfully updated.'
     else
       render :edit
@@ -55,6 +54,6 @@ class ServicesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def service_params
-      params.require(:service).permit(:title, :content, :business_type_id, :image, :featured_image, :meta_description, :slug)
+      params.require(:service).permit(:title, :content, :business_type_id, :image, :featured_image, :meta_description, :main_meta, :main_content, :slug)
     end
 end
