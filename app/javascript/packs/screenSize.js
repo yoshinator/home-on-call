@@ -7,9 +7,9 @@ export default function screenSize (){
     //homepage images
     el.get().forEach(img => {
       if (width <= mobile_breakpoint) {
-        url = img.dataset.mobileUrl;
+        var url = img.dataset.mobileUrl;
       } else {
-        url = img.dataset.desktopUrl;
+        var url = img.dataset.desktopUrl;
       }
       img.src =  url
     })
