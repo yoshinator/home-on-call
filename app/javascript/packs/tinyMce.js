@@ -10,17 +10,18 @@ import 'tinymce/plugins/link';
 import 'tinymce/plugins/autosave';
 import 'tinymce/plugins/code';
 import 'tinymce/plugins/wordcount';
+import oxide from './src/skins/ui/oxide-dark/skin.min.css';
 
-$("#tiny").on('click', function (){
-  console.log("Initializing tinyMce")
+export default function tinyMce(){
   const newLocal = '/styles/content.min.css';
   tinymce.init({
-    selector: '#tiny',
+    selector: '.tiny',
     skin: false,
     // some other settings, like height, language,         
     // order of buttons on your toolbar etc.
     height: 400,
     content_css: newLocal, // <-- this is in the public folder
-    plugins: ['table', 'lists', 'paste', 'link', 'autosave', 'code', 'wordcount']
+    plugins: ['table', 'lists', 'paste', 'link', 'autosave', 'code', 'wordcount'],
+    skin_url: oxide
   });
-})
+}

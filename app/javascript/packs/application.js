@@ -12,7 +12,6 @@ import 'bootstrap'
 import './src/application.scss'
 import './ready'
 import fontawesome from './fontawesome'
-
 fontawesome()
 
 // Uncomment to copy all static images under ../images to the output folder and reference
