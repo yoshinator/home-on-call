@@ -19,8 +19,7 @@ module PagesHelper
 
   def header_selector(service) 
     if service
-      # service.featured_image.attachment ? url_for(service.featured_image) : asset_path('home_service_bathroom.jpg')
-      asset_path('home_service_bathroom.jpg')
+      service.featured_image.attachment ? url_for(service.featured_image) : asset_path('home_service_bathroom.jpg')
     else 
       asset_path('home_service_bathroom.jpg')
     end 
