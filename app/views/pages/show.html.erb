@@ -114,7 +114,7 @@
 <%if @page.town_image.attached?%>
   <div class="container text-center my-5">
   <h5>Picture of <%=@town.name.capitalize%>, <%=@town.state.upcase%></h5>
-    <%= image_tag @page.town_image.service_url, alt: "#{@service.title} #{@town.name}"%>
+    <%= image_tag polymorphic_url(@page.town_image), alt: "#{@service.title} #{@town.name}"%>
   </div>
 <%end%>
 </main>
