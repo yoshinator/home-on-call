@@ -23,7 +23,19 @@ class Service < ApplicationRecord
     end
     #set a default lazily
     self.image_url ||= ActionController::Base.helpers.asset_path("home_service_bathroom_mobile.jpg")
-end
+  end
+
+  def public_featured_url
+    if self.featured_image&.attachment
+      if Rails.env.development?
+            return Rails.application.routes.url_helpers.rails_blob_url(self.featured_image, only_path: true)
+        else
+            return self.featured_image&.service_url&.split("?")&.first
+        end
+      end 
+  end 
+
+
   private 
   def set_slug 
     self.slug = self.title.parameterize

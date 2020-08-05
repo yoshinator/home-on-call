@@ -8,7 +8,7 @@
 <%= content_for(:robots, "INDEX, FOLLOW") %>
 <%= content_for(:og_title, "#{@service.title} #{@town.name}, #{@town.state.upcase}")%>
 <%= content_for(:og_description, "#{sanitize(muxer_light(@service.meta_description, @town))}")%>
-<%= content_for(:og_image, "#{@service.image}")%>
+<%= content_for(:og_image, "#{@service.public_image_url}")%>
 <%= content_for(:locality_town, "#{@town.name}")%>
 <%= content_for(:locality_state, "#{@town.state}")%>
 <!--Main Content Section-->
