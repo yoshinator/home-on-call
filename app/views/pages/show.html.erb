@@ -8,7 +8,7 @@
 <%= content_for(:robots, "INDEX, FOLLOW") %>
 <%= content_for(:og_title, "#{@service.title} #{@town.name}, #{@town.state.upcase}")%>
 <%= content_for(:og_description, "#{sanitize(muxer_light(@service.meta_description, @town))}")%>
-<%= content_for(:og_image, "#{polymorphic_url @service.image}")%>
+<%= content_for(:og_image, "#{@service.image}")%>
 <%= content_for(:locality_town, "#{@town.name}")%>
 <%= content_for(:locality_state, "#{@town.state}")%>
 <!--Main Content Section-->
@@ -38,7 +38,7 @@
 
 <!-- Bottom image Section-->
 <section class="container my-3 text-center">
-  <%= image_tag polymorphic_url(@service.image), alt: "#{@service.title} in #{@town.name}, #{@town.state.upcase}", class: "img-fluid"%>
+  <%= image_tag @service.image, alt: "#{@service.title} in #{@town.name}, #{@town.state.upcase}", class: "img-fluid"%>
   <a href="#lead-picker" class="btn btn-primary btn-lg my-3 js-scroll-trigger d-block">Get Started For Free</a>
 </section>
 
@@ -114,7 +114,7 @@
 <%if @page.town_image.attached?%>
   <div class="container text-center my-5">
   <h5>Picture of <%=@town.name.capitalize%>, <%=@town.state.upcase%></h5>
-    <%= image_tag polymorphic_url(@page.town_image), alt: "#{@service.title} #{@town.name}"%>
+    <%= image_tag @page.town_image, alt: "#{@service.title} #{@town.name}"%>
   </div>
 <%end%>
 </main>
