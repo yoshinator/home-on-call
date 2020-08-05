@@ -28,6 +28,16 @@ class Page < ApplicationRecord
     Client.where(market_id: market.id, business_type_id: service.business_type.id, active: true).first || Client.first
   end 
 
+    def public_town_img_url
+    if self.town_image&.attachment
+      if Rails.env.development?
+            return Rails.application.routes.url_helpers.rails_blob_url(self.town_image, only_path: true)
+        else
+            return self.town_image&.service_url&.split("?")&.first
+        end
+      end 
+  end 
+
 
   private 
 
