@@ -1,16 +1,13 @@
 import greyscale from './greyscale';
 import easing from './easing';
-import tinyMce from './tinyMce';
 import screenSize from './screenSize';
 import fontawesome from './fontawesome'
 
 fontawesome()
 $(document).on('turbolinks:load', function () {
-  
   screenSize()
   greyscale();
   easing();
-  tinyMce();
 
   // Multi Step Lead Form.
 

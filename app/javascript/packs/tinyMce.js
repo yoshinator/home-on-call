@@ -12,7 +12,7 @@ import 'tinymce/plugins/code';
 import 'tinymce/plugins/wordcount';
 import oxide from './src/skins/ui/oxide-dark/skin.min.css';
 
-export default function tinyMce(){
+(function (){
   const newLocal = '/styles/content.min.css';
   tinymce.init({
     selector: '.tiny',
@@ -24,4 +24,4 @@ export default function tinyMce(){
     plugins: ['table', 'lists', 'paste', 'link', 'autosave', 'code', 'wordcount'],
     skin_url: oxide
   });
-}
+})()
