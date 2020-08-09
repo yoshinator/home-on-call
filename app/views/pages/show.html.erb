@@ -38,7 +38,7 @@
 
 <!-- Bottom image Section-->
 <section class="container my-3 text-center">
-  <%= image_tag @service.public_image_url, alt: "#{@service.title} in #{@town.name}, #{@town.state.upcase}", class: "img-fluid"%>
+  <%= image_tag @service.public_image_url, alt: "#{@service.title} in #{@town.name}, #{@town.state.upcase}", class: "img-fluid", loadin: "lazy"%>
   <a href="#lead-picker" class="btn btn-primary btn-lg my-3 js-scroll-trigger d-block">Get Started For Free</a>
 </section>
 
@@ -114,7 +114,7 @@
 <%if @page.town_image.attached?%>
   <div class="container text-center my-5">
   <h5>Picture of <%=@town.name.capitalize%>, <%=@town.state.upcase%></h5>
-    <%= image_tag @page.public_town_img_url, alt: "#{@service.title} #{@town.name}"%>
+    <%= image_tag @page.public_town_img_url, alt: "#{@service.title} #{@town.name}", loading: "lazy"%>
   </div>
 <%end%>
 </main>
