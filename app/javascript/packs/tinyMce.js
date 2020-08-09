@@ -12,16 +12,19 @@ import 'tinymce/plugins/code';
 import 'tinymce/plugins/wordcount';
 import oxide from './src/skins/ui/oxide-dark/skin.min.css';
 
-(function (){
-  const newLocal = '/styles/content.min.css';
-  tinymce.init({
-    selector: '.tiny',
-    skin: false,
-    // some other settings, like height, language,         
-    // order of buttons on your toolbar etc.
-    height: 400,
-    content_css: newLocal, // <-- this is in the public folder
-    plugins: ['table', 'lists', 'paste', 'link', 'autosave', 'code', 'wordcount'],
-    skin_url: oxide
-  });
-})()
+document.addEventListener("turbolinks:load", ()=> {
+
+    const newLocal = '/styles/content.min.css';
+    tinymce.init({
+      selector: '.tiny',
+      skin: false,
+      // some other settings, like height, language,         
+      // order of buttons on your toolbar etc.
+      height: 400,
+      content_css: newLocal, // <-- this is in the public folder
+      plugins: ['table', 'lists', 'paste', 'link', 'autosave', 'code', 'wordcount'],
+      skin_url: oxide
+    });
+
+})
+
