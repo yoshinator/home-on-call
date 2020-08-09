@@ -1,6 +1,7 @@
 export default function screenSize (){
-  let el = $('.placeholder1')
-  if (el){
+  let body = document.querySelector(".pages.home")
+  if(body){
+    let el = $('.placeholder1')
     let width = $(window).width();
     let mobile_breakpoint = 480;
 
