@@ -1,5 +1,4 @@
 import tinymce from 'tinymce/tinymce';
-import 'tinymce/skins/content/default/content.css';
 import 'tinymce/skins/content/default/content.min.css';
 import 'tinymce/themes/silver/theme';
 import 'tinymce/icons/default/icons';
