@@ -5,6 +5,7 @@ class Service < ApplicationRecord
 
   belongs_to :business_type
   has_many :clients
+  has_many  :pages, dependent: :destroy
 
   scope :search, -> (term) { where("title ilike ? ", "%#{term}%") }
   
