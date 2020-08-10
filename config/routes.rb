@@ -21,6 +21,16 @@ Rails.application.routes.draw do
   # temporary routes until googles stops indexing
   get '/low-cost-hvac-maintenance-contractor/:town_id', to: "pages#redirect_emergency"
   get '/fast-air-conditioner-service-call/:town_id', to: "pages#redirect_emergency"
+
+  get '/affordable-hvac-duct-installation/:town_id', to: "pages#redirect_duct"
+  get '/affordable-air-duct-cleaning/:town_id', to: "pages#redirect_duct"
+
+  get '/best-home-heater-maintenance/:town_id', to: "pages#redirect_heat"
+
+  get '/commercial-hvac-repair/:town_id', to: "pages#redirect_repair"
+
+  get '/affordable-new-construction-remodeling-hvac-installation/:town_id', to: "pages#installation"
+  get '/best-commercial-hvac-installation/:town_id', to: "pages#installation"
   # end of temporary routes
 
   get '/:service_id/:town_id', to: "pages#show", as: "public_bulk_service"

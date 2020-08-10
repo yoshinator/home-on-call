@@ -44,12 +44,32 @@ class PagesController < ApplicationController
   end
 
   def redirect_emergency
-    @town = Town.find_by!(slug: params[:town_id])
-    @service = Service.find_by(slug: "emergency-air-conditioner-repair")
-    redirect_to public_bulk_service_path(@service, @town), status: :moved_permanently
+    redirector("emergency-air-conditioner-repair")
+  end 
+
+  def redirect_duct
+    redirector("air-duct-cleaning-repair-installation")
+  end 
+
+  def redirect_duct
+    redirector("best-home-heater-maintenance")
+  end 
+
+  def redirect_repair
+    redirector("affordable-ac-repair-service")
+  end
+
+  def redirect_install
+    redirector("affordable-hvac-installation")
   end 
 
   private 
+
+  def redirector(service) 
+    @town = Town.find_by!(slug: params[:town_id])
+    @service = Service.find_by(slug: service)
+    redirect_to public_bulk_service_path(@service, @town), status: :moved_permanently
+  end
 
   def page_params
     params.permit(:search)
