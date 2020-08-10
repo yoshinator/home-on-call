@@ -19,8 +19,8 @@
 
     <%= "<link rel='canonical' href='#{yield(:canonical)}'/>".html_safe if content_for?(:canonical)%>
     <meta name="description" content="<%=yield(:meta_description)%>"/>
-    <%= '<meta name="robots" content="noindex nofollow">' unless controller_name == "pages"%>
-    <%= '<meta name="robots" content="index follow">' if controller_name == "pages"%>
+    <%= '<meta name="robots" content="noindex nofollow">'.html_safe unless controller_name == "pages"%>
+    <%= '<meta name="robots" content="index follow">'.html_safe if controller_name == "pages"%>
     <meta property="og:title" content="<%=yield(:og_title)%>"/>
     <meta property="og:description" content="<%=yield(:og_description)%>"/>
     <meta property='og:image' content="<%=yield(:og_image)%>"/>
@@ -78,7 +78,6 @@
       <%= render "layouts/footer"%>
       <%= render "layouts/admin"%>
 
-    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" lazyload> 
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" lazyload>
+      <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&family=Varela+Round&display=swap" rel="stylesheet">
   </body>
 </html>
