@@ -14,6 +14,10 @@ Rails.application.routes.draw do
   get '/search_results', to: "pages#search_results", as: "search_results"
   get '/sitemap.xml', to: "pages#sitemap"
 
+  # temporary routes until googles stops indexing
+   get '/s/affordable-new-construction-remodeling-hvac-installation', to: "pages#redirect_service"
+   get '/s/fast-air-conditioner-service-call', to: "pages#redirect_fast"
+
   get '/s/:service_id', to: "pages#service", as: "public_service" 
   get '/m/:market_id', to: "pages#market", as: "public_market" 
   get '/m/:market_id/:service_id', to: "pages#market_service", as: "public_market_service" 

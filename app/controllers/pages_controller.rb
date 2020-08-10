@@ -63,6 +63,14 @@ class PagesController < ApplicationController
     redirector("affordable-hvac-installation")
   end 
 
+  def redirect_service
+    redirect_to "/s/affordable-hvac-installation", status: :moved_permanently
+  end
+
+  def redirect_fast
+    redirect_to "/s/emergency-air-conditioner-repair", status: :moved_permanently
+  end
+
   private 
 
   def redirector(service) 
