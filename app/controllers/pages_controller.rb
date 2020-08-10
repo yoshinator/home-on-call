@@ -43,6 +43,12 @@ class PagesController < ApplicationController
     redirect_to 'https://storage.googleapis.com/homeoncall.com/sitemaps/sitemap.xml.gz',format:'xml', status: 301
   end
 
+  def redirect_emergency
+    @town = Town.find_by!(slug: params[:town_id])
+    @service = Service.find_by(slug: "emergency-air-conditioner-repair")
+    redirect_to public_bulk_service_path (@service @town), status: :moved_permanently
+  end 
+
   private 
 
   def page_params
