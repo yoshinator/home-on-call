@@ -46,7 +46,7 @@ class PagesController < ApplicationController
   def redirect_emergency
     @town = Town.find_by!(slug: params[:town_id])
     @service = Service.find_by(slug: "emergency-air-conditioner-repair")
-    redirect_to public_bulk_service_path (@service, @town), status: :moved_permanently
+    redirect_to public_bulk_service_path(@service, @town), status: :moved_permanently
   end 
 
   private 
