@@ -59,7 +59,7 @@ class PagesController < ApplicationController
     redirector("affordable-ac-repair-service")
   end
 
-  def redirect_install
+  def redirect_installation
     redirector("affordable-hvac-installation")
   end 
 
