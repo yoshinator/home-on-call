@@ -17,15 +17,15 @@
 <%end%>
 
 <main class="container">
-  <article>>
-    <h2><%=@service.title%></h2>
+  <article>
     <%=@service.main_content.html_safe%>
-    <h2>Markets Where <strong><%=@service.title%></strong> is available</h2>
+    
 
     <section class="container my-3 text-center">
     <%= image_tag @service.public_image_url, alt: "#{@service.title}", class: "img-fluid", loadin: "lazy"%>
     </section>
   </article>
+  <h2>Markets Where <strong><%=@service.title%></strong> is available</h2>
   <ul>
     <%=list_of_market_services(@markets, @service)%>
   </ul>
