@@ -62,6 +62,10 @@ class PagesController < ApplicationController
   def redirect_installation
     redirector("affordable-hvac-installation")
   end 
+  
+  def redirect_junk
+    redirector("junk-removal")
+  end
 
   def redirect_service
     redirect_to "/s/affordable-hvac-installation", status: :moved_permanently
@@ -70,6 +74,11 @@ class PagesController < ApplicationController
   def redirect_fast
     redirect_to "/s/emergency-air-conditioner-repair", status: :moved_permanently
   end
+
+  def redirect_junk_main
+    redirect_to "/s/junk-removal", status: :moved_permanently
+  end
+
 
   private 
 
