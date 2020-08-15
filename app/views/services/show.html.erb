@@ -31,7 +31,15 @@
         <p>
           <p><strong>Image: </strong></p>
           <%= image_tag @service.image, alt: @service.title, class: "service-image" if @service.image%>
+          <%= image_tag @service.public_mobile_image_url, alt: @service.title, class: "service-image" if @service.image%>
+
         </p>
+
+        <h3>Content Images</h3>
+        <% @service.content_images.attachments.each do |img| %>
+        <%= image_tag img, alt: "#{@service.title} #{img.filename}", class: "service-image" if @service.image%>
+      
+        <% end%>
 
         <p>
           <p><strong>Town Content:</strong></p>

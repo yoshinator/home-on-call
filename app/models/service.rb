@@ -2,6 +2,7 @@ class Service < ApplicationRecord
   before_save :set_slug
   has_one_attached :image, dependent: :destroy
   has_one_attached :featured_image, dependent: :destroy
+  has_many_attached :content_images, dependent: :destroy
 
   belongs_to :business_type
   has_many :clients
@@ -13,6 +14,19 @@ class Service < ApplicationRecord
     slug
   end
 
+  def public_mobile_image_url
+    if self.image&.attachment
+      if Rails.env.development?
+            return Rails.application.routes.url_helpers.rails_representation_url(self.image.variant(resize: "300x300").processed, only_path: true)
+        else
+            return self.featured_image&.variant(resize: "300x300").processed.service_url&.split("?")&.first
+        end
+      end 
+  end
+
+  def public_mobile_featured_url
+
+  end
 
   def public_image_url
     if self.image&.attachment
