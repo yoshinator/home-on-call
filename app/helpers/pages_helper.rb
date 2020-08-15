@@ -22,11 +22,40 @@ module PagesHelper
     content.gsub(/\[ror_town\]/, "#{location.name if location.name}, #{location.state if location.state}")
   end
 
-  def header_selector(service) 
-    if service
-      service.featured_image.attachment ? service.public_featured_url : asset_path('home_service_bathroom.jpg')
-    else 
+  def header_selector(service, screen) 
+    if service&.featured_image && screen == "mobile"
+      mobile_large_image(service.featured_image)
+    elsif service&.featured_image && screen == "desktop"
+      desktop_large_image(service.featured_image)
+    else
       asset_path('home_service_bathroom.jpg')
     end 
   end
+
+  def mobile_small_image(image)
+    public_image_url(200, image)
+  end
+
+  def mobile_large_image(image)
+    public_image_url(300, image)
+  end
+
+  def desktop_small_image(image)
+    public_image_url(400, image)
+  end 
+
+  def desktop_large_image(image)
+    public_image_url(600, image)
+  end
+
+  private 
+  def public_image_url(width, image)
+    if image&.attachment
+      if Rails.env.development?
+            return Rails.application.routes.url_helpers.rails_representation_url(image.variant(resize_to_limit: [width,nil]).processed, only_path: true)
+        else
+            return image&.variant(resize_to_limit: [width,nil]).processed.service_url&.split("?")&.first
+        end
+      end 
+  end 
 end

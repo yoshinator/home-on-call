@@ -5,17 +5,20 @@
 <% else%>
   <%= content_for(:meta_description, "#{@service.title} in #{@town.name}")%>
 <% end %>
-<%= content_for(:robots, "INDEX, FOLLOW") %>
 <%= content_for(:og_title, "#{@service.title} #{@town.name}, #{@town.state.upcase}")%>
 <%= content_for(:og_description, "#{sanitize(muxer_light(@service.meta_description, @town))}")%>
-<%= content_for(:og_image, "#{@service.public_image_url}")%>
+<%= content_for(:og_image, "#{desktop_small_image(@service.image)}")%>
 <%= content_for(:locality_town, "#{@town.name}")%>
 <%= content_for(:locality_state, "#{@town.state}")%>
 <!--Main Content Section-->
 <main >
 <!--Masthead Section-->
 <%= content_for :my_mast do %>
-  <header class="masthead" style="background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%, #161616 100%), url(<%=header_selector(@service)%>);">
+  <header class="masthead all-masts" style="background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%, #161616 100%);"
+      data-mobile-url=<%=header_selector(@service, "mobile")%>
+      data-desktop-url=<%=header_selector(@service, "desktop")%>
+  >
+
       <div class="container d-flex h-100 align-items-center">
       <div class="mx-auto text-center ">  
         <div class="text-overlay d-flex align-items-center">
@@ -38,7 +41,11 @@
 
 <!-- Bottom image Section-->
 <section class="container my-3 text-center">
-  <%= image_tag @service.public_image_url, alt: "#{@service.title} in #{@town.name}, #{@town.state.upcase}", class: "img-fluid", loadin: "lazy"%>
+  <img  src="" class="img-fluid placeholder1" 
+        alt=<%="#{@service.title} in #{@town.name}, #{@town.state.upcase}"%> loading="lazy"
+        data-mobile-url=<%=mobile_small_image(@service.image)%>
+        data-desktop-url=<%=desktop_small_image(@service.image)%>
+  />
   <a href="#lead-picker" class="btn btn-primary btn-lg my-3 js-scroll-trigger d-block">Get Started For Free</a>
 </section>
 

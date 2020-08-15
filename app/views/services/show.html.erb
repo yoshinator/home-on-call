@@ -36,7 +36,7 @@
 
         <h3>Content Images</h3>
         <% @service.content_images.attachments.each do |img| %>
-        <%= image_tag img, alt: "#{@service.title} #{img.filename}", class: "service-image" if @service.image%>
+        <%= image_tag mobile_small_image(img), alt: "#{@service.title} #{img.filename}", class: "service-image" if @service.image%>
       
         <% end%>
 
