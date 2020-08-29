@@ -2,6 +2,9 @@
 <%= content_for(:title, "#{@service.title}") %>
 <%= content_for(:meta_description, "#{@service.main_meta} ") %>
 <%= content_for(:robots, "INDEX, FOLLOW") %>
+<%= content_for(:og_title, "#{@service.title}")%>
+<%= content_for(:og_description, "#{@service.main_meta}")%>
+<%= content_for(:og_image, "#{desktop_small_image(@service.image)}")%>
 
 <!--Masthead Section-->
 <%= content_for :my_mast do %>
