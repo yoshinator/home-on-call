@@ -38,7 +38,7 @@ Rails.application.routes.draw do
 
   get '/affordable-new-construction-remodeling-hvac-installation/:town_id', to: "pages#redirect_installation"
   get '/best-commercial-hvac-installation/:town_id', to: "pages#redirect_installation"
-  get  '/junk-removal-cost/:town-id', to: "pages#redirect_junk"
+  get  '/junk-removal-cost/:town_id', to: "pages#redirect_junk"
   # end of temporary routes
 
   get '/:service_id/:town_id', to: "pages#show", as: "public_bulk_service"
