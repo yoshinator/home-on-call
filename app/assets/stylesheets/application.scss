@@ -15,11 +15,26 @@
  */
 
 
+.image-preview{
+  border: 1px solid black;
+  display: inline-flex;
+  text-align: center;
+  background-size: cover;
+  background-repeat: none;
+}
+.image-preview label{
+  width: 20vh;
+  height: 20vh;
+  background-color: rgba(35, 37, 37, .4);
+  color: #f8f7f1;
+  margin: 0;
+  font-weight: bold;
+}
 body{
-   background-color: #f8f7f1;
-   background-image: image-url('home-on-call-bg.webp');
-   background-position: center center;
-   background-attachment: fixed;
+  background-color: #f8f7f1;
+  background-image: image-url('home-on-call-bg.webp');
+  background-position: center center;
+  background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
   font-family: 'Nunito';

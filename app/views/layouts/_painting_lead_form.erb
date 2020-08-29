@@ -10,6 +10,7 @@
   <!-- <form action="" method="post" id="form-data" class="pt-5 pb-2 px-2 bg-light"> -->
   <%= form_with model: lead, class: "pt-5 pb-2 px-2 bg-light" do |f| %>
     <%= f.hidden_field :client_id, value: @client.id%>
+    <%= f.hidden_field :entry, value: request.path%>
     <div id="first" class="text-left">
       <h4 class="text-center p-1">What kind of service are you looking for? </h4>
       <div class="form-check">
