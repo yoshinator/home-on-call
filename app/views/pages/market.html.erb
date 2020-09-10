@@ -1,4 +1,4 @@
-<%= content_for(:canonical, request.url)%>
+<%= content_for(:canonical,  "https://www.homeoncall.com#{request.path}"%>
 <%= content_for(:title, "Home On Call | #{@market.name}") %>
 <%= content_for(:meta_description, "Home On Call  | #{@market.name}") %>
 <%= content_for(:robots, "INDEX, FOLLOW") %>

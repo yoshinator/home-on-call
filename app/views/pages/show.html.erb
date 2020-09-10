@@ -1,4 +1,4 @@
-<%= content_for(:canonical, request.url)%>
+<%= content_for(:canonical, "https://www.homeoncall.com#{request.path}")%>
 <%= content_for(:title, "#{@service.title} #{@town.name}, #{@town.state.upcase}") %>
 <% if  @service.meta_description%>
   <%= content_for(:meta_description, sanitize(muxer_light(@service.meta_description, @town)))%>
