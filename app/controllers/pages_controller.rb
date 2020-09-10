@@ -51,7 +51,7 @@ class PagesController < ApplicationController
     redirector("air-duct-cleaning-repair-installation")
   end 
 
-  def redirect_duct
+  def redirect_heat
     redirector("best-home-heater-maintenance")
   end 
 
