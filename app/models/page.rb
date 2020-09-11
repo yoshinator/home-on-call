@@ -27,6 +27,7 @@ class Page < ApplicationRecord
   def self.get_client(market, service)
     Client.where(market_id: market.id, business_type_id: service.business_type.id, active: true).first || Client.first
   end 
+  
 
     def public_town_img_url
     if self.town_image&.attachment

@@ -23,12 +23,26 @@
 
   <div class="field form-group">
     <%= form.label :state %>
-    <%= form.select :state, options_for_select(Town.States), {},class: "form-control" %>
+    <%= form.select :state, options_for_select(Town.States, town.state), {},class: "form-control" %>
   </div>
 
   <div class="field form-group">
     <%= form.label :market_id %>
     <%= form.collection_select(:market_id, Market.all, :id, :name, {prompt: true},  {class: "form-control"}) %>
+  </div>
+
+  <div class= "image-preview" id="featured-preview" style='background-image: url(<%="#{town.image}"%>)'>
+    <%= form.label :image, "Click to Change Image For Town"%> 
+    <%= form.file_field :image, class: "d-none"%>
+  </div>
+
+  <div class="field">
+    <%= form.label :town_description, "Content suggested minimum 350 words"%>
+    <%= form.text_area :town_description, class: "tiny" %>
+  </div>
+  <div class="field">
+    <%= form.label :service_description, "Content suggested minimum 150 words. Add [ror_service] to embed the service title."%>
+    <%= form.text_area :service_description, class: "tiny" %>
   </div>
 
   <div class="actions">

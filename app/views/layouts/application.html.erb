@@ -45,8 +45,8 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'%>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'tinyMce', 'data-turbolinks-track': 'reload' if controller_name == "services"%>
-    <%= stylesheet_pack_tag 'tinyMce', media: 'all', 'data-turbolinks-track': 'reload' if controller_name == "services"%>
+    <%= javascript_pack_tag 'tinyMce', 'data-turbolinks-track': 'reload' if controller_name == "services" || controller_name == "towns"%>
+    <%= stylesheet_pack_tag 'tinyMce', media: 'all', 'data-turbolinks-track': 'reload' if controller_name == "services" || controller_name == "towns"%>
 
 <%= favicon_link_tag 'favicon/favicon.ico' %>
 <%= favicon_link_tag "favicon/apple-touch-icon.png", rel: 'apple-touch-icon', type: 'image/png' %>

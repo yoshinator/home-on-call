@@ -33,24 +33,40 @@
 
   <article class="container my-3 scroll-stop">
     <%=sanitize(muxer(@service, @town))%>
+
+
+
+      <!--Lead Form-->
+      <%= render "layouts/lead_picker", lead: @lead, client: @client, service: @service%>
+
+      <!-- Bottom image Section-->
+      <section class="container my-3 text-center">
+        <img  src="" class="img-fluid placeholder1" 
+              alt=<%="#{@service.title} in #{@town.name}, #{@town.state.upcase}"%> loading="lazy"
+              data-mobile-url=<%=mobile_small_image(@service.image)%>
+              data-desktop-url=<%=desktop_large_image(@service.image)%>
+        />
+        <a href="#lead-picker" class="btn btn-primary btn-lg my-3 js-scroll-trigger d-block">Get Started For Free</a>
+      </section>
+
+      <!-- FAQ Section -->
+      <%= render 'faq', business_type: @service.business_type %>
+      <%if @town.service_description%>
+        <h3>More about <%=@town.name%></h3>
+        <%=sanitize(town_muxer(@town.service_description, @service))%>
+        <img  src="<%=mobile_small_image(@town.image)%>"    
+              srcset="
+                <%=desktop_large_image(@town.image)%> 600w,
+                <%=desktop_small_image(@town.image)%> 400w,
+                <%=mobile_large_image(@town.image)%>  300w
+                "
+              alt="<%=@town.name%>, <%=@town.state%>"
+              class="img-fluid" 
+              loading="lazy"
+        />
+      <%end%>
+
   </article>
-
-
-<!--Lead Form-->
-<%= render "layouts/lead_picker", lead: @lead, client: @client, service: @service%>
-
-<!-- Bottom image Section-->
-<section class="container my-3 text-center">
-  <img  src="" class="img-fluid placeholder1" 
-        alt=<%="#{@service.title} in #{@town.name}, #{@town.state.upcase}"%> loading="lazy"
-        data-mobile-url=<%=mobile_small_image(@service.image)%>
-        data-desktop-url=<%=desktop_small_image(@service.image)%>
-  />
-  <a href="#lead-picker" class="btn btn-primary btn-lg my-3 js-scroll-trigger d-block">Get Started For Free</a>
-</section>
-
-<!-- FAQ Section -->
-<%= render 'faq', business_type: @service.business_type %>
 
 <!-- Other services section-->
 <aside class="row container">

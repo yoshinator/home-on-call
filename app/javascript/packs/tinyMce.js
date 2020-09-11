@@ -31,10 +31,10 @@ document.addEventListener("turbolinks:load", ()=> {
     });
 
 
-    // Image upload preview in pages where tinyMce is active
+    // Image upload preview in pages where tinyMce is active currently needed for service and town image preview.
     (function(){
       var reader =  new FileReader();
-      var field1 = document.querySelector('#service_featured_image')
+      var field1 = document.querySelector('#service_featured_image') || document.querySelector('#town_image')
       var field2 = document.querySelector('#service_image')
       var preview
 

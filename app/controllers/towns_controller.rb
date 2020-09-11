@@ -67,6 +67,6 @@ class TownsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def town_params
-      params.require(:town).permit(:name, :county, :state, :market_id, :slug)
+      params.require(:town).permit(:name, :county, :state, :market_id, :slug, :town_description, :service_description, :image)
     end
 end

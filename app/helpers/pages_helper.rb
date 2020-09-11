@@ -22,6 +22,10 @@ module PagesHelper
     content.gsub(/\[ror_town\]/, "#{location.name if location.name}, #{location.state if location.state}")
   end
 
+  def town_muxer(content, service)
+    content.gsub(/\[ror_service\]/, "#{service.title if service.title}")
+  end
+
   def header_selector(service, screen) 
     if service&.featured_image && screen == "mobile"
       mobile_large_image(service.featured_image)
