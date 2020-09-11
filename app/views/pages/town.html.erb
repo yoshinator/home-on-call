@@ -8,6 +8,8 @@
   </header>
 <%end%>
 
+<%=image_tag @town.image%>
+
 <div class="container" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
 
   <h1><span itemprop="addressLocality"><%=@town.name%></span>,<span itemprop="addressRegion"> <%=@town.state.upcase%></span></h1>
