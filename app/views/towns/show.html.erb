@@ -27,12 +27,12 @@
 
           <div>
           <strong>Town Description:</strong>
-            <%=@town.town_description.html_safe%>
+            <%=@town.town_description.html_safe if @town.town_description%>
           </div>
 
           <div>
           <strong>Town Description With Service [ror_service]:</strong>
-            <%=@town.service_description.html_safe%>
+            <%=@town.service_description.html_safe if @town.service_description%>
           </div>
 
           <%= link_to 'Edit', edit_town_path(@town) %> |
