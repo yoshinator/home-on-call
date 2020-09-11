@@ -54,16 +54,18 @@
       <%if @town.service_description%>
         <h3>More about <%=@town.name%></h3>
         <%=sanitize(town_muxer(@town.service_description, @service))%>
-        <img  src="<%=mobile_small_image(@town.image)%>"    
-              srcset="
-                <%=desktop_large_image(@town.image)%> 600w,
-                <%=desktop_small_image(@town.image)%> 400w,
-                <%=mobile_large_image(@town.image)%>  300w
-                "
-              alt="<%=@town.name%>, <%=@town.state%>"
-              class="img-fluid" 
-              loading="lazy"
-        />
+        <% if @town.image%>
+          <img  src="<%=mobile_small_image(@town.image)%>"    
+                srcset="
+                  <%=desktop_large_image(@town.image)%> 600w,
+                  <%=desktop_small_image(@town.image)%> 400w,
+                  <%=mobile_large_image(@town.image)%>  300w
+                  "
+                alt="<%=@town.name%>, <%=@town.state%>"
+                class="img-fluid" 
+                loading="lazy"
+          />
+        <%end%>
       <%end%>
 
   </article>
