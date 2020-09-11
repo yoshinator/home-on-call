@@ -54,7 +54,7 @@
       <%if @town.service_description%>
         <h3>More about <%=@town.name%></h3>
         <%=sanitize(town_muxer(@town.service_description, @service))%>
-        <% if @town.image%>
+        <% if @town.image.attached?%>
           <img  src="<%=mobile_small_image(@town.image)%>"    
                 srcset="
                   <%=desktop_large_image(@town.image)%> 600w,
