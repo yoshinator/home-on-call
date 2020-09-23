@@ -31,8 +31,6 @@ Rails.application.routes.draw do
   get '/affordable-hvac-duct-installation/:town_id', to: "pages#redirect_duct"
   get '/affordable-air-duct-cleaning/:town_id', to: "pages#redirect_duct"
   
-  get '/best-home-heater-maintenance/:town_id', to: "pages#redirect_heat"
-  
   get '/commercial-hvac-repair/:town_id', to: "pages#redirect_repair"
   get '/low-cost-hvac-maintenance-contractor/:town_id', to: "pages#redirect_repair"
 
