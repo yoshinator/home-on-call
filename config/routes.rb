@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   # temporary routes until googles stops indexing
   get '/fast-air-conditioner-service-call/:town_id', to: "pages#redirect_emergency"
   
+  get '/best-home-heater-maintenace/:town-id', to: "pages#redirect_heat"
   get '/affordable-hvac-duct-installation/:town_id', to: "pages#redirect_duct"
   get '/affordable-air-duct-cleaning/:town_id', to: "pages#redirect_duct"
   
