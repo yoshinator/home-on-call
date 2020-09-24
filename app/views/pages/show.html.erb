@@ -31,9 +31,10 @@
 <%end%>
 
 
-  <article class="container my-3 scroll-stop">
-    <%=sanitize(muxer(@service, @town))%>
-
+  <article>
+    <section class="container my-3 scroll-stop">
+      <%=sanitize(muxer(@service, @town))%>
+    </section>
 
 
       <!--Lead Form-->
@@ -50,23 +51,25 @@
       </section>
 
       <!-- FAQ Section -->
-      <%= render 'faq', business_type: @service.business_type %>
-      <%if @town.service_description%>
-        <h3>More about <%=@town.name%></h3>
-        <%=sanitize(town_muxer(@town.service_description, @service))%>
-      <%end%>
-      <% if @town.image.attached?%>
-        <img  src="<%=mobile_small_image(@town.image)%>"    
-              srcset="
-                <%=desktop_large_image(@town.image)%> 600w,
-                <%=desktop_small_image(@town.image)%> 400w,
-                <%=mobile_large_image(@town.image)%>  300w
-                "
-              alt="<%=@town.name%>, <%=@town.state%>"
-              class="img-fluid" 
-              loading="lazy"
-        />
-      <%end%>
+      <section class="container my-3 text-center">
+        <%= render 'faq', business_type: @service.business_type %>
+        <%if @town.service_description%>
+          <h3>More about <%=@town.name%></h3>
+          <%=sanitize(town_muxer(@town.service_description, @service))%>
+        <%end%>
+        <% if @town.image.attached?%>
+          <img  src="<%=mobile_small_image(@town.image)%>"    
+                srcset="
+                  <%=desktop_large_image(@town.image)%> 600w,
+                  <%=desktop_small_image(@town.image)%> 400w,
+                  <%=mobile_large_image(@town.image)%>  300w
+                  "
+                alt="<%=@town.name%>, <%=@town.state%>"
+                class="img-fluid" 
+                loading="lazy"
+          />
+        <%end%>
+        <section>
 
   </article>
 
