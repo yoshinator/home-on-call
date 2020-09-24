@@ -3,7 +3,7 @@ module PagesHelper
     # replace [ror_town] with town name and town state
     content = service.content.gsub(/\[ror_town\]/, "#{town.name if town.name}, #{town.state if town.state}")
 
-    content = content.gsub(/\[cta\]/, "<a href='#lead-picker' class='btn btn-primary d-block js-scroll-trigger'>Get Started For Free</a>")
+    content = cta(content)
     # replace items between  plus sign ++ with a link to the same page.
     c = content.match(/(?<link>\+(.*?)\+)/)
     if c 
@@ -23,7 +23,8 @@ module PagesHelper
   end
 
   def town_muxer(content, service)
-    content.gsub(/\[ror_service\]/, "#{service.title if service.title}")
+    content = content.gsub(/\[ror_service\]/, "#{service.title if service.title}")
+    cta(content)
   end
 
   def header_selector(service, screen) 
@@ -34,6 +35,10 @@ module PagesHelper
     else
       asset_path('home_service_bathroom.jpg')
     end 
+  end
+
+  def cta(content)
+    content.gsub(/\[cta\]/, "<a href='#lead-picker' class='btn btn-primary d-block js-scroll-trigger'>Get Started For Free</a>")
   end
 
   def mobile_small_image(image)
