@@ -47,6 +47,7 @@ require 'csv'
 # master_client.market=m0
 # master_client.save
 
+ZipCode.delete_all
 csv_text = File.read(Rails.root.join('lib', 'zip_code_database.csv'))
 csv = CSV.parse(csv_text, headers: true, encoding: 'ISO-8859-1')
 county = '';
@@ -54,6 +55,7 @@ csv.each do |row|
   z = ZipCode.new
   z.zip = row['zip']
   z.city = row['city']
+  z.state = row['state']
   if row['county']
     county = row['county']
   end

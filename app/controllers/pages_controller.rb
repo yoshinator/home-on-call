@@ -9,7 +9,7 @@ class PagesController < ApplicationController
     @client = Page.get_client(@town.market, @service)
     @businesses = JSON.parse(@page.google_business_info)["businesses"]
     @spot = JSON.parse(@page.google_town_info)
-    @zips = ZipCode.where("city ilike ?", @town.name )
+    @zips = ZipCode.where("city ilike ?", @town.name ).where(state: @town.state.upcase)
     @lead = Lead.new()
   end 
 

@@ -52,6 +52,17 @@ td:nth-last-child(1), td:nth-last-child(2), td:nth-last-child(3) {
   padding-right: .2em;
 }
 
+.zip_table{
+  border-collapse: collapse;
+}
+.zip_table th {
+  display: inline-block;
+}
+.zip_table td {
+  border: 1px solid black;
+  display: inline-block;
+}
+
 main {
   display: block; //fix ie bug where main is displayed inline
 }

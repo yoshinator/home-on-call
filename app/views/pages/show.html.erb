@@ -33,11 +33,11 @@
 
   <article>
     <section class="container my-3">
-      <%if @zips%>
-        <table>
+      <%if @zips.count > 0%>
+        <table class="zip_table">
           <tr>
           <th>Service</th>
-          <th colspan="<%=@zips.count%>">Zip Codes</th>
+          <th >Zip Codes</th>
         </tr>
         <tr>
           <td><%=@service.title%></td>
