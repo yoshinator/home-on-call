@@ -32,9 +32,27 @@
 
 
   <article>
-    <section class="container my-3 scroll-stop">
-      <%=sanitize(muxer(@service, @town))%>
-    </section>
+    <section class="container my-3">
+      <%if @zips%>
+        <table>
+          <tr>
+          <th>Service</th>
+          <th colspan="<%=@zips.count%>">Zip Codes</th>
+        </tr>
+        <tr>
+          <td><%=@service.title%></td>
+        
+          <%@zips.each do |zip|%>
+            <td><%=zip.zip%></td>
+          <%end%>
+          </tr>
+          </table>
+        <%end%>
+      </section>
+
+      <section class="container my-3 scroll-stop">
+        <%=sanitize(muxer(@service, @town))%>
+      </section>
 
 
       <!--Lead Form-->
