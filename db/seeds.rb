@@ -61,7 +61,6 @@ csv.each do |row|
   end
   z.county = county
   z.save
-  puts "#{z} saved."
 end
 
 puts "There are now #{ZipCode.count} zip codes in the zip_code's table"
