@@ -95,4 +95,12 @@ $(document).on('turbolinks:load', function () {
     $(e.target).siblings().toggle()
     $(this).toggleClass("active")
   })
+
+
+  $("#search_light_input").focusin(function(e){
+    $(".dopecomplete").toggle();
+  })
+  $("#search_light_input").focusout(function (e) {
+    $(".dopecomplete").toggle();
+    });
 });

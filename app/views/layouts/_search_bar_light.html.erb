@@ -1,0 +1,11 @@
+     <div class="rounded bg-light container">
+        <h5 class="text-center bg-warning mb-2 p-2 rounded" id="result">Message</h5>
+
+        <%= form_with url: search_results_path, method: "get", local: true do |f| %>
+          <div class="form-group">
+            <%=f.label(:search, "Search for a service")%>
+            <%=f.text_field :search, class: "form-control", placeholder: "Search", autocomplete: "off", id: "search_light_input"%>
+          </div>
+            <%=f.submit("Search", name: nil, class: "btn btn-primary m-3")%>
+        <% end %>
+      </div>
