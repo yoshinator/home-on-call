@@ -8,7 +8,18 @@
   </header>
 <%end%>
 
-<%=image_tag @town.image if @town.image%>
+<% if @town.image.attached?%>
+          <img  src="<%=mobile_small_image(@town.image)%>"    
+                srcset="
+                  <%=desktop_large_image(@town.image)%> 600w,
+                  <%=desktop_small_image(@town.image)%> 400w,
+                  <%=mobile_large_image(@town.image)%>  300w
+                  "
+                alt="<%=@town.name%>, <%=@town.state%>"
+                class="img-fluid" 
+                loading="lazy"
+          />
+        <%end%>
 
 <div class="container" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
 
