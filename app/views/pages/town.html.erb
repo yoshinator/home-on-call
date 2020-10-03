@@ -8,7 +8,7 @@
   </header>
 <%end%>
 
-<%=image_tag @town.image%>
+<%=image_tag @town.image if @town.image%>
 
 <div class="container" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
 
