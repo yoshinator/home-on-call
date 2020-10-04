@@ -60,7 +60,7 @@ csv.each do |row|
     county = row['county']
   end
   z.county = county
-  z.save
+  z.save if Town.where("state ilike ?", "#{z.state}").any?
 end
 
 puts "There are now #{ZipCode.count} zip codes in the zip_code's table"
