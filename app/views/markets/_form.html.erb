@@ -18,7 +18,7 @@
 
               <div class="field form-group">
                 <%= form.label :state %>
-                <%= form.select :state, options_for_select(Market.States), {},class: "form-control" %>
+                <%= form.select :state, options_for_select(Market.States, market.state), {},class: "form-control" %>
               </div>
 
   <div class="actions">
