@@ -96,11 +96,41 @@ $(document).on('turbolinks:load', function () {
     $(this).toggleClass("active")
   })
 
+  //Homepage search
 
-  $("#search_light_input").focusin(function(e){
+  $("#search_light_input").on("focusin", function(e){
     $(".dopecomplete").toggle();
   })
-  $("#search_light_input").focusout(function (e) {
-    $(".dopecomplete").toggle();
-    });
+
+  $("#search_light_input").on("keyup",delay(function(e) {
+    fetch(`${location.href}json_search?search=${e.target.value}`)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+      let lis = '<li aria-selected="false" class="title">Popular Services</li>'
+       lis += data.map(item => {
+        return `<li aria-select="false">${item.title}<li>`
+      }).join("")
+      $(".dopecomplete ul").html(lis)
+      $(".dopecomplete").show()
+    })
+  },400));
+
+  function delay(callback, ms) {
+    var timer = 0;
+    return function () {
+      var context = this,
+        args = arguments;
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        callback.apply(context, args);
+      }, ms || 0);
+    };
+  }
+
+  $(".dopecomplete").on("click", function(e){
+    
+    location.href = `${$(location).attr('href')}search_results?search=${e.target.innerText}`;
+  })
+
 });
