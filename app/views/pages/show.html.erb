@@ -96,8 +96,9 @@
   <section class="container my-3 scroll-stop col-7" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
     <h2 class="py-2">Other <%=@service.business_type.name%> Services in <span itemprop="addressLocality"><%= @town.name.titleize%></span>, <span itemprop="addressRegion"><%=@town.state.upcase%></span></h2>
     <ul>
+
       <%@service.business_type.services.each do |service|%>
-        <li><%=link_to service.title, public_service_path(service)%></li>
+        <li><%=link_to service.title, public_bulk_service_path(service, @town)%></li>
       <%end%>
     </ul>
   </section>
