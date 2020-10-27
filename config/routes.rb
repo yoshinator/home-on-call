@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
 # Not protected routes. 
   get '/search_results', to: "pages#search_results", as: "search_results"
+  get '/zip_search', to: "pages#zip_search", as: "zip_search"
   get '/json_search', to: "pages#json_search", as: "json_search"
   get '/sitemap.xml', to: "pages#sitemap"
 

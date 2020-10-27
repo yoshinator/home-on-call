@@ -44,6 +44,10 @@ class PagesController < ApplicationController
     @services = Service.search(page_params[:search])
     render json: @services[0..2]
   end
+
+  def zip_search
+    render json: {zip: "good"}
+  end
   
   def sitemap
     redirect_to 'https://storage.googleapis.com/homeoncall.com/sitemaps/sitemap.xml.gz',format:'xml', status: 301
