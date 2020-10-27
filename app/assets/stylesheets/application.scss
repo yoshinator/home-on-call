@@ -47,6 +47,25 @@ td:nth-last-child(1), td:nth-last-child(2), td:nth-last-child(3) {
   display: inline-block;
 }
 
+.pulse {
+  background-color: #222;
+  animation-name: colors;
+  animation-duration: 15s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes colors {
+  0% {
+    background-color: #222;
+  }
+  50% {
+    background-color: #4285f4;
+  }
+  100% {
+    background-color: #222;
+  }
+}
+
 main {
   display: block; //fix ie bug where main is displayed inline
 }
