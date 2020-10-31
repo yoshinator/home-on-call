@@ -36,23 +36,6 @@ td:nth-last-child(1), td:nth-last-child(2), td:nth-last-child(3) {
   padding-right: .2em;
 }
 
-.zip_table{
-  border-collapse: collapse;
-}
-.zip_table th {
-  display: inline-block;
-}
-.zip_table td {
-  border: 1px solid black;
-  display: inline-block;
-}
-
-.pulse {
-  background-color: #222;
-  animation-name: colors;
-  animation-duration: 15s;
-  animation-iteration-count: infinite;
-}
 
 @keyframes colors {
   0% {
@@ -505,3 +488,31 @@ footer {
 .dopecomplete li:hover::after {
     transform: scale(1,1)
   }
+// End Auto Complete for search
+// zip code search box
+.pulse {
+  background-color: #222;
+  animation-name: colors;
+  animation-duration: 15s;
+  animation-iteration-count: infinite;
+}
+
+.input-space{
+  padding: 1.76rem;
+  border-radius: 0;
+}
+
+// end zip code zip search box
+
+// ZIP Code tables ontop of pages show page
+.zip_table{
+  border-collapse: collapse;
+}
+.zip_table th {
+  display: inline-block;
+}
+.zip_table td {
+  border: 1px solid black;
+  display: inline-block;
+}
+// end Zip Code Tables

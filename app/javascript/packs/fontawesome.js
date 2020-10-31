@@ -7,8 +7,10 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons/faEnvelope';
 import { faMobileAlt } from '@fortawesome/free-solid-svg-icons/faMobileAlt';
 import { faPaperPlane } from '@fortawesome/free-regular-svg-icons/faPaperPlane';
 import { faBars } from '@fortawesome/free-solid-svg-icons/faBars.js';
+import { faMapMarker } from '@fortawesome/free-solid-svg-icons';
+
 
 export default function fontawesome(){
-  library.add(faTwitter, faFacebookF, faYoutube, faMobileAlt, faMapMarkedAlt, faEnvelope, faPaperPlane, faBars)
+  library.add(faTwitter, faFacebookF, faYoutube, faMobileAlt, faMapMarkedAlt, faEnvelope, faPaperPlane, faBars, faMapMarker)
   dom.watch()
 }

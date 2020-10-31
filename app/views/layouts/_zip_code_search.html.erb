@@ -1,14 +1,13 @@
-<div class="rounded  fixed-bottom text-center mt-2 pulse">
+<div class="fixed-bottom text-center  p-2 pulse">
 
   <%= form_with url: zip_search_path, method: "get", local: true do |f| %>
-    <div class="row my-3">
-    <div class="col-lg-12">
-    
-      <%=f.label(:search, "Get started enter your zipcode", class: "h4 text-white") %>
-      <div class="input-group input-group-lg">
-      <%=f.text_field :search, class: "form-control input-lg", placeholder: "Zip Code", autocomplete: "off", id: "search_light_input"%>
-      <span class="input-group-btn ml-2">
-      <%=f.submit("Search", name: nil, class: "btn btn-primary btn-lg")%>
+    <label class="h4 text-white">
+      <i class="fas fa-map-marker"></i> Get started enter your zip code
+    </label>
+    <div class="input-group">
+      <%=f.text_field :search, class: "form-control input-space", placeholder: "Zip Code", autocomplete: "off", id: "POOPER"%>
+      <span class="input-group-button">
+        <%=f.submit("Search", name: nil, class: "btn btn-primary inline-block input-space")%>
       </span>
     </div>
   <% end %>
