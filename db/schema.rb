@@ -149,11 +149,10 @@ ActiveRecord::Schema.define(version: 2020_09_27_202510) do
 
   create_table "zip_codes", force: :cascade do |t|
     t.string "zip", limit: 5
-    t.string "city"
-    t.string "state"
-    t.string "county"
+    t.bigint "town_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["town_id"], name: "index_zip_codes_on_town_id"
     t.index ["zip"], name: "index_zip_codes_on_zip", unique: true
   end
 
@@ -166,4 +165,5 @@ ActiveRecord::Schema.define(version: 2020_09_27_202510) do
   add_foreign_key "pages", "towns"
   add_foreign_key "services", "business_types"
   add_foreign_key "towns", "markets"
+  add_foreign_key "zip_codes", "towns"
 end

@@ -2,6 +2,7 @@ class Town < ApplicationRecord
   before_save :set_slug
   belongs_to :market
   has_many :pages, dependent: :destroy
+  has_many :zip_codes, dependent: :destroy
   has_one_attached :image
 
   STATES = %w(AL AK AZ AR CA CO CT DE FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY)

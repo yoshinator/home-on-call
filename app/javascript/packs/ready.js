@@ -99,20 +99,23 @@ $(document).on('turbolinks:load', function () {
   //Homepage search
 
   $(document).on("click", function (e) {
-    if ($(e.target).closest(".dopecomplete").length > 0 ){
+    if ($(e.target).closest(".dopecomplete.service-search").length > 0 ){
     location.href = `${$(location).attr("href")}search_results?search=${
       e.target.innerText
     }`;
+    }   
+    else if ($(e.target).closest(".dopecomplete.zip-search").length > 0 ){
+    location.href = `${e.target.dataset.travel}`;
     }
     else if (
-      ($(e.target).closest("#search_light_input").length === 1  && $(".dopecomplete").is(":hidden"))  
+      $(e.target).closest("#search_light_input").length === 1 ||
+      ($(e.target).closest("#zip_search").length &&
+      $(".dopecomplete").is(":hidden"))
     ) {
       $(".dopecomplete").show();
-    }
-    else if ($("#search_light_input").is(":focus")){
+    } else if ($("#search_light_input").is(":focus")) {
       $(".dopecomplete").show();
-    }
-    else {
+    } else {
       $(".dopecomplete").hide();
     }
   });
@@ -128,7 +131,6 @@ $(document).on('turbolinks:load', function () {
     fetch(`${location.href}json_search?search=${e.target.value}`)
     .then(response => response.json())
     .then(data => {
-      console.log(data)
       let lis = '<li aria-selected="false" class="title">Popular Services</li>'
        lis += data.map(item => {
         return `<li aria-select="false">${item.title}<li>`
@@ -137,6 +139,23 @@ $(document).on('turbolinks:load', function () {
       $(".dopecomplete").show()
     })
   },400));
+
+  $("#zip_search").on("keyup",delay(function(e){
+    var url = $(location).attr("href").replace(/\/+$/, ""), //rtrim `/`
+      url_parts = url.split("/"),
+      url_last = url_parts[url_parts.length - 1];
+    fetch(`/zip_search?search=${e.target.value}&service=${url_last}`)
+      .then((resp) => resp.json())
+      .then((zips) => {
+        console.log(zips)
+        let lis = '<li aria-selected="false" class="title">Cities</li>'
+        lis += zips.map(zip => {
+        return `<li aria-select="false" data-travel="${location.origin}/m/${zip.market}/${zip.service}">${zip.zip}, ${zip.town.name} | ${zip.town.county}, ${zip.town.state}<li>`
+      }).join("")
+      $(".dopecomplete ul").html(lis)
+      $(".dopecomplete").show()
+    })
+  },500))
 
   function delay(callback, ms) {
     var timer = 0;

@@ -1,0 +1,36 @@
+<%= content_for(:canonical,  "https://www.homeoncall.com#{request.path}")%>
+<%= content_for(:title, "#{@service.title}, Home On Call") %>
+<%= content_for(:meta_description, "#{@service.main_meta} ") %>
+<%= content_for(:robots, "NOINDEX, NOFOLLOW") %>
+<%= content_for(:og_title, "#{@service.title}")%>
+<%= content_for(:og_description, "#{@service.main_meta}")%>
+<%= content_for(:og_image, "#{desktop_small_image(@service.image)}")%>
+<!--Masthead Section-->
+<%= content_for :my_mast do %>
+  <%url = "url('#{asset_path('home_service_bathroom.jpg')}')"%>
+  <header class="masthead all-masts" style="background: <%=url%>"
+      
+  >
+      <div class="container d-flex h-100 align-items-center">
+      <div class="mx-auto text-center ">  
+        <div class="text-overlay d-flex align-items-center">
+          <h1 class="mx-auto mt-2 h2"> <%="#{@service.title.titleize}"%></h1>​
+        </div>
+      </div>
+    </div>
+
+    <%=render "layouts/zip_code_search"%>
+  </header>
+
+
+<div class="jumbotron">
+  <h1 class="display-4">Service Area Not Available</h1>
+  <p class="lead">We are very sorry but at the moment we do not service this area. Your interest has been recorded we hope to be able to serve you soon.</p>
+  <hr class="my-4">
+  <p>Check out our <%=@service.title%> in another area by doing another search at the bottom of the page or just click the button to return to the homepage. </p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="/" role="button">Home</a>
+  </p>
+</div>
+
+<%end%>

@@ -50,17 +50,20 @@ require 'csv'
 ZipCode.delete_all
 csv_text = File.read(Rails.root.join('lib', 'zip_code_database.csv'))
 csv = CSV.parse(csv_text, headers: true, encoding: 'ISO-8859-1')
-county = '';
+@county = '';
+  # z.zip = row['zip']
+  # z.city = row['city']
+  # z.state = row['state']
 csv.each do |row|
   z = ZipCode.new
   z.zip = row['zip']
-  z.city = row['city']
-  z.state = row['state']
+  town = row['city']
   if row['county']
-    county = row['county']
-  end
-  z.county = county
-  z.save if Town.where("state ilike ?", "#{z.state}").any?
+    @county = row['county'].gsub(/\s+[Cc]ounty/,"")
+  end 
+  t = Town.find_by("name ilike ? AND state ilike ? AND county ilike ? ", "%#{row['city']}%", "#{row['state']}", "%#{@county}%")
+  t.zip_codes << z if t
+  puts t
 end
 
 puts "There are now #{ZipCode.count} zip codes in the zip_code's table"

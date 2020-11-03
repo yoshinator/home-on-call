@@ -1,13 +1,19 @@
 <div class="fixed-bottom text-center  p-2 pulse">
-
-  <%= form_with url: zip_search_path, method: "get", local: true do |f| %>
+    <div class="dopecomplete zip-search card w-50 position-absolute zip" style="display: none">
+      <ul class="p-0 text-left">
+        <li aria-selected="false" class="title">Cities</li>
+      </ul>
+    </div>
+  <%= form_with url: zip_click_search_path, method: "get", local: true do |f| %>
     <label class="h4 text-white">
       <i class="fas fa-map-marker"></i> Get started enter your zip code
     </label>
     <div class="input-group">
-      <%=f.text_field :search, class: "form-control input-space", placeholder: "Zip Code", autocomplete: "off", id: "POOPER"%>
+      <%=f.hidden_field :service, value: @service.slug%>
+
+      <%=f.text_field :search, class: "form-control input-space", placeholder: "Zip Code", autocomplete: "off", id: "zip_search"%>
       <span class="input-group-button">
-        <%=f.submit("Search", name: nil, class: "btn btn-primary inline-block input-space")%>
+        <%=f.submit("Search", name: nil, class: "btn btn-primary inline-block")%>
       </span>
     </div>
   <% end %>

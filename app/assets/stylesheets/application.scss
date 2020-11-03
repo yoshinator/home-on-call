@@ -390,7 +390,8 @@ a:focus, a:hover {
 }
 
 footer {
-  padding: 5rem 0;
+  padding-top: 5rem;
+  padding-bottom: 7rem;
 }
 
 // Custom Styles
@@ -463,6 +464,10 @@ footer {
 .dopecomplete{
   top: 50%;
   left: 5%;
+}
+.dopecomplete.zip {
+  z-index: 1000;
+  top: -50%;
 }
 .dopecomplete .title{
   background-color: #97a1a1;

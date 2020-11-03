@@ -9,7 +9,6 @@ class PagesController < ApplicationController
     @client = Page.get_client(@town.market, @service)
     @businesses = JSON.parse(@page.google_business_info)["businesses"]
     @spot = JSON.parse(@page.google_town_info)
-    @zips = ZipCode.where("city ilike ?", @town.name ).where(state: @town.state.upcase)
     @lead = Lead.new()
   end 
 
@@ -45,8 +44,34 @@ class PagesController < ApplicationController
     render json: @services[0..2]
   end
 
+  def zip_click_search
+    @market = ZipCode.find_by(zip: page_params[:search])&.town&.market
+    @service = Service.find_by(slug: page_params[:service])
+
+    if @market
+      redirect_to(public_market_service_path @market, @service)
+      return
+    else 
+      redirect_to not_available_path params: request.query_parameters
+    end
+  end
+
+  def not_available
+    @service = Service.find_by!(slug: page_params["service"])
+  end
+
   def zip_search
-    render json: {zip: "good"}
+    zips = ZipCode.search(page_params[:search])
+    zips = zips.includes(:town)
+    @zips_assoc = zips.map do |record|
+      record.attributes.merge(
+        'town' => record.town,
+        'market' => record.town.market.slug,
+        'service' => page_params[:service]
+      )
+    end
+    flash['service'] = page_params[:service]
+    render json: @zips_assoc
   end
   
   def sitemap
@@ -99,7 +124,7 @@ class PagesController < ApplicationController
   end
 
   def page_params
-    params.permit(:search)
+    params.permit(:search,:service)
   end 
   
 end

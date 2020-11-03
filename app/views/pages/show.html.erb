@@ -33,7 +33,7 @@
 
   <article>
     <section class="container my-3">
-      <%if @zips.count > 0%>
+      <%if @town.zip_codes.count > 0%>
         <table class="zip_table">
           <tr>
           <th>Service</th>
@@ -42,7 +42,7 @@
         <tr>
           <td><%=@service.title%></td>
         
-          <%@zips.each do |zip|%>
+          <%@town.zip_codes.each do |zip|%>
             <td><%=zip.zip%></td>
           <%end%>
           </tr>
