@@ -185,6 +185,10 @@ main {
     line-height: 4rem;
   }
 
+  .full-height {
+    height: 90vh;
+  }
+
 }
 
 @media (max-width: 480px){
@@ -418,10 +422,7 @@ footer {
 .page-image {
    width: 20rem;
 }
- 
-.full-height {
-  height: 90vh;
-}
+
 
 #map {
   height: 50vh;
