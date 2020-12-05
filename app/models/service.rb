@@ -24,7 +24,7 @@ class Service < ApplicationRecord
     end
   end
 
-  def inactives
+  def inactive_markets
     markets = self.markets
     Market.all.select do |m|
       !markets.include?(m)
