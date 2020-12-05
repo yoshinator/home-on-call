@@ -19,8 +19,8 @@
   <tbody>
     <% @market_services.each do |market_service| %>
       <tr>
-        <td><%= market_service.market_id %></td>
-        <td><%= market_service.service_id %></td>
+        <td><%= market_service.market.name %></td>
+        <td><%= market_service.service.title %></td>
         <td><%= market_service.active %></td>
         <td><%= link_to 'Show', market_service %></td>
         <td><%= link_to 'Edit', edit_market_service_path(market_service) %></td>

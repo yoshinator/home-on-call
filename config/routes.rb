@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-
-  resources :market_services
   get '/404', to: "errors#not_found"
   get '/422', to: "erros#unacceptable"
   get '/500', to: "errors#internal_error"
@@ -8,7 +6,7 @@ Rails.application.routes.draw do
   get '/towns/bulk', to: "towns#bulk_new", as: "new_bulk"
   post '/towns/bulk', to: "towns#bulk_create", as: "bulk_town"
   
-  resources :leads, :admins, :clients, :services, :business_types, :towns, :markets
+  resources :leads, :admins, :clients, :services, :business_types, :towns, :markets, :market_services
   resource :session, only: [:new, :create, :destroy]
 
 # Not protected routes. 
@@ -47,6 +45,7 @@ Rails.application.routes.draw do
 
   get '/:service_id/:town_id', to: "pages#show", as: "public_bulk_service"
   get '/:town_id', to: "pages#town", as: "public_town" 
+  get '/market_services/service/:service_id', to: "market_services#service", as: "market_service_edit"
   
 
 end

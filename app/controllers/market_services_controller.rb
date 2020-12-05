@@ -1,4 +1,5 @@
 class MarketServicesController < ApplicationController
+  before_action :require_signin
   before_action :set_market_service, only: [:show, :edit, :update, :destroy]
 
   # GET /market_services
@@ -45,6 +46,9 @@ class MarketServicesController < ApplicationController
     redirect_to market_services_url, notice: 'Market service was successfully destroyed.'
   end
 
+  def service
+    @service = Service.find_by!(slug: params[:service_id])
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_market_service
