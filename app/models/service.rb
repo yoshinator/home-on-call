@@ -23,6 +23,13 @@ class Service < ApplicationRecord
       end
     end
   end
+
+  def inactives
+    markets = self.markets
+    Market.all.select do |m|
+      !markets.include?(m)
+    end
+  end
   
   def to_param
     slug
