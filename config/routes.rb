@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :market_services
   get '/404', to: "errors#not_found"
   get '/422', to: "erros#unacceptable"
   get '/500', to: "errors#internal_error"

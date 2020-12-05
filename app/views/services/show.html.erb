@@ -59,6 +59,21 @@
           <%= @service.slug %>
         </p>
 
+        <ul>
+          <% @service.market_services.each do |m|%>
+            <span class="ml-3">
+              <%if m.active%>
+                <%= label_tag m.market.slug, m.market.name%>
+                <%= check_box_tag m.market.slug, m.market.slug, true%> 
+              <%else%>
+                <%= label_tag m.market.slug, m.market.name%>
+                <%= check_box_tag m.market.slug %> 
+              <%end%>
+            </span>
+          <%end%>
+        </ul>
+
+
         <%= link_to 'Edit', edit_service_path(@service), class: "btn btn-primary" %> 
         <%= link_to 'Back', services_path, class: "btn btn-primary" %>
       </div>

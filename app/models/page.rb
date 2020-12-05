@@ -2,6 +2,8 @@ class Page < ApplicationRecord
   require 'open-uri'
 
   has_one_attached :town_image
+  belongs_to :service
+  belongs_to :town
 
   # Google Data. 
   # if !page.google_town_info && !page.google_business_info || page.updated_at.advance(months: 12) < Time.now

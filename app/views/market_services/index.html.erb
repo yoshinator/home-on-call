@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Market Services</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Market</th>
+      <th>Service</th>
+      <th>Active</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @market_services.each do |market_service| %>
+      <tr>
+        <td><%= market_service.market_id %></td>
+        <td><%= market_service.service_id %></td>
+        <td><%= market_service.active %></td>
+        <td><%= link_to 'Show', market_service %></td>
+        <td><%= link_to 'Edit', edit_market_service_path(market_service) %></td>
+        <td><%= link_to 'Destroy', market_service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Market Service', new_market_service_path %>

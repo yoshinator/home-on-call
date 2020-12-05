@@ -7,6 +7,18 @@ class Market < ApplicationRecord
 
   validates :state, presence: true, inclusion: {in: STATES}
 
+    def add_services
+    Service.all.each do |s|
+      if self.name != "Master"
+        ms = MarketService.new
+        ms.service= s
+        ms.market= self
+        ms.active= true
+        ms.save
+      end
+    end
+  end
+
   def to_param
     slug
   end

@@ -25,8 +25,8 @@ class MarketsController < ApplicationController
   # POST /markets
   def create
     @market = Market.new(market_params)
-
     if @market.save
+      @market.add_services
       redirect_to @market, notice: 'Market was successfully created.'
     else
       render :new

@@ -1,0 +1,30 @@
+<%= form_with(model: market_service, local: true) do |form| %>
+  <% if market_service.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(market_service.errors.count, "error") %> prohibited this market_service from being saved:</h2>
+
+      <ul>
+        <% market_service.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="field form-group">
+      <%= form.label :market_id %>
+      <%= form.collection_select(:market_id, Market.all, :id, :name, {prompt: true},  {class: "form-control"})%>
+    </div>
+    <div class="field form-group">
+      <%= form.label :service_id %>
+      <%= form.collection_select(:service_id, Service.all, :id, :title, {prompt: true},  {class: "form-control"})%>
+    </div>
+  <div class="field for-group">
+    <%= form.label :active %>
+    <%= form.check_box :active %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -10,6 +10,7 @@ class ServicesController < ApplicationController
 
   # GET /services/1
   def show
+    @pages = @service.pages
   end
 
   # GET /services/new
@@ -25,6 +26,7 @@ class ServicesController < ApplicationController
   def create
     @service = Service.new(service_params)
     if @service.save
+      @service.add_markets
       redirect_to @service, notice: 'Service was successfully created.'
     else
       render :new

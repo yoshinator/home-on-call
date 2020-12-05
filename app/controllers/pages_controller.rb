@@ -5,11 +5,16 @@ class PagesController < ApplicationController
   def show
     @service = Service.find_by!(slug: params[:service_id])
     @town = Town.find_by!(slug: params[:town_id])
-    @page = Page.init(@service, @town)
-    @client = Page.get_client(@town.market, @service)
-    @businesses = JSON.parse(@page.google_business_info)["businesses"]
-    @spot = JSON.parse(@page.google_town_info)
-    @lead = Lead.new()
+    ms = MarketService.find_by(market_id: @town.market.id, service_id: @service.id)
+    if ms && ms.active
+      @page = Page.init(@service, @town)
+      @client = Page.get_client(@town.market, @service)
+      @businesses = JSON.parse(@page.google_business_info)["businesses"]
+      @spot = JSON.parse(@page.google_town_info)
+      @lead = Lead.new()
+    else 
+      redirect_to public_service_path @service
+    end
   end 
 
   def service

@@ -51,9 +51,7 @@ ZipCode.delete_all
 csv_text = File.read(Rails.root.join('lib', 'zip_code_database.csv'))
 csv = CSV.parse(csv_text, headers: true, encoding: 'ISO-8859-1')
 @county = '';
-  # z.zip = row['zip']
-  # z.city = row['city']
-  # z.state = row['state']
+
 csv.each do |row|
   z = ZipCode.new
   z.zip = row['zip']
@@ -67,3 +65,17 @@ csv.each do |row|
 end
 
 puts "There are now #{ZipCode.count} zip codes in the zip_code's table"
+
+###########//////====--WARNING--====\\\\\\###########
+# FOR INITIAL SEED ONLY AND SITUATIONS WHERE MARKETS OR SERVICES WHERE NOT CREATED
+# Market.all.each do |m|
+#   Service.all.each do |s|
+#     ms = MarketService.find_by(market_id: m.id, service_id: s.id)
+#       ms = MarketService.new 
+#       ms.market= m 
+#       ms.service= s
+#       ms.active = true
+#       ms.save
+#     end
+#   end
+# end
