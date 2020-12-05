@@ -1,3 +1,6 @@
+<%= content_for :my_mast do %>
+  <header class="masthead" style="background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%, #161616 100%), url(<%=asset_path 'home_service_bathroom.jpg'%>);"></header>
+<% end %>
 <h1>New Market Service</h1>
 
 <%= render 'form', market_service: @market_service %>

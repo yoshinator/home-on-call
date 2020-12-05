@@ -59,21 +59,25 @@
           <%= @service.slug %>
         </p>
 
-        <ul>
-          <% @service.market_services.each do |m|%>
-            <span class="ml-3">
-              <%if m.active%>
-                <%= label_tag m.market.slug, m.market.name%>
-                <%= check_box_tag m.market.slug, m.market.slug, true%> 
-              <%else%>
-                <%= label_tag m.market.slug, m.market.name%>
-                <%= check_box_tag m.market.slug %> 
+        <div class="my-4 card">
+          <div class="card-body">
+            <h3 class="card-title">Current Markets Where This Service is Active</h3>
+            <ul>
+              <% @service.markets.each do |m|%>
+                <%if m.name != "Master"%>
+                  <li class="card-text">
+                    <%=m.name%>
+                  </li> 
+                <%end%>
               <%end%>
-            </span>
-          <%end%>
-        </ul>
+            </ul>
+            <h3>Add or remove markets</h3>
+            <%= link_to 'Edit Markets', edit_market_service_path(@service), class: "btn btn-primary"%>
+          </div>
+        </div>
 
-
-        <%= link_to 'Edit', edit_service_path(@service), class: "btn btn-primary" %> 
+      <div>
+        <%= link_to 'Edit Service', edit_service_path(@service), class: "btn btn-primary" %> 
         <%= link_to 'Back', services_path, class: "btn btn-primary" %>
+      </div>
       </div>
