@@ -4,11 +4,20 @@
 </header>
 <p id="notice"><%= notice %></p>
 
-<h1>Market Services</h1>
+<h1>Market Services Active</h1>
 <ul>
   <% @service.markets.each do |m|%>
   <li>
     <%=m.name%>
   </li>
+  <%end%>
+</ul>
+
+<h1>Inactive Market Service</h1>
+<ul>
+  <% @service.inactives.each do |i|%>
+    <li>
+      <%=i.name%>
+    </li>
   <%end%>
 </ul>
