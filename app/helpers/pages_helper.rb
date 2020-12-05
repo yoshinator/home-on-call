@@ -1,10 +1,10 @@
 module PagesHelper
   def muxer (service, town)
     # replace [ror_town] with town name and town state
-    content = service.content.gsub(/\[ror_town\]/, "#{town.name if town.name}, #{town.state if town.state}")
+    content = service.content.gsub(/\[ror_town\]/, "#{town.name if town.name}")
 
     content = cta(content)
-    # replace items between  plus sign ++ with a link to the same page.
+    # replace items between  plus signs +anythin in here+ with a link to the same page.
     c = content.match(/(?<link>\+(.*?)\+)/)
     if c 
       link =  c[:link]
