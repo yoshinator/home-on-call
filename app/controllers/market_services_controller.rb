@@ -61,6 +61,7 @@ class MarketServicesController < ApplicationController
   end
 
   def service
+    @market_service = MarketService.new
     @service = Service.find_by!(slug: params[:service_id])
   end
   private

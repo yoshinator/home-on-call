@@ -4,7 +4,7 @@
 </header>
 <p id="notice"><%= notice %></p>
 
-<h1>Markets Active for <%=@service.title%></h1>
+<h1>Active Markets for <%=@service.title%></h1>
 <ul>
   <% @service.markets.each do |m|%>
   <li class="my-2">
@@ -16,8 +16,13 @@
 <h1>Inactive Markets for <%=@service.title%> </h1>
 <ul>
   <% @service.inactive_markets.each do |i|%>
-    <li>
-      <%=i.name%> 
+    <li class="my-2">
+    <%= form_with(model: @market_service, local: true) do |form| %>
+      <%=form.hidden_field market_id: i.id%>
+      <%=form.hidden_field service: @service.id%>
+      <%=i.name%> <%=form.submit "Activate Market", 
+      class: "btn-sm btn-primary"%>
+    <%end%>
     </li>
   <%end%>
 </ul>
