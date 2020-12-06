@@ -22,9 +22,9 @@ class MarketServicesController < ApplicationController
 
   # POST /market_services
   def create
-    @market_service = MarketService.find_by!(market_service_params)
+    @market_service = MarketService.find_by(market_service_params)
     if @market_service
-      redirect_to market_service_edit_path @market_service.service, notice: "Service is already in market"
+      redirect_to market_service_edit_path(@market_service.service), notice: "Service is already in market"
       return
     else
       @market_service = MarketService.new(market_service_params)
@@ -57,7 +57,7 @@ class MarketServicesController < ApplicationController
     service = Service.find(params[:service_id])
     market_service = MarketService.find_by!(service_id: params[:service_id], market_id: params[:market_id])
     market_service.destroy()
-    redirect_to market_service_edit_path service, notice: "Market Service was succesfully deleted" 
+    redirect_to market_service_edit_path(service), notice: "Market Service was succesfully deleted" 
   end
 
   def service
