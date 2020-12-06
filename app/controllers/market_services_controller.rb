@@ -46,6 +46,12 @@ class MarketServicesController < ApplicationController
     redirect_to market_services_url, notice: 'Market service was successfully destroyed.'
   end
 
+  # DELETE /market_services/market_id/service_id
+  def delete_market_service
+    ms = MarketService.find_by!(service_id: params[:service_id], market_id: params[:market_id])
+    byebug
+  end
+
   def service
     @service = Service.find_by!(slug: params[:service_id])
   end
