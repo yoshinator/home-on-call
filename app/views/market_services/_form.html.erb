@@ -19,10 +19,6 @@
       <%= form.label :service_id %>
       <%= form.collection_select(:service_id, Service.all, :id, :title, {prompt: true},  {class: "form-control"})%>
     </div>
-  <div class="field for-group">
-    <%= form.label :active %>
-    <%= form.check_box :active %>
-  </div>
 
   <div class="actions">
     <%= form.submit %>
