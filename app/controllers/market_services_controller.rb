@@ -22,7 +22,6 @@ class MarketServicesController < ApplicationController
 
   # POST /market_services
   def create
-    fail
     @market_service = MarketService.find_by(market_service_params)
     if @market_service
       redirect_to market_service_edit_path(@market_service.service), notice: "Service is already in market"
@@ -31,7 +30,7 @@ class MarketServicesController < ApplicationController
       @market_service = MarketService.new(market_service_params)
     end
     if @market_service.save
-      redirect_to @market_service, notice: 'Market service was successfully created.'
+      redirect_to market_service_edit_path(@market_service.service), notice: 'Market service was successfully created.'
       return
     else
       render :new
