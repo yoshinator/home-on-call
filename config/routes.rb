@@ -46,6 +46,7 @@ Rails.application.routes.draw do
   get '/:service_id/:town_id', to: "pages#show", as: "public_bulk_service"
   get '/:town_id', to: "pages#town", as: "public_town" 
   get '/market_services/service/:service_id', to: "market_services#service", as: "market_service_edit"
+  delete '/market_services/:service_id/:market_id', to: "market_services#delete_market_service", as: "market_service_del"
   
 
 end
