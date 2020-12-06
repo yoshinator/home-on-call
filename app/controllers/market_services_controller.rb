@@ -22,10 +22,16 @@ class MarketServicesController < ApplicationController
 
   # POST /market_services
   def create
-    @market_service = MarketService.new(market_service_params)
-
+    @market_service = MarketService.find_by!(market_service_params)
+    if @market_service
+      redirect_to market_service_edit_path @market_service.service, notice: "Service is already in market"
+      return
+    else
+      @market_service = MarketService.new(market_service_params)
+    end
     if @market_service.save
       redirect_to @market_service, notice: 'Market service was successfully created.'
+      return
     else
       render :new
     end
@@ -65,6 +71,6 @@ class MarketServicesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def market_service_params
-      params.require(:market_service).permit(:market_id, :service_id, :active)
+      params.require(:market_service).permit(:market_id, :service_id)
     end
 end

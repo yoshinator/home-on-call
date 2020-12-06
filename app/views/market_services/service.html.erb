@@ -4,16 +4,16 @@
 </header>
 <p id="notice"><%= notice %></p>
 
-<h1>Market Services Active</h1>
+<h1>Markets Active for <%=@service.title%></h1>
 <ul>
   <% @service.markets.each do |m|%>
   <li class="my-2">
-    <%=m.name%> <%=link_to "Remove service from market",market_service_del_path(@service.id, m.id), method: :delete, class: "btn-sm btn-primary"%>
+    <%=m.name%> <%=link_to "Deactivate Market",market_service_del_path(@service.id, m.id), method: :delete, class: "btn-sm btn-primary"%>
   </li>
   <%end%>
 </ul>
 
-<h1>Inactive Market Services</h1>
+<h1>Inactive Markets for <%=@service.title%> </h1>
 <ul>
   <% @service.inactive_markets.each do |i|%>
     <li>
