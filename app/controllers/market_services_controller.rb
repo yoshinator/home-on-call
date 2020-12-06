@@ -48,8 +48,10 @@ class MarketServicesController < ApplicationController
 
   # DELETE /market_services/market_id/service_id
   def delete_market_service
-    ms = MarketService.find_by!(service_id: params[:service_id], market_id: params[:market_id])
-    byebug
+    service = Service.find(params[:service_id])
+    market_service = MarketService.find_by!(service_id: params[:service_id], market_id: params[:market_id])
+    market_service.destroy()
+    redirect_to market_service_edit_path service, notice: "Market Service was succesfully deleted" 
   end
 
   def service
