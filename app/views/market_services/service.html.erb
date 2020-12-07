@@ -17,12 +17,12 @@
 <ul>
   <% @service.inactive_markets.each do |i|%>
     <li class="my-2">
-    <%= form_with(model: @market_service, local: true) do |form| %>
-      <%=form.hidden_field :market_id, value: i.id%>
-      <%=form.hidden_field :service_id, value: @service.id%>
-      <%=i.name%> <%=form.submit "Activate Market", 
-      class: "btn-sm btn-primary"%>
-    <%end%>
+      <%= form_with(model: @market_service, local: true) do |form| %>
+        <%=form.hidden_field :market_id, value: i.id%>
+        <%=form.hidden_field :service_id, value: @service.id%>
+        <%=i.name%> <%=form.submit "Activate Market", 
+        class: "btn-sm btn-primary"%>
+      <%end%>
     </li>
   <%end%>
 </ul>

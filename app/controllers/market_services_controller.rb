@@ -57,7 +57,7 @@ class MarketServicesController < ApplicationController
     service = Service.find(params[:service_id])
     market_service = MarketService.find_by!(service_id: params[:service_id], market_id: params[:market_id])
     market_service.destroy()
-    redirect_to market_service_edit_path(service), notice: "Market Service was succesfully deleted" 
+    redirect_to market_service_edit_path(service), notice: "Market Service was succesfully deactivated" 
   end
 
   def service
