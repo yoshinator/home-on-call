@@ -26,8 +26,7 @@ class ServicesController < ApplicationController
   def create
     @service = Service.new(service_params)
     if @service.save
-      @service.add_markets
-      redirect_to @service, notice: 'Service was successfully created.'
+      redirect_to @service, notice: 'Service was successfully created. Remember to update its active markets. No markets will be active with brand a new service. Update this below'
     else
       render :new
     end

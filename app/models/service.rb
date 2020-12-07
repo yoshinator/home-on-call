@@ -12,6 +12,7 @@ class Service < ApplicationRecord
 
   scope :search, -> (term) { where("title ilike ? ", "%#{term}%") }
 
+  # adds all available markets to the service as active
   def add_markets
     Market.all.each do |m|
       if m.name != "Master"
