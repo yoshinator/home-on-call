@@ -104,7 +104,6 @@ ActiveRecord::Schema.define(version: 2020_11_23_190056) do
   create_table "market_services", force: :cascade do |t|
     t.bigint "market_id", null: false
     t.bigint "service_id", null: false
-    t.boolean "active"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["market_id"], name: "index_market_services_on_market_id"
