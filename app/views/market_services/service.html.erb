@@ -2,31 +2,33 @@
   <header class="masthead" style="background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%, #161616 100%), url(<%=asset_path 'home_service_bathroom.jpg'%>);">
 <% end %>
 </header>
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
-<h1>Active Markets for <%=@service.title%></h1>
-<ul>
-  <% @service.markets.each do |m|%>
-  <li class="my-2">
-    <%=m.name%> <%=link_to "Deactivate Market",market_service_del_path(@service.id, m.id), method: :delete, class: "btn-sm btn-primary"%>
-  </li>
-  <%end%>
-</ul>
-
-<h1>Inactive Markets for <%=@service.title%> </h1>
-<ul>
-  <% @service.inactive_markets.each do |i|%>
-    <%if i.name != "Master"%>
-      <li class="my-2">
-        <%= form_with(model: @market_service, local: true) do |form| %>
-          <%=form.hidden_field :market_id, value: i.id%>
-          <%=form.hidden_field :service_id, value: @service.id%>
-          <%=i.name%> <%=form.submit "Activate Market", 
-          class: "btn-sm btn-primary"%>
-        <%end%>
-      </li>
+  <h1>Active Markets for <%=@service.title%></h1>
+  <ul>
+    <% @service.markets.each do |m|%>
+    <li class="my-2">
+      <%=m.name%> <%=link_to "Deactivate Market",market_service_del_path(@service.id, m.id), method: :delete, class: "btn-sm btn-primary"%>
+    </li>
     <%end%>
-  <%end%>
-</ul>
+  </ul>
 
-<%=link_to "Back to all services", services_path, class: "btn btn-primary mr-2 my-2"%> <%=link_to "Back to service", @service, class: "btn btn-primary mr-2 my-2"%> 
+  <h1>Inactive Markets for <%=@service.title%> </h1>
+  <ul>
+    <% @service.inactive_markets.each do |i|%>
+      <%if i.name != "Master"%>
+        <li class="my-2">
+          <%= form_with(model: @market_service, local: true) do |form| %>
+            <%=form.hidden_field :market_id, value: i.id%>
+            <%=form.hidden_field :service_id, value: @service.id%>
+            <%=i.name%> <%=form.submit "Activate Market", 
+            class: "btn-sm btn-primary"%>
+          <%end%>
+        </li>
+      <%end%>
+    <%end%>
+  </ul>
+
+  <%=link_to "Back to all services", services_path, class: "btn btn-primary mr-2 my-2"%> <%=link_to "Back to service", @service, class: "btn btn-primary mr-2 my-2"%> 
+</div>
