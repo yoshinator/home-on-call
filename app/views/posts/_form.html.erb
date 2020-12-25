@@ -1,0 +1,40 @@
+<%= form_with(model: post, local: true) do |form| %>
+<% if post.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+    <ul>
+      <% post.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<h5>Author: <%=current_user.full_name.titleize%></h5>
+
+
+<%= form.hidden_field :admin_id, value: current_user.id %>
+
+  <div class="field form-group">
+    <%= form.label :title %>
+    <%= form.text_field :title, autofocus: true, placeholder: "Title of blog post", class: "form-control" %>
+  </div>
+
+    <div class="field form-group">
+    <%= form.label :meta%>
+    <%= form.text_area :meta, placeholder: "Meta description", class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :content, "Content suggested minimum 350 words"%>
+    <%= form.text_area :content, class: "tiny" %>
+  </div>
+
+
+<div class="actions">
+  <%= form.submit class: "btn btn-primary mb-3" %>
+</div>
+<% end %>
+
+<%= javascript_pack_tag 'tinyMce' %>
