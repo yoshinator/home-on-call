@@ -26,16 +26,27 @@
     <%= form.text_area :meta, placeholder: "Meta description", class: "form-control" %>
   </div>
 
-  <div class= "image-preview" id="featured-preview" style='background-image: url(<%="#{mobile_small_image(post.featured_image)}"%>)'>
+  <div class= "image-preview" id="featured-preview" style='background-image: url(<%="#{mobile_small_image(post.featured_image)}" if post.featured_image.attachment%>)'>
     <%= form.label :featured_image, "Upload new featured image"%> 
     <%= form.file_field :featured_image, class: "d-none"%>
   </div>
 
-  <div class= "image-preview" id="image-preview" style='background-image: url(<%="#{mobile_small_image(post.image)}"%>)'>
+  <div class= "image-preview" id="image-preview" style='background-image: url(<%="#{mobile_small_image(post.image)}" if post.image.attachment%>)'>
     <%= form.label :image, "Upload secondary image"%>
     <%= form.file_field :image, class: "d-none" %>
   </div>
 
+
+  <div class="form-group">
+    <%= form.label :content_images%>
+    <%= form.file_field :content_images, multiple: true, class: "form-control py-5" %>
+  </div>
+  <ol>
+    <h5>Images attached</h5>
+    <%post.content_images.attachments.each do |image|%>
+      <li><%=image.filename%></li>
+    <%end%>
+  </ol>
 
 
   <div class="field">
