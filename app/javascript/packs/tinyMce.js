@@ -16,25 +16,25 @@ import oxide from './src/skins/ui/oxide-dark/skin.min.css';
 document.addEventListener("turbolinks:load", ()=> {
 
     const newLocal = '/styles/content.min.css';
+
+    let imageCollection = document.querySelectorAll(".content-images");
+    imageCollection = Array.from(imageCollection);
+    const images = [];
+    imageCollection.map( tag=> {
+      images.push({title: tag.dataset.name, value: tag.dataset.image})
+    })
     tinymce.init({
       selector: '.tiny',
       skin: false,
       // some other settings, like height, language,         
       // order of buttons on your toolbar etc.
       height: 400,
-      images_upload_url: '/images/uploader',
-      automatic_uploads: true,
+      automatic_uploads: false,
       file_picker_types: 'file image media',
       content_css: newLocal, // <-- this is in the public folder
       plugins: ['table', 'lists', 'paste', 'link', 'autosave', 'code', 'wordcount', 'image', 'imagetools'],
-      image_list: [
-        {title: 'Cat', value: 'https://via.placeholder.com/150'},
-        {title: 'Dog', value: 'https://via.placeholder.com/300'}
-      ],
+      image_list: images,
       skin_url: oxide
     });
-
-
-    // Image upload preview in pages where tinyMce is active currently needed for service and town image preview.
 
 })

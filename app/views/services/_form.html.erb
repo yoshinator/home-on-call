@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-  <h3>Bulk Town Section</h3>
+
   <div class="field form-group">
     <%= form.label :title %>
     <%= form.text_field :title, autofocus: true, placeholder: "Title of service", class: "form-control" %>
@@ -21,12 +21,16 @@
     <%= form.text_area :meta_description, placeholder: "Meta description [ror_town] for placeholder", class: "form-control" , id:"meta-word-text" %>
   </div>
 
-  <div class= "image-preview" id="featured-preview" style='background-image: url(<%="#{mobile_small_image(service.featured_image)}"%>)'>
+    <div class= "image-preview" id="featured-preview" style='background-image: url(<%="#{mobile_small_image(service.featured_image)}" if service.featured_image.attachment%>)'> 
+
     <%= form.label :featured_image, "Click to Change Image For Masthead"%> 
     <%= form.file_field :featured_image, class: "d-none"%>
   </div>
 
-  <div class= "image-preview" id="image-preview" style='background-image: url(<%="#{mobile_small_image(service.image)}"%>)'>
+
+    <div class= "image-preview" id="image-preview" style='background-image: url(<%="#{mobile_small_image(service.image)}" if service.image.attachment%>)'>
+
+
     <%= form.label :image, "Click to Change Image For Bottom of Page"%>
     <%= form.file_field :image, class: "d-none" %>
   </div>
@@ -65,4 +69,10 @@
   </div>
 <% end %>
 
+<%service.content_images.attachments.each do |image|%>
+  <%=fail%>
+  <%if image%>
+
+  <%end%>
+<%end%>
 <%= javascript_pack_tag 'servicesView' %>
