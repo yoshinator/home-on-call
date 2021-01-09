@@ -1,2 +1,0 @@
-module MarketServicesHelper
-end
