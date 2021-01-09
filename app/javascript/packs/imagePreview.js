@@ -34,7 +34,6 @@ export function contentImagePreview(){
   const form = $("form");
   $(".d-none").on("change", function (e) {
     e.preventDefault();
-    console.log($(form).attr("action"));
     $.ajax({
       url: $(form).attr("action"),
       type: $(form).attr("method"),

@@ -1,0 +1,29 @@
+<div class="form-group">
+    <label class="content-image-input mt-5 border border-primary rounded p-2 bg-light text-dark" for="<%=text%>_content_images">
+      <span class="bg-dark text-warning p-1 d-inline-block w-100 text-center">Warning: Uploading new images will overwrite all images below.</span>
+      <h3 class="font-weight-light text-center text-lg-left mt-4 mb-0">Content Image Gallery</h3>
+      <p>Images can be added to editor below by clicking insert</p>
+      <hr class="mt-2 mb-5">
+      <div class="container">
+          <div class="row text-center text-lg-left">
+            <%model.content_images.attachments.each do |image|%>
+              <%if image%>
+                <div class="col-lg-3 col-md-4 col-6">
+                  <figure class="figure">
+                    <img class="img-fluid img-thumbnail" src="<%=desktop_small_image(image)%>" alt="">
+                    <figcaption class="figure-caption"><%=image.filename%></figcaption>
+                  </figure>
+                </div>
+                <div class="row text-center text-lg-left">
+                  <span style="display: none;" class="content-images" data-name="<%=image.filename%>" data-image="<%=desktop_small_image(image)%>"></span>
+                  </div>
+                <%end%>
+              <%end%>
+              </div>
+          </div>
+          <div class="text-center my-4 cursor-pointer">
+            <i class="fas fa-plus-circle fa-2x text-center"></i>
+          </div>
+    </label>
+    <%= form.file_field :content_images, multiple: true, class: "d-none" %>
+  </div>

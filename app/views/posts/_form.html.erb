@@ -37,16 +37,7 @@
   </div>
 
 
-  <div class="form-group">
-    <%= form.label :content_images%>
-    <%= form.file_field :content_images, multiple: true, class: "form-control py-5" %>
-  </div>
-  <ol>
-    <h5>Images attached</h5>
-    <%post.content_images.attachments.each do |image|%>
-      <li><%=image.filename%></li>
-    <%end%>
-  </ol>
+  <%= render 'layouts/image_upload_preview', {form: form, model: post, text: "post"}%>
 
 
   <div class="field">
@@ -60,9 +51,4 @@
 </div>
 <% end %>
 
-<%post.content_images.attachments.each do |image|%>
-  <%if image%>
-    <span style="display: none;" class="content-images" data-name="<%=image.filename%>" data-image="<%=desktop_small_image(image)%>"></span>
-  <%end%>
-<%end%>
 <%= javascript_pack_tag 'postsView' %>
