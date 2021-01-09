@@ -8,9 +8,22 @@ import { faMobileAlt } from '@fortawesome/free-solid-svg-icons/faMobileAlt';
 import { faPaperPlane } from '@fortawesome/free-regular-svg-icons/faPaperPlane';
 import { faBars } from '@fortawesome/free-solid-svg-icons/faBars.js';
 import { faMapMarker } from '@fortawesome/free-solid-svg-icons';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle'
+
 
 
 export default function fontawesome(){
-  library.add(faTwitter, faFacebookF, faYoutube, faMobileAlt, faMapMarkedAlt, faEnvelope, faPaperPlane, faBars, faMapMarker)
+  library.add(
+    faTwitter,
+    faFacebookF,
+    faYoutube,
+    faMobileAlt,
+    faMapMarkedAlt,
+    faEnvelope,
+    faPaperPlane,
+    faBars,
+    faMapMarker,
+    faPlusCircle
+  );
   dom.watch()
 }

@@ -220,6 +220,9 @@ main {
   border: 0;
 }
 
+.border-primary {
+  border-color: #64a19d !important;
+}
 
 .btn-primary {
   background-color: #64a19d;
@@ -460,6 +463,17 @@ footer {
   font-weight: bold;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.fa-plus-circle {
+  color: #64a19d;
+}
+.fa-plus-circle:hover {
+  color: rgba(35, 37, 37, .9);
+  transition: color 0.15s ease-in-out
+}
 // AUTO COMPLETE FOR SEARCH
 
 .dopecomplete{

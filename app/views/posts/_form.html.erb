@@ -60,4 +60,9 @@
 </div>
 <% end %>
 
+<%post.content_images.attachments.each do |image|%>
+  <%if image%>
+    <span style="display: none;" class="content-images" data-name="<%=image.filename%>" data-image="<%=desktop_small_image(image)%>"></span>
+  <%end%>
+<%end%>
 <%= javascript_pack_tag 'postsView' %>
