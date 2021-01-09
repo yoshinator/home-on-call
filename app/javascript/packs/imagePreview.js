@@ -1,5 +1,5 @@
 // Image preview for services, towns and blog
-export default function imagePreview(featuredImageId, imageId) {
+export function imagePreview(featuredImageId, imageId) {
   var reader = new FileReader();
   var field1 = document.querySelector(featuredImageId);
   var field2 = document.querySelector(imageId);
@@ -28,4 +28,23 @@ export default function imagePreview(featuredImageId, imageId) {
       false
     );
   }
+}
+
+export function contentImagePreview(){
+  const form = $("form");
+  $(".d-none").on("change", function (e) {
+    e.preventDefault();
+    console.log($(form).attr("action"));
+    $.ajax({
+      url: $(form).attr("action"),
+      type: $(form).attr("method"),
+      dataType: "JSON",
+      data: new FormData(form[0]),
+      processData: false,
+      contentType: false,
+      complete: function () {
+        location.reload();
+      },
+    });
+  });
 }
