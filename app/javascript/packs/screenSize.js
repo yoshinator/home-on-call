@@ -3,6 +3,7 @@ export default function screenSize (){
   let show = document.querySelector(".pages.show")
   let service = document.querySelector(".pages.service")
   let mktsvc = document.querySelector(".pages.market_service")
+  let blog = document.querySelector(".pages.blog")
 
   let width = window.innerWidth
   let mobile_breakpoint = 480;
@@ -10,7 +11,7 @@ export default function screenSize (){
     setImageSource(width)
     setImageMast('.root-mast', width, mobile_breakpoint)
   }
-  if(show || service || mktsvc){
+  if(show || service || mktsvc || blog){
     setImageSource(width)
     setImageMast('.all-masts', width, mobile_breakpoint)
   }

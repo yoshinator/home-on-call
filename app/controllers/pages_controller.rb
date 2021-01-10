@@ -75,6 +75,13 @@ class PagesController < ApplicationController
     render json: @zips_assoc
   end
   
+  def blog
+    @blog = Post.find_by!(slug: params[:blog_id])
+  end
+
+  def blogs
+    @blogs = Post.all
+  end
   def sitemap
     redirect_to 'https://storage.googleapis.com/homeoncall.com/sitemaps/sitemap.xml.gz',format:'xml', status: 301
   end

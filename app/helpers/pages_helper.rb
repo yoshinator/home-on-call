@@ -59,9 +59,9 @@ module PagesHelper
 
   private 
   def public_image_url(width, image)
-    if image || image&.attachment
+    if image || image&.attachment 
       if Rails.env.development?
-             return Rails.application.routes.url_helpers.rails_representation_url(image.variant(resize_to_limit: [width,nil]).processed, only_path: true)
+             return Rails.application.routes.url_helpers.rails_representation_url(image.variant(resize_to_limit: [width,nil]).processed, only_path: true) if image.variant(resize_to_limit: [width, nil])
         else
             return image&.variant(resize_to_limit: [width,nil]).processed.service_url&.split("?")&.first
         end

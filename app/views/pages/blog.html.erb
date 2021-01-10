@@ -1,0 +1,31 @@
+<%= content_for(:canonical, "https://www.homeoncall.com#{request.path}")%>
+<%= content_for(:title, "#{@blog.title}") %>
+<% if  @blog.meta%>
+  <%= content_for(:meta_description, @blog.meta)%>
+<% end %>
+<%= content_for(:og_title, "#{@blog.title.titlecase}")%>
+<%= content_for(:og_description, @blog.meta)%>
+<%= content_for(:og_image, "#{desktop_small_image(@blog.featured_image)}")%>
+<!--Main Content Section-->
+<main >
+<!--Masthead Section-->
+<%= content_for :my_mast do %>
+  <header class="masthead all-masts" style="background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%, #161616 100%);"
+      data-mobile-url=<%=header_selector(@blog, "mobile")%>
+      data-desktop-url=<%=header_selector(@blog, "desktop")%>
+  >
+
+      <div class="container d-flex h-100 align-items-center">
+      <div class="mx-auto text-center ">  
+        <div class="text-overlay d-flex align-items-center">
+          <h1 class="mx-auto mt-2 h2"> <%="#{@blog.title.titlecase}"%></h1>​
+        </div>
+        <a href="#lead-picker" class="btn btn-primary js-scroll-trigger mt-5">Get A Quote Now</a>
+      </div>
+    </div>
+  </header>
+<%end%>
+
+
+  <article>
+  </article>

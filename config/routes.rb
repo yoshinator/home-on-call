@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get '/json_search', to: "pages#json_search", as: "json_search"
   get '/sitemap.xml', to: "pages#sitemap"
   get '/not_available', to: "pages#not_available", as: "not_available"
+  get '/blogs', to: "pages#blogs", as: "blogs"
 
   ####### temporary routes until googles stops indexing
    get '/s/affordable-new-construction-remodeling-hvac-installation', to: "pages#redirect_service"
@@ -43,7 +44,8 @@ Rails.application.routes.draw do
   get '/best-commercial-hvac-installation/:town_id', to: "pages#redirect_installation"
   get  '/junk-removal-cost/:town_id', to: "pages#redirect_junk"
   # end of temporary routes
-
+  
+  get '/blog/:blog_id', to: "pages#blog", as: "blog"
   get '/:service_id/:town_id', to: "pages#show", as: "public_bulk_service"
   get '/:town_id', to: "pages#town", as: "public_town" 
   get '/market_services/service/:service_id', to: "market_services#service", as: "market_service_edit"
