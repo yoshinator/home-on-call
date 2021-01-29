@@ -15,7 +15,6 @@ class Market < ApplicationRecord
         ms = MarketService.new
         ms.service= s
         ms.market= self
-        ms.active= true
         ms.save
       end
     end
