@@ -4,23 +4,31 @@
   <header class="masthead" style="background: linear-gradient(to bottom, rgba(22, 22, 22, 0.3) 0%, rgba(22, 22, 22, 0.7) 75%, #161616 100%), url(<%=asset_path 'home_service_bathroom.jpg'%>);">
   </header>
 <%end%>
-
-<div class="container m-5">
-  <%@blogs.each do |blog|%>
-    <a href="<%=blog_path blog.slug%>">
-      <div class="card text-dark" style="width: 18rem;">
-        <img src="<%=mobile_small_image(blog.featured_image)%>" class="card-img-top" alt="<%=blog.title.titlecase%>">
-        <div class="card-body">
+<div class="container my-5 text-center">
+  <h2>Recent Blog Posts</h2>
+</div>
+<div class="container my-5">
+  <div class="card-deck">
+    <%@blogs.each do |blog|%>
+      <a class="card" href="<%=blog_path blog.slug%>">
+        <div class="embed-responsive embed-responsive-16by9">
+          <img src="<%=mobile_small_image(blog.featured_image)%>" class="card-img-top embed-responsive-item" alt="<%=blog.title.titlecase%>">
+        </div>
+        <div class="card-block">
           <h5 class="card-title"><%=blog.title.titlecase%></h5>
           <p class="card-text">
           <%if blog.meta.length > 50%>
-            <%=blog.meta%>
+            <%=blog.meta%>... (continued)
             <%else%>
-            <%=strip_tags(blog.content).truncate(350, separator: " ", omission: '... (continued)')%>
-          <%end%>
+              <%=strip_tags(blog.content).truncate(350, separator: " ", omission: '... (continued)')%>
+            <%end%>
           </p>
         </div>
-      </div>
-    </a>
-  <%end%>
+        <div class="card-footer mt-auto">
+          By: <%=blog.admin.full_name.titlecase%><br>
+          Published: <%=time_ago_in_words(blog.created_at)%>
+        </div>
+      </a>
+    <%end%>
+  </div>
 </div>

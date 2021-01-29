@@ -32,17 +32,36 @@ export function imagePreview(featuredImageId, imageId) {
 
 export function contentImagePreview(){
   const form = $("form");
-  $(".d-none").on("change", function (e) {
+  $(".multi-hide").on("change", function (e) {
     e.preventDefault();
+    const labels = document.getElementsByTagName("label");
+    let label;
+
+    for (let i = 0; i < labels.length; i++) {
+      if (labels[i].textContent == "Title") {
+        label = labels[i];
+        break;
+      }
+    }
+    let slug = label.nextElementSibling
+    slug = slug.textContent
+    slug = slug.toLowerCase().split(" ").join("-");
+
+    const url = $(form).attr("action")
+    const method = $(form).attr("method")
     $.ajax({
-      url: $(form).attr("action"),
-      type: $(form).attr("method"),
+      url: url,
+      type: method,
       dataType: "JSON",
       data: new FormData(form[0]),
       processData: false,
       contentType: false,
       complete: function () {
-        location.reload();
+        if (method.toLowerCase === "post"){
+        window.location.href = `/posts/${slug}/edit`
+        } else {
+          window.location.reload()
+        }
       },
     });
   });
