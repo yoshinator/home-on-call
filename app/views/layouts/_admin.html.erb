@@ -5,6 +5,9 @@
     <%= link_to "Account Settings", edit_admin_path(current_user) %> | <%=link_to "Sign out", session_path, method: "DELETE"%></div>
     <div class="row">
       <div class="container col-sm-6 col-lg-2">
+        <%=link_to "Blogs", posts_path, class: "small btn btn-primary btn-block btn-sm mx-1 my-1"%>
+      </div>
+      <div class="container col-sm-6 col-lg-2">
         <%=link_to "Services", services_path, class: "small btn btn-primary btn-block btn-sm mx-1 my-1"%>
       </div>
       <div class="container col-sm-6 col-lg-2">
