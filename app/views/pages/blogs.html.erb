@@ -10,12 +10,12 @@
 <div class="container my-5">
   <div class="card-deck">
     <%@blogs.each do |blog|%>
-      <a class="card" href="<%=blog_path blog.slug%>">
+      <div class="card">
         <div class="embed-responsive embed-responsive-16by9">
-          <img src="<%=mobile_small_image(blog.featured_image)%>" class="card-img-top embed-responsive-item" alt="<%=blog.title.titlecase%>">
+          <a href="<%=blog_path blog.slug%>"><img src="<%=mobile_small_image(blog.featured_image)%>" class="card-img-top embed-responsive-item" alt="<%=blog.title.titlecase%>"></a>
         </div>
         <div class="card-block">
-          <h5 class="card-title"><%=blog.title.titlecase%></h5>
+          <a href="<%=blog_path blog.slug%>"><h5 class="card-title"><%=blog.title.titlecase%></h5></a>
           <p class="card-text">
           <%if blog.meta.length > 50%>
             <%=blog.meta%>... (continued)
@@ -28,7 +28,7 @@
           By: <%=blog.admin.full_name.titlecase%><br>
           Published: <%=time_ago_in_words(blog.created_at)%>
         </div>
-      </a>
+      </div>
     <%end%>
   </div>
 </div>
