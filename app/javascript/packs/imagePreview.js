@@ -31,9 +31,8 @@ export function imagePreview(featuredImageId, imageId) {
 }
 
 export function contentImagePreview(){
-  const form = $("form");
   $(".multi-hide").on("change", function (e) {
-    e.preventDefault();
+    console.log("IN CHANGE HANDLER");
     const labels = document.getElementsByTagName("label");
     let label;
 
@@ -43,26 +42,46 @@ export function contentImagePreview(){
         break;
       }
     }
-    let slug = label.nextElementSibling
-    slug = slug.textContent
-    slug = slug.toLowerCase().split(" ").join("-");
+    let slug = label.nextElementSibling.value
+    let punc = /[^A-Za-z0-9 _]/g; // replaces all non alphanumeric characters except _ and space
+    slug = slug.replace(punc, "")
+    slug = slug.toLowerCase().split(" ").join("-")
+    
+    updatePage(slug)
 
-    const url = $(form).attr("action")
-    const method = $(form).attr("method")
-    $.ajax({
-      url: url,
-      type: method,
-      dataType: "JSON",
-      data: new FormData(form[0]),
-      processData: false,
-      contentType: false,
-      complete: function () {
-        if (method.toLowerCase === "post"){
-        window.location.href = `/posts/${slug}/edit`
-        } else {
-          window.location.reload()
-        }
-      },
-    });
   });
+}
+
+function updatePage(slug){
+    let form = $("form");
+    const url = $(form).attr("action");
+    const method = $(form).attr("method");
+    let businessType = $("#service_business_type_id").val();
+    
+    if (url === "/services" && !businessType) {
+      console.log("IN IF");
+      alert("Please add a business type first at the bottom of the page and try again.")
+    }
+    else if (!!slug.length) {
+      console.log("IN ELSE IF");
+      $.ajax({
+        url: url,
+        type: method,
+        dataType: "JSON",
+        data: new FormData(form[0]),
+        processData: false,
+        contentType: false,
+        complete: function () {
+          if (method.toLowerCase() === "post") {
+            window.location.href = `${url}/${slug}/edit`;
+          } else {
+            window.location.reload();
+          }
+        },
+      });
+    } else {
+        console.log("IN ELSE");
+        alert("Must have a title!!");
+    }
+    debugger
 }
