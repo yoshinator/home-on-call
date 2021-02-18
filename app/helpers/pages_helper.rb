@@ -28,9 +28,9 @@ module PagesHelper
   end
 
   def header_selector(service, screen) 
-    if service&.featured_image.attached? && screen == "mobile"
+    if service&.featured_image&.attached? && screen == "mobile"
       mobile_large_image(service.featured_image)
-    elsif service&.featured_image.attached? && screen == "desktop"
+    elsif service&.featured_image&.attached? && screen == "desktop"
       desktop_large_image(service.featured_image)
     else
       asset_path('home_service_bathroom.jpg')
