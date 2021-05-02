@@ -1,0 +1,15 @@
+version: '3'
+  services:
+    web: 
+      build: .
+      ports:
+        - "3000:3000"
+      volumes:
+        - .:/usr/src/app
+    
+    database:
+      image: postgres
+      environment:
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: <%=ENV[POSTGRES_PASSWORD]%>
+        POSTGRES_DB: home_on_call_development

@@ -1,0 +1,21 @@
+# Git
+.git 
+.gitignore 
+
+#Logs 
+log/* 
+
+#Temp files
+tmp/* 
+
+# Editor temp files
+
+.vscode
+.swp
+.swo
+.ide
+
+# Environment Variables
+
+env/*
+
