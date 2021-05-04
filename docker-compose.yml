@@ -1,15 +1,50 @@
 version: '3'
-  services:
-    web: 
-      build: .
-      ports:
-        - "3000:3000"
-      volumes:
-        - .:/usr/src/app
-    
-    database:
-      image: postgres
-      environment:
-        POSTGRES_USER: postgres
-        POSTGRES_PASSWORD: <%=ENV[POSTGRES_PASSWORD]%>
-        POSTGRES_DB: home_on_call_development
+services:
+  build:
+    image: home_on_call
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+  web:
+    image: home_on_call
+    depends_on:
+      - build
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/src/app
+      - gem_cache:/bundler_gems 
+    env_file:
+      - .env/development/database
+      - .env/development/web
+    environment:
+      - WEBPACKER_DEV_SERVER_HOST=webpack_dev_server
+
+  webpack_dev_server:
+    image: home_on_call
+    depends_on:
+      - build
+    command: ./bin/webpack-dev-server
+    ports:
+      - 3035:3035
+    volumes:
+      # - .:/usr/src/app
+      - gem_cache:/bundler_gems 
+    env_file:
+      - .env/development/database
+      - .env/development/web
+    environment:
+      - WEBPACKER_DEV_SERVER_HOST=0.0.0.0 
+      
+  database:
+    image: postgres
+    env_file:
+      - .env/development/database
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:
+  gem_cache:
+  

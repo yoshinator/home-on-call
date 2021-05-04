@@ -17,5 +17,5 @@ tmp/*
 
 # Environment Variables
 
-env/*
+.env/*
 

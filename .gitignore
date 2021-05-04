@@ -30,7 +30,7 @@
 /config/master.key
 
 # Ignore all file in the env folder
-/env
+.env/*
 
 /public/packs
 /public/packs-test

@@ -5,13 +5,13 @@ RUN curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | tee /usr
 RUN echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main" | tee /etc/apt/sources.list.d/yarn.list
 RUN apt-get update -yqq && apt-get install -yqq --no-install-recommends \
 nodejs \
-yarn
+yarn && apt-get clean && rm -rf /var/lib/apt/lists
 
 COPY Gemfile* /usr/src/app/
 
 WORKDIR /usr/src/app
 RUN bundle install
-WORKDIR /usr/src/
+COPY package.json /usr/src/app
 RUN yarn install
 
 COPY . /usr/src/app/
