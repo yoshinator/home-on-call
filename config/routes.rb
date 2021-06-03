@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :posts
   get '/404', to: "errors#not_found", as: "not_found"
   get '/422', to: "erros#unacceptable"
   get '/500', to: "errors#internal_error"
@@ -44,12 +43,10 @@ Rails.application.routes.draw do
   get '/best-commercial-hvac-installation/:town_id', to: "pages#redirect_installation"
   get  '/junk-removal-cost/:town_id', to: "pages#redirect_junk"
   # end of temporary routes
-  
-  get '/blog/:blog_id', to: "pages#blog", as: "blog"
+
   get '/:service_id/:town_id', to: "pages#show", as: "public_bulk_service"
   get '/:town_id', to: "pages#town", as: "public_town" 
   get '/market_services/service/:service_id', to: "market_services#service", as: "market_service_edit"
   delete '/market_services/:service_id/:market_id', to: "market_services#delete_market_service", as: "market_service_del"
-  
 
 end
