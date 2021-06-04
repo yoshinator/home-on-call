@@ -429,6 +429,7 @@ DEPENDENCIES
   pg
   pry-byebug
   puma (~> 4.3)
+  rack-proxy
   rails!
   ringcentral-sdk
   rspec-rails (~> 3.9)

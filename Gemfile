@@ -33,7 +33,10 @@ gem 'ringcentral-sdk'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'google-cloud-storage', require: false
 gem 'sitemap_generator'
-gem "google_places", "~> 2.0.0"
+gem 'google_places', '~> 2.0.0'
+
+# Connects to ghost blog
+gem 'rack-proxy'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
