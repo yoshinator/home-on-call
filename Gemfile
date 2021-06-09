@@ -36,7 +36,7 @@ gem 'sitemap_generator'
 gem 'google_places', '~> 2.0.0'
 
 # Connects to ghost blog
-gem 'rack-proxy'
+gem "rack-reverse-proxy", require: "rack/reverse_proxy"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
