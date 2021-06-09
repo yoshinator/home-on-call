@@ -5,7 +5,7 @@ require 'rack/reverse_proxy'
 
 use Rack::ReverseProxy do  
   reverse_proxy(/^\/blog(\/.*)$/,
-    'http://157.245.140.138/blog/$1',
+    'http://157.245.140.138/blog$1',
     opts = {:preserve_host => true})
 end  
 
