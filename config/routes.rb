@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get '/json_search', to: "pages#json_search", as: "json_search"
   get '/sitemap.xml', to: "pages#sitemap"
   get '/not_available', to: "pages#not_available", as: "not_available"
-  # get "/blog", to: redirect('https://homeoncall-staging.herokuapp.com/blog/', status: 301)
+  get "/blog", to: redirect('https://homeoncall-staging.herokuapp.com/blog/', status: 301)
 
   ####### temporary routes until googles stops indexing
    get '/s/affordable-new-construction-remodeling-hvac-installation', to: "pages#redirect_service"
