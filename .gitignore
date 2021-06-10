@@ -38,3 +38,7 @@ yarn-debug.log*
 
 !.DS_Store
 .DS_Store
+
+.env
+/.env
+/.env/*
