@@ -1,4 +1,34 @@
 class PagesController < ApplicationController
+  
+  def json_search
+    @services = Service.search(page_params[:search])
+    render json: @services[0..2]
+  end
+  
+  def market 
+    @market = Market.find_by!(slug: params[:market_id])
+    @towns = @market.towns
+  end 
+  
+  def market_service
+    @lead = Lead.new()
+    @service = Service.find_by!(slug: params[:service_id])
+    @market = Market.find_by!(slug: params[:market_id])
+    @client = Page.get_client(@market, @service)
+  end
+  
+  def not_available
+    @service = Service.find_by!(slug: page_params["service"])
+  end
+
+  def search_results
+    @services = Service.search(page_params[:search])
+  end 
+  
+  def service
+    @service = Service.find_by!(slug: params[:service_id])
+    @markets = Market.all
+  end
 
   # Client will return first client in db if no client found. 
   # Use first client for default emails. 
@@ -12,17 +42,9 @@ class PagesController < ApplicationController
     @spot = JSON.parse(@page.google_town_info)
     @lead = Lead.new()
   end 
-
-  def service
-    @service = Service.find_by!(slug: params[:service_id])
-    @markets = Market.all
-  end
-
-  def market_service
-    @lead = Lead.new()
-    @service = Service.find_by!(slug: params[:service_id])
-    @market = Market.find_by!(slug: params[:market_id])
-    @client = Page.get_client(@market, @service)
+  
+  def sitemap
+    redirect_to 'https://storage.googleapis.com/homeoncall.com/sitemaps/sitemap.xml.gz',format:'xml', status: 301
   end
 
   def town 
@@ -30,21 +52,7 @@ class PagesController < ApplicationController
     @market = @town.market
     @services = @market.services
   end
-
-  def market 
-    @market = Market.find_by!(slug: params[:market_id])
-    @towns = @market.towns
-  end 
-
-  def search_results
-    @services = Service.search(page_params[:search])
-  end 
-
-  def json_search
-    @services = Service.search(page_params[:search])
-    render json: @services[0..2]
-  end
-
+  
   def zip_click_search
     @market = ZipCode.find_by(zip: page_params[:search])&.town&.market
     @service = Service.find_by(slug: page_params[:service])
@@ -56,11 +64,7 @@ class PagesController < ApplicationController
       redirect_to not_available_path params: request.query_parameters
     end
   end
-
-  def not_available
-    @service = Service.find_by!(slug: page_params["service"])
-  end
-
+  
   def zip_search
     zips = ZipCode.search(page_params[:search])
     zips = zips.includes(:town)
@@ -73,10 +77,6 @@ class PagesController < ApplicationController
     end
     flash['service'] = page_params[:service]
     render json: @zips_assoc
-  end
-
-  def sitemap
-    redirect_to 'https://storage.googleapis.com/homeoncall.com/sitemaps/sitemap.xml.gz',format:'xml', status: 301
   end
 
   private 
