@@ -18,31 +18,10 @@ Rails.application.routes.draw do
   get '/not_available', to: "pages#not_available", as: "not_available"
   get "/blog", to: redirect('https://homeoncall.com/blog/', status: 301)
 
-  ####### temporary routes until googles stops indexing
-   get '/s/affordable-new-construction-remodeling-hvac-installation', to: "pages#redirect_service"
-   get '/s/fast-air-conditioner-service-call', to: "pages#redirect_fast"
-   get '/s/junk-removal-cost', to: "pages#redirect_junk_main"
-
-  ####### end temp
-
   get '/s/:service_id', to: "pages#service", as: "public_service" 
   get '/m/:market_id', to: "pages#market", as: "public_market" 
   get '/m/:market_id/:service_id', to: "pages#market_service", as: "public_market_service" 
 
-  # temporary routes until googles stops indexing
-  get '/fast-air-conditioner-service-call/:town_id', to: "pages#redirect_emergency"
-  
-  get '/best-home-heater-maintenace/:town_id', to: "pages#redirect_heat"
-  get '/affordable-hvac-duct-installation/:town_id', to: "pages#redirect_duct"
-  get '/affordable-air-duct-cleaning/:town_id', to: "pages#redirect_duct"
-  
-  get '/commercial-hvac-repair/:town_id', to: "pages#redirect_repair"
-  get '/low-cost-hvac-maintenance-contractor/:town_id', to: "pages#redirect_repair"
-
-  get '/affordable-new-construction-remodeling-hvac-installation/:town_id', to: "pages#redirect_installation"
-  get '/best-commercial-hvac-installation/:town_id', to: "pages#redirect_installation"
-  get  '/junk-removal-cost/:town_id', to: "pages#redirect_junk"
-  # end of temporary routes
 
   get '/:service_id/:town_id', to: "pages#show", as: "public_bulk_service"
   get '/:town_id', to: "pages#town", as: "public_town" 

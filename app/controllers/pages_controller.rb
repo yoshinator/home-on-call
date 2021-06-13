@@ -74,54 +74,10 @@ class PagesController < ApplicationController
     flash['service'] = page_params[:service]
     render json: @zips_assoc
   end
-  
-  def blog
-    @blog = Post.find_by!(slug: params[:blog_id])
-  end
 
-  def blogs
-    @blogs = Post.all
-  end
   def sitemap
     redirect_to 'https://storage.googleapis.com/homeoncall.com/sitemaps/sitemap.xml.gz',format:'xml', status: 301
   end
-
-  def redirect_emergency
-    redirector("emergency-air-conditioner-repair")
-  end 
-
-  def redirect_duct
-    redirector("air-duct-cleaning-repair-installation")
-  end 
-
-  def redirect_heat
-    redirector("home-heater-maintenance")
-  end 
-
-  def redirect_repair
-    redirector("affordable-ac-repair-service")
-  end
-
-  def redirect_installation
-    redirector("affordable-hvac-installation")
-  end 
-  
-  def redirect_junk
-    redirector("junk-removal")
-  end
-
-  def redirect_service
-    redirect_to "/s/affordable-hvac-installation", status: :moved_permanently
-  end
-
-  def redirect_fast
-    redirect_to "/s/emergency-air-conditioner-repair", status: :moved_permanently
-  end
-
-  def redirect_junk_main
-    redirect_to "/s/junk-removal", status: :moved_permanently
-  end
-
 
   private 
 
