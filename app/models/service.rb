@@ -6,7 +6,7 @@ class Service < ApplicationRecord
 
   belongs_to :business_type
   has_many :clients
-  has_many :market_services
+  has_many :market_services, dependent: :destroy
   has_many :markets, through: :market_services
   has_many  :pages, dependent: :destroy
 
