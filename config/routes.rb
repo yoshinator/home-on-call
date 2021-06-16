@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get '/404', to: "errors#not_found", as: "not_found"
   get '/422', to: "erros#unacceptable"
   get '/500', to: "errors#internal_error"

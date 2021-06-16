@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_25_204346) do
+ActiveRecord::Schema.define(version: 2021_06_15_223651) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -129,17 +129,6 @@ ActiveRecord::Schema.define(version: 2020_12_25_204346) do
     t.index ["town_id"], name: "index_pages_on_town_id"
   end
 
-  create_table "posts", force: :cascade do |t|
-    t.bigint "admin_id", null: false
-    t.string "slug"
-    t.string "title"
-    t.text "content"
-    t.text "meta"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["admin_id"], name: "index_posts_on_admin_id"
-  end
-
   create_table "services", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -167,6 +156,18 @@ ActiveRecord::Schema.define(version: 2020_12_25_204346) do
     t.index ["market_id"], name: "index_towns_on_market_id"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
   create_table "zip_codes", force: :cascade do |t|
     t.string "zip", limit: 5
     t.bigint "town_id", null: false
@@ -185,7 +186,6 @@ ActiveRecord::Schema.define(version: 2020_12_25_204346) do
   add_foreign_key "market_services", "services"
   add_foreign_key "pages", "services"
   add_foreign_key "pages", "towns"
-  add_foreign_key "posts", "admins"
   add_foreign_key "services", "business_types"
   add_foreign_key "towns", "markets"
   add_foreign_key "zip_codes", "towns"

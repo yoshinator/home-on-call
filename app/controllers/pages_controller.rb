@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  
+  before_action :authenticate_user!
   def json_search
     @services = Service.search(page_params[:search])
     render json: @services[0..2]
