@@ -1,8 +1,8 @@
-<%if current_user %>
+<%if current_admin %>
 <div class="admin fixed-bottom">
   <div class="container py-1">
-    <div class="text-center">Welcome back <%=current_user.fname.capitalize%> |  
-    <%= link_to "Account Settings", edit_admin_path(current_user) %> | <%=link_to "Sign out", session_path, method: "DELETE"%></div>
+    <div class="text-center">Welcome back <%=current_admin.fname.capitalize%> |  
+    <%= link_to "Account Settings", edit_admin_path(current_user) %> | <%=link_to "Sign out", destroy_admin_session_path, method: "DELETE"%></div>
     <div class="row">
       <div class="container col-sm-6 col-lg-2">
         <%=link_to "Services", services_path, class: "small btn btn-primary btn-block btn-sm mx-1 my-1"%>
@@ -24,6 +24,6 @@
 </div>
 <%else%>
 <div class="bg-black">
-  <%=link_to "Sign in", new_session_path, class: "small"%>
+  <%=link_to "Sign in", new_admin_session_path, class: "small"%>
 </div>
 <%end%>

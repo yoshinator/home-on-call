@@ -1,8 +1,11 @@
 class Admin < ApplicationRecord
-  has_secure_password
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
   before_save :check_privilige
 
-  validates :password, length: { minimum: 9, allow_blank: true }
+  # validates :password, length: { minimum: 9, allow_blank: true }
   validates :email, presence: true,
             format: { with: /\S+@\S+\.\S+/ },
             uniqueness: {case_sensitive: false}
