@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get '/towns/bulk', to: "towns#bulk_new", as: "new_bulk"
   post '/towns/bulk', to: "towns#bulk_create", as: "bulk_town"
   
+  resources :client_edit, except: [:destroy], path: "clients_edit", controller: "clients/clients_admin_edit"
   resources :leads, :services, :business_types, :towns, :markets, :market_services
 
 # Not protected routes. 

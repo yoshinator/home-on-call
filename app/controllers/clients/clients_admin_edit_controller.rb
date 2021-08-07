@@ -1,6 +1,6 @@
-class ClientsController < ApplicationController
+class Clients::ClientsAdminEditController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update, :destroy]
-  before_action :require_signin
+  before_action :authenticate_admin!
   before_action :require_client_access
 
   # GET /clients

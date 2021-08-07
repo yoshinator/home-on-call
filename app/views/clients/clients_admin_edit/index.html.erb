@@ -34,9 +34,8 @@
           <td><%= client.active %></td>
           <td><%= client.market.name %></td>
           <td><%= client.business_type.name %></td>
-          <td><%= link_to 'Show', client, class: "btn btn-primary btn-sm"  %></td>
-          <td><%= link_to 'Edit', edit_client_path(client), class: "btn btn-primary btn-sm"  %></td>
-          <td><%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary btn-sm"  %></td>
+          <td><%= link_to 'Show', client_edit_path(client), class: "btn btn-primary btn-sm"  %></td>
+          <td><%= link_to 'Edit', edit_client_edit_path(client), class: "btn btn-primary btn-sm"  %></td>
         </tr>
       <% end %>
     </tbody>
@@ -44,5 +43,5 @@
 
   <br>
 
-  <%= link_to 'New Client', new_client_path, class: "btn btn-primary btn-sm mb-4"  %>
+  <%= link_to 'New Client', new_client_edit_path, class: "btn btn-primary btn-sm mb-4"  %>
 </div>
