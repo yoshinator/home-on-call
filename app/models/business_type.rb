@@ -9,11 +9,11 @@ class BusinessType < ApplicationRecord
   validates :faa3, presence: :true
   validates :faa4, presence: :true
 
-  def self.alll(current_user) 
-    if current_user.super 
+  def self.alll(current_user = nil)
+    if current_user&.super 
       @business_types = BusinessType.all
     else 
-      @business_Types = BusinessType.all.where.not(name: "Master")
+      @business_types = BusinessType.all.where.not(name: "Master")
     end
   end 
 end

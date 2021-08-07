@@ -1,6 +1,6 @@
 class TownsController < ApplicationController
   before_action :set_town, only: [:show, :edit, :update, :destroy]
-  before_action :require_signin
+  before_action :authenticate_admin!
   before_action :require_edit_access
 
   # GET /towns

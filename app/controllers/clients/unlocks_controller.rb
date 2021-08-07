@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Clients::UnlocksController < Devise::UnlocksController
+  include Accessible
   # GET /resource/unlock/new
   # def new
   #   super

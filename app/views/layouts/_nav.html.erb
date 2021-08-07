@@ -26,6 +26,12 @@
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href=<%=current_page?(root_path)?"#signup": "/#signup"%>>Search</a>
           </li>
+            <% if !current_admin && !current_client %>
+              <%=link_to "Sign in", new_client_session_path, class: "nav-link"%>
+            <% elsif current_client%>
+            <%=link_to "Sign out", destroy_client_session_path, method: "DELETE"%>
+            <% end %>
+          <li>
         </ul>
       </div>
     </div>
