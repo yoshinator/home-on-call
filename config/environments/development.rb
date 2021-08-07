@@ -37,7 +37,7 @@ Rails.application.configure do
 #These settings are for the sending out email for active admin and consequently the   devise mailer
   config.action_mailer.perform_deliveries = true
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'localhost', port: ENV['PORT'] }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: "smtp.sendgrid.net",
