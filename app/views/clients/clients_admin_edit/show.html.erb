@@ -46,8 +46,8 @@
             <%= @client.business_type.name %>
           </p>
 
-          <%= link_to 'Edit', edit_client_path(@client), class: "btn btn-primary"%>
-          <%= link_to 'Back', clients_path, class: "btn btn-primary" %>
+          <%= link_to 'Edit', edit_client_edit_path(@client), class: "btn btn-primary"%>
+          <%= link_to 'Back', client_edit_index_path, class: "btn btn-primary" %>
         </div>
       </div>
     </div>

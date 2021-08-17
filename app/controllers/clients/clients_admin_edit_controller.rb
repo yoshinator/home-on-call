@@ -35,17 +35,17 @@ class Clients::ClientsAdminEditController < ApplicationController
   # PATCH/PUT /clients/1
   def update
     if @client.update(client_params)
-      redirect_to @client, notice: 'Client was successfully updated.'
+      redirect_to client_edit_url @client, notice: 'Client was successfully updated.'
     else
       render :edit
     end
   end
 
   # DELETE /clients/1
-  def destroy
-    @client.destroy
-    redirect_to clients_url, notice: 'Client was successfully destroyed.'
-  end
+  # def destroy
+  #   @client.destroy
+  #   redirect_to clients_url, notice: 'Client was successfully destroyed.'
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
