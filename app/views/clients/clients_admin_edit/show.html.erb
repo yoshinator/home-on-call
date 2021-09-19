@@ -23,7 +23,7 @@
 
           <p>
             <strong>Phone:</strong>
-            <%= @client.phone %>
+            <%= number_to_phone(@client.phone) %>
           </p>
 
           <p>
@@ -53,3 +53,19 @@
     </div>
   </header>
 <%end%>
+<div class="container">
+  <h3 class="text-center my-4">LEADS</h3>
+  <% @client.leads.order(created_at: :desc).each do |lead| %>
+    <div class="card mb-2">
+      <div class="card-body">
+        <h5 class="card-title">Customer Name:  <%=lead.f_name %>  <%=lead.l_name %><h5>
+        <h6 class="card-subtitle mb-2">Phone: <%= link_to lead.phone, "tel:+1#{number_to_phone(lead.phone)}"%><h5>
+        <h6 class="card-subtitle mb-2">Email: <%= link_to lead.email, "mailto: #{lead.email} "%><h6>
+        <h6 class="card-subtitle mb-2">Address: <%= link_to "#{lead.street1} #{lead.street2 if lead.street2} #{lead.city}, #{lead.state}", "http://maps.google.com/maps?q=#{lead.street1}+#{lead.city}+#{lead.state}" %></h6>
+
+        <p class="card-text" >Message: <%=lead.content%> </p>
+        <h6 class="card-subtitle mb-2 text-muted">Date: <%=lead.created_at.to_formatted_s(:long_ordinal)%></h6>
+      </div>
+    </div>
+  <% end %>
+</div>

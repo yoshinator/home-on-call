@@ -11,7 +11,7 @@
     </p>
     <p>Name:    <%= @lead.f_name %></p>
     <p>Email:   <%= link_to @lead.email, "mailto: #{@lead.email} "%></p>
-    <p>Address: <%= link_to "#{@lead.street1}  #{@lead.city}, #{@lead.state}", "http://maps.google.com/maps?q=#{@lead.street1}+#{@lead.city}+#{@lead.state}" %></p>
+    <p>Address: <%= link_to "#{@lead.street1} #{@lead.street2 if @lead.street2} #{@lead.city}, #{@lead.state}", "http://maps.google.com/maps?q=#{@lead.street1}+#{@lead.city}+#{@lead.state}" %></p>
     <p>Phone:   <%= link_to @lead.phone, "tel:+1#{number_to_phone(@lead.phone)}"%></p>
     <p>
     Description:<br>

@@ -26,7 +26,7 @@ class Clients::ClientsAdminEditController < ApplicationController
     @client = Client.new(client_params)
 
     if @client.save
-      redirect_to @client, notice: 'Client was successfully created.'
+      redirect_to client_edit_path @client, notice: 'Client was successfully created.'
     else
       render :new
     end
@@ -55,6 +55,6 @@ class Clients::ClientsAdminEditController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def client_params
-      params.require(:client).permit(:fname, :lname, :email, :phone, :company_name, :active, :market_id, :business_type_id)
+      params.require(:client).permit(:active, :business_type_id, :company_name, :email,  :fname, :lname, :market_id, :password, :password_confirmation, :phone)
     end
 end
