@@ -14,7 +14,7 @@
     "bootstrap": "^4.4.1",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.0",
-    "tinymce": "^5.7.1",
+    "tinymce": "^5.9.0",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
