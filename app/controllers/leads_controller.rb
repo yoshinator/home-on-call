@@ -1,6 +1,7 @@
 class LeadsController < ApplicationController
   before_action :set_lead, only: [:show, :edit, :update, :destroy]
-  before_action :require_signin, except: [:create]
+  before_action :authenticate_admin!
+  before_action :require_edit_access
 
   # GET /leads
   def index

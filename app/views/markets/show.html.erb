@@ -32,7 +32,7 @@
     </thead>
 
     <tbody>
-      <% @towns.each do |town| %>
+      <% @towns.order(name: :asc).each do |town| %>
         <tr>
           <td><%= town.name %></td>
           <td><%= town.county %></td>

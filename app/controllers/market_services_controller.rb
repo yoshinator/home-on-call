@@ -1,6 +1,7 @@
 class MarketServicesController < ApplicationController
-  before_action :require_signin
   before_action :set_market_service, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_admin!
+  before_action :require_edit_access
 
   # GET /market_services
   def index
