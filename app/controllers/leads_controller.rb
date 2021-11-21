@@ -65,6 +65,6 @@ class LeadsController < ApplicationController
     # Only allow a trusted parameter "white list" through. 
     # :service type and :time_line are not in the schema add them to the content.
     def lead_params
-      params.require(:lead).permit(:client_id, :f_name, :l_name, :phone, :email, :street1, :street2, :city, :state, :business, :content, :service_type, :time_line, :zip, :entry)
+      params.require(:lead).permit(:client_id, :f_name, :l_name, :phone, :email, :street1, :street2, :city, :state, :business, :content, :size, :service_type, :time_line, :zip, :entry)
     end
 end

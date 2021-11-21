@@ -3,9 +3,10 @@
 
     <div class="mt-5 mx-3 scroll-stop lead-picker">
       <div class="m-auto text-center p-1">
-        <%= render "layouts/painting_lead_form", lead: lead, client: client if service.business_type.name.downcase == "painting"%>
-        <%= render "layouts/junk_removal_lead_form", lead: lead, client: client if service.business_type.name.downcase == "junk removal"%>
-        <%= render "layouts/hvac_lead_form", lead: lead, client: client if service.business_type.name.downcase == "hvac"%>
+        <%= render "layouts/lead_forms/painting_lead_form", lead: lead, client: client if service.business_type.name.downcase == "painting"%>
+        <%= render "layouts/lead_forms/junk_removal_lead_form", lead: lead, client: client if service.business_type.name.downcase == "junk removal"%>
+        <%= render "layouts/lead_forms/hvac_lead_form", lead: lead, client: client if service.business_type.name.downcase == "hvac"%>
+        <%= render "layouts/lead_forms/dumpster_lead_form", lead: lead, client: client if service.business_type.name.downcase == "dumpster rental"%>
       </div>
     </div>
 

@@ -1,0 +1,112 @@
+
+  <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
+  <h2 class="text-white mb-5">Let's get started for free.</h2>
+  <div class="rounded bg-light">
+    <h5 class="text-center bg-warning mb-2 p-2 rounded" id="result">Message</h5>
+    <div class="progress-bar bg-primary rounded" id="progressBar" style="width: 22%" rold="progressbar">
+      <b class="lead" id="progressText">Step - 1 </b>
+    </div>
+
+    <!-- <form action="" method="post" id="form-data" class="pt-5 pb-2 px-2 bg-light"> -->
+    <%= form_with model: lead, class: "pt-5 pb-2 px-2 bg-light" do |f| %>
+      <%= f.hidden_field :client_id, value: @client.id%>
+      <%= f.hidden_field :entry, value: request.path%>
+      <div id="first" class="text-left">
+        <h4 class="text-center p-1">What size dumpster do you need </h4>
+        <div class="form-check">
+          <%= f.radio_button :service_type, "10-cubic-yard", class: "form-check-input", checked: true%>
+          <%= f.label :size, "10 Cubic Yard Dumpster", value: "10-cubic-yard", class: "form-check-label"%>
+        </div>
+        <div class="form-check">
+          <%= f.radio_button :size, "20-cubi-yard", class: "form-check-input"%>
+          <%= f.label :size, "20 Cubic Yard Dumpster", value: "20-cubi-yard", class: "form-check-label" %>
+        </div>
+        <div class="form-check">
+          <%= f.radio_button :size, "30-cubic-yard-dumpster", class: "form-check-input"%>
+          <%= f.label :size, "30 Cubic Yard Dumpster", value: "30-cubic-yard-dumpster", class: "form-check-label"%>
+        </div>
+        <div class="form-check">
+          <%= f.radio_button :size, "40-cubic-yard", class: "form-check-input"%>
+          <%= f.label :size, "40 Cubic Yard", value: "40-cubic-yard", class: "form-check-label"%>
+        </div>
+        <div class="form-group text-right">
+          <a href="#" class="btn btn-primary mx-auto" id="next-1">Next</a>
+        </div>
+      </div>
+
+      <div id="second" class="text-left">
+        <h4 class="text-center p-1">What material will you put in the dumpster?</h4>
+        <div class="form-check">
+          <%= f.radio_button :service_type, "construction-debris", class:"form-check-input", checked: true%>
+          <%= f.label :service_type, "Construction debris",  value: "construction-debris", class:"form-check-label" %>
+        </div>
+        <div class="form-check">
+          <%= f.radio_button :service_type, "house-hold-bulky-items", class:"form-check-input"%>
+          <%= f.label :service_type, "House hold or bulky items", value: "house-hold-bulky-items", class:"form-check-label" %>
+        </div>
+        <div class="form-check">
+          <%= f.radio_button :service_type, "roofing-material", class:"form-check-input"%>
+          <%= f.label :service_type, "Roofing material", value: "roofing-material", class:"form-check-label" %>
+        </div>
+        <div class="form-check">
+          <%= f.radio_button :service_type, "dirt-or-yard-waste", class:"form-check-input"%>
+          <%= f.label :service_type, "Dirt or yard waste", value: "dirt-or-yard-waste", class:"form-check-label" %>
+        </div>
+        <div class="form-check">
+          <%= f.radio_button :service_type, "concrete-masonry", class:"form-check-input"%>
+          <%= f.label :service_type, "Concrete or masonry (no stone)", value: "concrete-masonry", class:"form-check-label" %>
+        </div>
+        <div class="form-group text-right">
+          <a href="#" class="btn btn-danger mx-auto" id="prev-2">Prev</a>
+          <a href="#" class="btn btn-primary mx-auto" id="next-2">Next</a>
+        </div>
+      </div>
+
+      <div id="third" class="text-left">
+        <h4 class="text-center p-1">When do you need the dumpster delivered?? </h4>
+        <div class="form-check">
+          <%= f.radio_button :time_line, "right-away", class:"form-check-input", checked: true%>
+          <%= f.label :time_line, "Right Away", value: "right-away", class:"form-check-label" %>
+        </div>
+        <div class="form-check">
+          <%= f.radio_button :time_line, "1-3-days", class:"form-check-input"%>
+          <%= f.label :time_line, "1-3 Days", value: "1-3-days", class:"form-check-label" %>
+        </div>
+        <div class="form-check">
+          <%= f.radio_button :time_line, "more-than-a-week", class:"form-check-input"%>
+          <%= f.label :time_line, "1 week or later", value: "more-than-a-week", class:"form-check-label" %>
+        </div>
+        <div class="form-group text-right">
+          <a href="#" class="btn btn-danger mx-auto" id="prev-3">Prev</a>
+          <a href="#" class="btn btn-primary mx-auto" id="next-3">Next</a>
+        </div>
+      </div>
+
+      <div id="fourth" class="text-left">
+        <h4 class="text-center p-1">Contact info </h4>
+        <div class="form-group">
+          <%= f.text_field :f_name, class: "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1 ", placeholder: "Enter your name...",required: true%> 
+          <%= f.email_field :email, class: "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1 ", placeholder: "Enter your email...",required: true%> 
+          <%= f.text_field :phone, class: "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1 ", placeholder: "Enter your phone number...",required: true%> 
+        </div>
+        <div class="form-group text-right">
+          <a href="#" class="btn btn-danger mx-auto" id="prev-4">Prev</a>
+          <a href="#" class="btn btn-primary mx-auto" id="next-4">Next</a>
+        </div>
+      </div>
+
+      <div id="fifth" class="text-left">
+        <h4 class="text-center p-1">Dumpster Placement Location </h4>
+        <div class="form-group">
+          <%= f.text_field :street1, class: "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1 ", placeholder: "Enter street address of job...", required: true%> 
+          <%= f.text_field :city, class: "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1 ", placeholder: "Enter town or city", required: true%> 
+          <%= f.text_field :zip, class: "form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-1 ", placeholder: "Enter your zip"%> 
+        </div>
+        <div class="form-group text-right">
+          <a href="#" class="btn btn-danger mx-auto" id="prev-5">Prev</a>
+          <%= f.submit "Submit", class: "btn btn-primary mx-auto"%>
+        </div>
+      </div>
+    <%end%>
+    <!-- </form> -->
+  </div>
