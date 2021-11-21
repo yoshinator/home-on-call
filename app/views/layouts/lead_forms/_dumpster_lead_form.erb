@@ -11,10 +11,10 @@
     <%= form_with model: lead, class: "pt-5 pb-2 px-2 bg-light" do |f| %>
       <%= f.hidden_field :client_id, value: @client.id%>
       <%= f.hidden_field :entry, value: request.path%>
-      <div id="first" class="text-left">
+      <div id="first" class="text-left container">
         <h4 class="text-center p-1">What size dumpster do you need </h4>
         <div class="form-check">
-          <%= f.radio_button :service_type, "10-cubic-yard", class: "form-check-input", checked: true%>
+          <%= f.radio_button :size, "10-cubic-yard", class: "form-check-input", checked: true%>
           <%= f.label :size, "10 Cubic Yard Dumpster", value: "10-cubic-yard", class: "form-check-label"%>
         </div>
         <div class="form-check">
