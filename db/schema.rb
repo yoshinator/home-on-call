@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_21_231447) do
+ActiveRecord::Schema.define(version: 2021_11_27_153744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -109,6 +109,12 @@ ActiveRecord::Schema.define(version: 2021_11_21_231447) do
     t.index ["email"], name: "index_clients_on_email", unique: true
     t.index ["market_id"], name: "index_clients_on_market_id"
     t.index ["reset_password_token"], name: "index_clients_on_reset_password_token", unique: true
+  end
+
+  create_table "jwt_denylist", force: :cascade do |t|
+    t.string "jti", null: false
+    t.datetime "exp", null: false
+    t.index ["jti"], name: "index_jwt_denylist_on_jti"
   end
 
   create_table "leads", force: :cascade do |t|

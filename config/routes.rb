@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       sessions: "admins/sessions",
       unlocks: "admins/unlocks"  
     }
+  get '/member-data', to: 'members#show', as: 'edit_client_api'
   get '/404', to: "errors#not_found", as: "not_found"
   get '/422', to: "erros#unacceptable"
   get '/500', to: "errors#internal_error"
